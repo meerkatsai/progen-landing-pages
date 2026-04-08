@@ -519,7 +519,7 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
-            .hero { padding: 100px 0 48px; }
+            .hero { padding: 80px 0 40px; }
             .hero-grid { grid-template-columns: 1fr; gap: 24px; }
             .hero-left { text-align: center; }
             .hero-left p { margin: 0 auto; }
@@ -539,7 +539,7 @@
 
         @media (max-width: 480px) {
             .container { padding: 0 16px; }
-            .hero { padding: 90px 0 40px; }
+            .hero { padding: 72px 0 32px; }
             .hero-content h1 { font-size: 1.6rem; }
             .why-grid { grid-template-columns: 1fr; gap: 16px; }
             .why-card { min-height: auto; padding: 24px 18px; }
@@ -614,13 +614,13 @@
 <main id="main-content">
 <section class="hero" id="consultation">
     <div class="container">
+        <div style="text-align:center;margin-bottom:32px;">
+            <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.15;color:var(--teal-dark);margin-bottom:12px;">Lose weight up to <span style="background:linear-gradient(135deg,var(--teal),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7-10 kg</span> in a month with ProGen</h1>
+            <p style="font-size:1rem;color:#555;max-width:700px;margin:0 auto;">A medically supervised weight loss program powered by the Very Low Calorie Ketogenic Diet (VLCKD), backed by science and delivered by a team of 500+ coaches across 22 countries.</p>
+        </div>
         <div class="hero-grid">
-            <!-- LEFT: Headline + Form -->
+            <!-- LEFT: Form -->
             <div class="hero-left">
-                <div>
-                    <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.15;color:var(--teal-dark);margin-bottom:12px;">Lose weight up to <span style="background:linear-gradient(135deg,var(--teal),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7-10 kg</span> in a month with ProGen</h1>
-                    <p style="font-size:0.95rem;color:#555;margin-bottom:0;">A medically supervised weight loss program powered by the Very Low Calorie Ketogenic Diet (VLCKD), backed by science and delivered by a team of 500+ coaches across 22 countries.</p>
-                </div>
                 <div class="form-card" role="form" aria-label="Consultation request form">
                     <h2>Schedule a consultation for <span>FREE!</span></h2>
                     <form id="consultForm" novalidate>
