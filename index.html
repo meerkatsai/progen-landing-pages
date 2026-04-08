@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Weight Loss Treatment | ProGen Weight Management</title>
+    <meta name="description" content="Lose weight up to 7-10 kg in a month with ProGen. Medically supervised VLCK Diet weight loss program with 99.9% success rate.">
+
+    <!-- SECURITY: CSP, referrer, permissions -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://progenmethod.com https://yt3.ggpht.com https://i.ytimg.com data:; frame-src https://www.youtube-nocookie.com; connect-src 'self'; form-action 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+    <!-- PERFORMANCE: Preconnect critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://progenmethod.com">
+
+    <!-- PERFORMANCE: Font with display=swap to avoid FOIT -->
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- PERFORMANCE: Preload LCP image candidate -->
+    <link rel="preload" as="image" href="https://progenmethod.com/wp-content/uploads/2021/05/logo.png">
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: 'Mulish', sans-serif;
+            color: #1a1a2e;
+            background: #f0f4f8;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ========== CLAYMORPHISM TOKENS ========== */
+        :root {
+            --teal: #208294;
+            --teal-dark: #1B7080;
+            --cyan: #00B7BA;
+            --coral: #FB6290;
+            --navy: #293FAD;
+            --green: #00964E;
+            --bg-light: #f0f4f8;
+            --bg-card: #ffffff;
+            --shadow-clay: 8px 8px 16px rgba(0,0,0,0.08), -4px -4px 12px rgba(255,255,255,0.9), inset 1px 1px 2px rgba(255,255,255,0.6);
+            --shadow-clay-sm: 4px 4px 10px rgba(0,0,0,0.06), -2px -2px 8px rgba(255,255,255,0.8), inset 1px 1px 2px rgba(255,255,255,0.5);
+            --shadow-clay-lg: 12px 12px 24px rgba(0,0,0,0.1), -6px -6px 20px rgba(255,255,255,0.95), inset 2px 2px 4px rgba(255,255,255,0.6);
+            --radius: 24px;
+            --radius-sm: 16px;
+            --radius-pill: 50px;
+            /* Safe area for notched phones */
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* ========== UTILITY ========== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-title {
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-weight: 800;
+            text-align: center;
+            color: var(--teal-dark);
+            margin-bottom: 48px;
+        }
+        .section-label {
+            font-size: 0.85rem; font-weight: 700; color: var(--coral);
+            letter-spacing: 2px; text-transform: uppercase;
+            text-align: center; margin-bottom: 8px;
+        }
+
+        /* ========== SKIP LINK (accessibility) ========== */
+        .skip-link {
+            position: absolute; top: -100px; left: 16px;
+            background: var(--teal); color: #fff; padding: 12px 20px;
+            border-radius: 8px; font-weight: 700; z-index: 9999;
+            transition: top 0.2s;
+        }
+        .skip-link:focus { top: 12px; }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.88);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(32,130,148,0.08);
+            transition: box-shadow 0.3s;
+            padding-top: var(--safe-top);
+        }
+        .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 20px; max-width: 1200px; margin: 0 auto;
+        }
+        .nav-logo img { height: 36px; width: auto; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            font-weight: 600; font-size: 0.85rem; color: #1a1a2e;
+            transition: color 0.2s; letter-spacing: 0.3px;
+            /* Touch target: min 48px */
+            padding: 12px 2px; min-height: 48px;
+            display: flex; align-items: center;
+        }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--teal); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            color: #fff !important; padding: 10px 22px !important;
+            border-radius: var(--radius-pill); font-weight: 700 !important;
+            box-shadow: var(--shadow-clay-sm); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-clay); }
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none;
+            padding: 12px; min-width: 48px; min-height: 48px;
+            justify-content: center; align-items: center;
+        }
+        .hamburger span {
+            width: 22px; height: 2.5px; background: #1a1a2e;
+            border-radius: 4px; transition: 0.3s; display: block;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(160deg, #e8f6f8 0%, #f0f4f8 40%, #fde8ef 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,183,186,0.1) 0%, transparent 70%);
+            top: -80px; right: -80px; border-radius: 50%;
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 40px; align-items: stretch; position: relative; z-index: 1;
+        }
+        .hero-left {
+            display: flex; flex-direction: column; gap: 24px;
+        }
+        .hero-visual {
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-visual img {
+            width: 100%; height: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-clay-lg);
+            object-fit: contain;
+            position: sticky; top: 100px;
+        }
+
+        /* ========== FORM CARD ========== */
+        .form-card {
+            background: var(--bg-card); border-radius: var(--radius);
+            padding: 32px 24px; box-shadow: var(--shadow-clay-lg);
+            position: relative;
+        }
+        .form-card::before {
+            content: ''; position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: calc(var(--radius) + 2px);
+            background: linear-gradient(135deg, rgba(0,183,186,0.3), rgba(251,98,144,0.2));
+            z-index: -1;
+        }
+        .form-card h2 {
+            font-size: 1.2rem; font-weight: 800; color: var(--teal-dark);
+            text-align: center; margin-bottom: 20px;
+        }
+        .form-card h2 span { color: var(--coral); }
+        .form-group { margin-bottom: 12px; }
+        .form-group label {
+            display: block; font-size: 0.78rem; font-weight: 700;
+            color: #555; margin-bottom: 4px; padding-left: 4px;
+        }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px 14px;
+            border: 2px solid #e8ecf0; border-radius: var(--radius-sm);
+            font-family: 'Mulish', sans-serif; font-size: 16px; /* 16px prevents iOS zoom */
+            background: #f8fafc; color: #1a1a2e;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-shadow: inset 2px 2px 4px rgba(0,0,0,0.03), inset -1px -1px 3px rgba(255,255,255,0.5);
+            -webkit-appearance: none; appearance: none;
+            /* Touch target */
+            min-height: 48px;
+        }
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none; border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(32,130,148,0.12), inset 2px 2px 4px rgba(0,0,0,0.03);
+        }
+        .form-group input::placeholder { color: #aab; }
+        .btn-submit {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            color: #fff; font-family: 'Mulish', sans-serif;
+            font-size: 1rem; font-weight: 800; border: none;
+            border-radius: var(--radius-pill); cursor: pointer;
+            letter-spacing: 1px; min-height: 52px;
+            box-shadow: 0 6px 20px rgba(32,130,148,0.3), inset 1px 1px 2px rgba(255,255,255,0.3);
+            transition: transform 0.2s, box-shadow 0.2s; margin-top: 6px;
+            /* Prevent double-tap zoom on mobile */
+            touch-action: manipulation;
+        }
+        .btn-submit:hover, .btn-submit:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(32,130,148,0.4), inset 1px 1px 2px rgba(255,255,255,0.3);
+        }
+        .btn-submit:active { transform: translateY(0); }
+
+        /* ========== WHY PROGEN ========== */
+        .why-section { padding: 80px 0; background: #fff; }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .why-card {
+            background: var(--bg-light); border-radius: var(--radius);
+            padding: 32px 20px; text-align: center;
+            box-shadow: var(--shadow-clay);
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* CLS: fixed min-height */
+            min-height: 220px;
+        }
+        .why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-clay-lg); }
+        .why-card .icon {
+            width: 56px; height: 56px; margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 4px 4px 12px rgba(32,130,148,0.25), inset 1px 1px 2px rgba(255,255,255,0.3);
+        }
+        .why-card .icon svg { width: 24px; height: 24px; fill: #fff; }
+        .why-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 8px; }
+        .why-card p { font-size: 0.84rem; color: #666; line-height: 1.5; }
+
+        /* ========== SUCCESS STORIES ========== */
+        .stories-section { padding: 80px 0; background: linear-gradient(160deg, #f0f4f8, #e8f6f8); }
+        .stories-scroll {
+            display: flex; gap: 16px; overflow-x: auto;
+            padding: 8px 4px 16px; scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            /* Hide scrollbar on mobile for cleaner look */
+            scrollbar-width: thin; scrollbar-color: var(--teal) #e0e4e8;
+        }
+        .stories-scroll::-webkit-scrollbar { height: 4px; }
+        .stories-scroll::-webkit-scrollbar-track { background: #e0e4e8; border-radius: 2px; }
+        .stories-scroll::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 2px; }
+        .story-img {
+            flex: 0 0 180px; height: 180px;
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-clay); scroll-snap-align: start;
+            /* CLS: explicit dimensions */
+            aspect-ratio: 1/1; background: #e0e4e8;
+        }
+        .story-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ========== YOUTUBE LITE FACADE ========== */
+        .yt-lite {
+            position: relative; cursor: pointer;
+            background: #1a1a2e; aspect-ratio: 16/9;
+            border-radius: var(--radius); overflow: hidden;
+            contain: layout paint;
+        }
+        .yt-lite .yt-thumb {
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0.85; transition: opacity 0.3s;
+        }
+        .yt-lite:hover .yt-thumb { opacity: 1; }
+        .yt-lite .yt-play {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px; height: 44px;
+            background: rgba(255,0,0,0.85); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .yt-lite:hover .yt-play {
+            background: #ff0000; transform: translate(-50%, -50%) scale(1.08);
+        }
+        .yt-lite .yt-play::after {
+            content: ''; display: block;
+            border-style: solid; border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 3px;
+        }
+        .yt-lite.activated { cursor: default; }
+        .yt-lite.activated .yt-thumb,
+        .yt-lite.activated .yt-play { display: none; }
+        .yt-lite iframe {
+            width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; border: 0;
+        }
+
+        /* ========== VIDEO SECTION ========== */
+        .video-section { padding: 80px 0; background: #fff; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .video-card {
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-clay); background: var(--bg-light);
+        }
+        .video-card .video-info { padding: 14px 18px; }
+        .video-card .video-info h4 { font-size: 0.9rem; font-weight: 700; color: var(--teal-dark); }
+
+        /* ========== GOOGLE REVIEWS ========== */
+        .reviews-section {
+            padding: 80px 0;
+            background: linear-gradient(160deg, #fde8ef 0%, #f0f4f8 50%, #e8f6f8 100%);
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .review-card {
+            background: var(--bg-card); border-radius: var(--radius);
+            padding: 24px; box-shadow: var(--shadow-clay);
+            transition: transform 0.3s;
+        }
+        .review-card:hover { transform: translateY(-3px); }
+        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .review-avatar {
+            width: 40px; height: 40px; border-radius: 14px;
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 800; font-size: 0.9rem;
+            box-shadow: var(--shadow-clay-sm); flex-shrink: 0;
+        }
+        .review-name { font-weight: 700; font-size: 0.9rem; color: #1a1a2e; }
+        .review-time { font-size: 0.75rem; color: #999; }
+        .review-stars { color: #f5a623; margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 2px; }
+        .review-text { font-size: 0.85rem; color: #555; line-height: 1.6; }
+
+        /* ========== WHAT WE CAN DO ========== */
+        .services-section { padding: 80px 0; background: #fff; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--bg-light); border-radius: var(--radius);
+            padding: 28px 16px; text-align: center;
+            box-shadow: var(--shadow-clay);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-clay-lg); }
+        .service-card .svc-icon {
+            width: 52px; height: 52px; margin: 0 auto 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+        }
+        .service-card h4 { font-size: 0.88rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 6px; }
+        .service-card p { font-size: 0.8rem; color: #666; line-height: 1.5; }
+
+        /* ========== EXPLAINER VIDEO ========== */
+        .explainer-section { padding: 80px 0; background: linear-gradient(160deg, #e8f6f8, #f0f4f8); }
+        .explainer-wrap {
+            max-width: 760px; margin: 0 auto;
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-clay-lg);
+        }
+
+        /* ========== FAQ ========== */
+        .faq-section { padding: 80px 0; background: #fff; }
+        .faq-list {
+            max-width: 760px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 14px;
+        }
+        .faq-item {
+            background: var(--bg-light); border-radius: var(--radius);
+            box-shadow: var(--shadow-clay-sm); overflow: hidden;
+        }
+        .faq-question {
+            width: 100%; padding: 18px 20px; background: none; border: none;
+            font-family: 'Mulish', sans-serif; font-size: 0.9rem; font-weight: 700;
+            color: var(--teal-dark); text-align: left; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 14px; transition: color 0.2s;
+            /* Touch target */
+            min-height: 52px; touch-action: manipulation;
+        }
+        .faq-question:hover, .faq-question:focus-visible { color: var(--teal); }
+        .faq-chevron {
+            flex-shrink: 0; width: 28px; height: 28px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s; box-shadow: var(--shadow-clay-sm);
+        }
+        .faq-chevron svg { width: 14px; height: 14px; fill: #fff; }
+        .faq-item.active .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer-inner { padding: 0 20px 18px; font-size: 0.85rem; color: #555; line-height: 1.65; }
+
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            padding: 64px 0; text-align: center;
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal), var(--cyan));
+            position: relative; overflow: hidden;
+        }
+        .cta-banner::before {
+            content: ''; position: absolute;
+            width: 250px; height: 250px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%; top: -60px; left: -60px;
+        }
+        .cta-banner h2 {
+            font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 900;
+            color: #fff; margin-bottom: 10px;
+        }
+        .cta-banner p { color: rgba(255,255,255,0.85); font-size: 1rem; margin-bottom: 28px; }
+        .cta-banner a {
+            display: inline-block; background: #fff; color: var(--teal-dark);
+            padding: 14px 36px; border-radius: var(--radius-pill); font-weight: 800;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15); transition: transform 0.2s;
+            min-height: 52px; touch-action: manipulation;
+        }
+        .cta-banner a:hover { transform: translateY(-2px); }
+
+        /* ========== FOOTER ========== */
+        .footer { background: #0c0c0c; color: #ccc; padding: 56px 0 24px; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+            gap: 32px; margin-bottom: 40px;
+        }
+        .footer-brand img { height: 36px; margin-bottom: 14px; filter: brightness(10); }
+        .footer-brand p { font-size: 0.8rem; line-height: 1.6; color: #999; margin-bottom: 18px; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a {
+            width: 40px; height: 40px; border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s; font-size: 0.85rem;
+            /* Touch target min 48px — padded to hit zone */
+            min-width: 44px; min-height: 44px;
+        }
+        .footer-social a:hover { background: var(--teal); }
+        .footer h4 { font-size: 0.85rem; font-weight: 800; color: #fff; margin-bottom: 14px; }
+        .footer ul li { margin-bottom: 6px; }
+        .footer ul li a {
+            font-size: 0.8rem; color: #999; transition: color 0.2s;
+            /* Touch target */
+            display: inline-block; padding: 4px 0; min-height: 32px;
+        }
+        .footer ul li a:hover { color: var(--cyan); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 18px; display: flex;
+            justify-content: space-between; align-items: center;
+            font-size: 0.75rem; color: #777; flex-wrap: wrap; gap: 10px;
+        }
+        .footer-bottom a { color: #999; margin-left: 14px; padding: 4px 0; }
+        .footer-bottom a:hover { color: var(--cyan); }
+
+
+        /* ========== MOBILE NAV ========== */
+        .mobile-menu {
+            display: none; position: fixed;
+            top: calc(60px + var(--safe-top)); left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(12px); z-index: 999;
+            padding: 24px 20px; flex-direction: column; gap: 4px;
+            overflow-y: auto; -webkit-overflow-scrolling: touch;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-size: 1rem; font-weight: 700;
+            padding: 14px 8px; border-bottom: 1px solid #eee;
+            color: #1a1a2e;
+            /* Touch target */
+            min-height: 48px; display: flex; align-items: center;
+        }
+        .mobile-menu a:active { background: rgba(32,130,148,0.05); border-radius: 12px; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            .hero-stats { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 100px 0 48px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+            .hero-left { text-align: center; }
+            .hero-left p { margin: 0 auto; }
+            .hero-visual img { max-width: 400px; margin: 0 auto; position: static; }
+            .hero-stats { justify-content: center; }
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            .services-grid { grid-template-columns: 1fr 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .form-card { padding: 24px 18px; }
+            section { padding: 64px 0 !important; }
+            .section-title { margin-bottom: 32px; }
+            .story-img { flex: 0 0 150px; height: 150px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .hero { padding: 90px 0 40px; }
+            .hero-content h1 { font-size: 1.6rem; }
+            .why-grid { grid-template-columns: 1fr; gap: 16px; }
+            .why-card { min-height: auto; padding: 24px 18px; }
+            .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .service-card { padding: 20px 12px; }
+            .hero-stats { flex-direction: row; gap: 20px; }
+            .stat-item .number { font-size: 1.3rem; }
+            .form-card { padding: 20px 16px; }
+            .form-card h2 { font-size: 1.05rem; }
+            .reviews-grid { gap: 14px; }
+            .review-card { padding: 18px; }
+            .faq-question { font-size: 0.85rem; padding: 16px; }
+            .faq-answer-inner { padding: 0 16px 16px; font-size: 0.82rem; }
+        }
+
+        /* ========== REDUCED MOTION ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ========== FOCUS VISIBLE ========== */
+        :focus-visible {
+            outline: 3px solid var(--teal);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        :focus:not(:focus-visible) { outline: none; }
+    </style>
+</head>
+<body>
+
+<!-- Accessibility: skip link -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+        <a href="https://progenmethod.com/" class="nav-logo" aria-label="ProGen home">
+            <img src="https://progenmethod.com/wp-content/uploads/2021/05/logo.png" alt="ProGen Weight Management" width="120" height="36" loading="eager">
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="https://progenmethod.com/">Home</a>
+            <a href="https://progenmethod.com/weight-loss-center-in-bangalore/">About</a>
+            <a href="https://progenmethod.com/diet-to-lose-weight-ketogenic-diet-plan-how-it-works/">How It Works</a>
+            <a href="https://progenmethod.com/category/weight-loss-stories/">Success Stories</a>
+            <a href="https://progenmethod.com/blog/">Blog</a>
+            <a href="https://progenmethod.com/our-weightloss-clinics/">Locate Us</a>
+            <a href="#consultation" class="nav-cta">Start Your Journey</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="https://progenmethod.com/">Home</a>
+    <a href="https://progenmethod.com/weight-loss-center-in-bangalore/">About</a>
+    <a href="https://progenmethod.com/diet-to-lose-weight-ketogenic-diet-plan-how-it-works/">How It Works</a>
+    <a href="https://progenmethod.com/category/weight-loss-stories/">Success Stories</a>
+    <a href="https://progenmethod.com/blog/">Blog</a>
+    <a href="https://progenmethod.com/our-weightloss-clinics/">Locate Us</a>
+    <a href="#consultation" class="nav-cta" style="text-align:center;margin-top:8px;justify-content:center;">Start Your Journey</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<main id="main-content">
+<section class="hero" id="consultation">
+    <div class="container">
+        <div class="hero-grid">
+            <!-- LEFT: Headline + Form -->
+            <div class="hero-left">
+                <div>
+                    <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.15;color:var(--teal-dark);margin-bottom:12px;">Lose weight up to <span style="background:linear-gradient(135deg,var(--teal),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7-10 kg</span> in a month with ProGen</h1>
+                    <p style="font-size:0.95rem;color:#555;margin-bottom:0;max-width:460px;">A medically supervised weight loss program powered by the Very Low Calorie Ketogenic Diet (VLCKD), backed by science and delivered by a team of 500+ coaches across 22 countries.</p>
+                </div>
+                <div class="form-card" role="form" aria-label="Consultation request form">
+                    <h2>Schedule a consultation for <span>FREE!</span></h2>
+                    <form id="consultForm" novalidate>
+                        <div class="form-group">
+                            <label for="f-name">Name</label>
+                            <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name" inputmode="text" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="f-email">Email</label>
+                            <input type="email" id="f-email" name="email" placeholder="you@example.com" required autocomplete="email" inputmode="email" maxlength="200">
+                        </div>
+                        <div class="form-group">
+                            <label for="f-phone">Phone</label>
+                            <input type="tel" id="f-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel" inputmode="tel" maxlength="20" pattern="[+0-9\s\-()]{7,20}">
+                        </div>
+                        <div class="form-group">
+                            <label for="f-location">Location</label>
+                            <select id="f-location" name="location" required>
+                                <option value="" disabled selected>Choose a Location</option>
+                                <option value="Indiranagar-Bangalore">Indiranagar-Bangalore</option>
+                                <option value="Jayanagar-Bangalore">Jayanagar-Bangalore</option>
+                                <option value="HSR -Bangalore">HSR -Bangalore</option>
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Coimbatore">Coimbatore</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label for="f-age">Age</label>
+                                <input type="number" id="f-age" name="age" placeholder="Your age" min="10" max="99" inputmode="numeric">
+                            </div>
+                            <div class="form-group" style="margin-bottom:0;">
+                                <label for="f-time">Preferred Time</label>
+                                <select id="f-time" name="time">
+                                    <option value="" disabled selected>Time</option>
+                                    <option value="Morning (9:00 AM - 12:00 PM)">Morning</option>
+                                    <option value="Afternoon (12:00 PM - 3:00 PM)">Afternoon</option>
+                                    <option value="Evening (3:00 PM - 6:00 PM)">Evening</option>
+                                    <option value="Anytime">Anytime</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-submit">SUBMIT</button>
+                    </form>
+                </div>
+                <div class="hero-stats" style="display:flex;gap:28px;flex-wrap:wrap;">
+                    <div class="stat-item" style="text-align:center;">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--teal);">99.9%</div>
+                        <div style="font-size:0.75rem;color:#777;font-weight:600;">Success Rate</div>
+                    </div>
+                    <div class="stat-item" style="text-align:center;">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--teal);">50M+</div>
+                        <div style="font-size:0.75rem;color:#777;font-weight:600;">Lives Impacted</div>
+                    </div>
+                    <div class="stat-item" style="text-align:center;">
+                        <div style="font-size:1.5rem;font-weight:900;color:var(--teal);">22</div>
+                        <div style="font-size:0.75rem;color:#777;font-weight:600;">Countries</div>
+                    </div>
+                </div>
+            </div>
+            <!-- RIGHT: Doctor Image -->
+            <div class="hero-visual">
+                <img src="https://progenmethod.com/wp-content/uploads/2024/09/Grey-Gradient-Modern-Online-Doctor-Medical-Consultation-Facebook-Post-3.jpg" alt="ProGen Doctor Consultation - In consultation you will know how to lose 10 Kg in one month" width="940" height="788" loading="eager" fetchpriority="high">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WHY PROGEN ========== -->
+<section class="why-section" aria-labelledby="why-title">
+    <div class="container">
+        <p class="section-label">Why ProGen?</p>
+        <h2 class="section-title" id="why-title">The Smart Choice For Weight Loss</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                <h3>Global Expertise</h3>
+                <p>With a team of 500 coaches across 22 countries, we bring a world of experience and knowledge to support you.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM10 17l-3.5-3.5 1.41-1.41L10 14.17l5.59-5.59L17 10l-7 7z"/></svg></div>
+                <h3>Scientific Approach</h3>
+                <p>Understand that weight loss is more than just calories in and out; genetics and hormones play an important role.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                <h3>Tailored Approach</h3>
+                <p>Our personalized plans are designed to fit your unique needs, keeping you motivated and on track throughout your journey.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+                <h3>Exceptional Success Rate</h3>
+                <p>Enjoy peace of mind with our near-perfect 99.9% success rate in helping clients achieve their weight loss goals.</p>
+            </div>
+            <div class="why-card">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                <h3>Lasting Impact</h3>
+                <p>Join over 50 million lives we've impacted, ensuring not only weight loss but also long-term maintenance for lasting results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SUCCESS STORIES ========== -->
+<section class="stories-section" aria-labelledby="stories-title">
+    <div class="container">
+        <h2 class="section-title" id="stories-title">Our Weight Loss Success Stories</h2>
+        <div class="stories-scroll" role="list" aria-label="Success story photos">
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-1-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-2-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-3-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-4-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-5-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-6-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-7-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-8-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-9-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+            <div class="story-img" role="listitem"><img src="https://progenmethod.com/wp-content/uploads/2024/03/testimonials-10-300x300.jpg" alt="Weight loss success story" width="300" height="300" loading="lazy" decoding="async"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== VIDEO TESTIMONIALS (Lite YouTube Facades) ========== -->
+<section class="video-section" aria-labelledby="vid-title">
+    <div class="container">
+        <h2 class="section-title" id="vid-title">Hear From Our Happy Clients</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="yt-lite" data-id="UsfAyc6BZI0" role="button" tabindex="0" aria-label="Play video: Client Testimonial Mrinalini">
+                    <img class="yt-thumb" src="https://i.ytimg.com/vi/UsfAyc6BZI0/hqdefault.jpg" alt="Client Testimonial Mrinalini thumbnail" width="480" height="360" loading="lazy" decoding="async">
+                    <div class="yt-play" aria-hidden="true"></div>
+                </div>
+                <div class="video-info"><h4>Client Testimonial - Mrinalini</h4></div>
+            </div>
+            <div class="video-card">
+                <div class="yt-lite" data-id="O2AldweqR68" role="button" tabindex="0" aria-label="Play video: Client Testimonial Asha Pradeep">
+                    <img class="yt-thumb" src="https://i.ytimg.com/vi/O2AldweqR68/hqdefault.jpg" alt="Client Testimonial Asha Pradeep thumbnail" width="480" height="360" loading="lazy" decoding="async">
+                    <div class="yt-play" aria-hidden="true"></div>
+                </div>
+                <div class="video-info"><h4>Client Testimonial - Asha Pradeep</h4></div>
+            </div>
+            <div class="video-card">
+                <div class="yt-lite" data-id="9jDnbX4C3TA" role="button" tabindex="0" aria-label="Play video: Client Testimonial Paromita">
+                    <img class="yt-thumb" src="https://i.ytimg.com/vi/9jDnbX4C3TA/hqdefault.jpg" alt="Client Testimonial Paromita thumbnail" width="480" height="360" loading="lazy" decoding="async">
+                    <div class="yt-play" aria-hidden="true"></div>
+                </div>
+                <div class="video-info"><h4>Client Testimonial - Paromita</h4></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GOOGLE REVIEWS ========== -->
+<section class="reviews-section" aria-labelledby="rev-title">
+    <div class="container">
+        <h2 class="section-title" id="rev-title">See What Our Happy Clients Say!</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" aria-hidden="true">SP</div>
+                    <div><div class="review-name">Shefali Pandey</div><div class="review-time">4 months ago</div></div>
+                </div>
+                <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">I have a very painful chronic condition called fibromyalgia for a decade now. I used to be a very active person but over the years...</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" aria-hidden="true">MM</div>
+                    <div><div class="review-name">Mahima Mahender</div><div class="review-time">7 months ago</div></div>
+                </div>
+                <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">I've had an extraordinary journey with Progen under the guidance of my dietician, Swathi. When I first came to her, I weighed 64 kg, and today...</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" aria-hidden="true">SK</div>
+                    <div><div class="review-name">Shruti Kalvani</div><div class="review-time">7 months ago</div></div>
+                </div>
+                <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">Siri has been an outstanding support system since the starting of my journey. From daily check-ins to constantly motivating me, she has made my journey...</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" aria-hidden="true">NR</div>
+                    <div><div class="review-name">Nirmal Raghunathan</div><div class="review-time">2 months ago</div></div>
+                </div>
+                <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">Progen and Siri played a vital role in my weight-loss journey. I lost around 13 kg in just 55 days, and the experience has left...</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar" aria-hidden="true">MP</div>
+                    <div><div class="review-name">Manasa Pidatala</div><div class="review-time">4 months ago</div></div>
+                </div>
+                <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text">I had a great experience with Progen under the guidance of Swathi. I lost 24 kgs in 4 months and after 4 months of finishing...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WHAT WE CAN DO ========== -->
+<section class="services-section" aria-labelledby="svc-title">
+    <div class="container">
+        <h2 class="section-title" id="svc-title">What We Can Do For You</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#9889;</div>
+                <h4>Fast Weight Loss</h4>
+                <p>Fast weight loss guaranteed by scientific results.</p>
+            </div>
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#129657;</div>
+                <h4>Multidisciplinary Approach</h4>
+                <p>Our team of nutritionists, fitness experts, psychologists, and medical professionals will guide you every step of the way.</p>
+            </div>
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#127919;</div>
+                <h4>Customised Program</h4>
+                <p>Tailored and adapted to your genetic profile and personal needs.</p>
+            </div>
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#128170;</div>
+                <h4>High-Quality Products</h4>
+                <p>Products that ensure fat loss without losing muscle mass.</p>
+            </div>
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#127807;</div>
+                <h4>Healthy Lifestyle</h4>
+                <p>Lifestyle changes, as guided by our multidisciplinary team.</p>
+            </div>
+            <div class="service-card">
+                <div class="svc-icon" aria-hidden="true">&#129309;</div>
+                <h4>Full Support</h4>
+                <p>Continue to enjoy our expert counselling on all aspects even after your protocol period.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== YOUR PATH TO WEIGHT LOSS ========== -->
+<section class="explainer-section" aria-labelledby="path-title">
+    <div class="container">
+        <h2 class="section-title" id="path-title">Your Path To Weight Loss</h2>
+        <div class="explainer-wrap">
+            <div class="yt-lite" data-id="V9VLqoCn1uc" role="button" tabindex="0" aria-label="Play video: The ProGen Method Explained">
+                <img class="yt-thumb" src="https://i.ytimg.com/vi/V9VLqoCn1uc/hqdefault.jpg" alt="The ProGen Method Explained thumbnail" width="480" height="360" loading="lazy" decoding="async">
+                <div class="yt-play" aria-hidden="true"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq-section" aria-labelledby="faq-title">
+    <div class="container">
+        <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-list" role="list">
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    How long will it take to see noticeable results with ProGen?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">With ProGen, you can typically start seeing weight loss as early as the first 3 days, with more noticeable results within the first few weeks. This depends on factors like your adherence to the program, your starting point, and how your body responds. Significant changes usually become evident within 6 to 8 weeks. The program is designed to promote steady and sustainable fat loss while preserving muscle mass, ensuring long-term success. Remember, consistency is crucial in achieving your goals!</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Will I feel weak or tired while losing weight?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">With ProGen, you're less likely to feel weak or tired while losing weight. The program is carefully designed to ensure you receive all the necessary nutrients, especially protein, to keep your energy levels up and maintain muscle mass as you lose fat. Additionally, ProGen provides specially crafted multivitamins and electrolytes to ensure you stay well-nourished and avoid fatigue. While your body may need a short adjustment period at the beginning, any feelings of fatigue are usually temporary. Following the program closely, staying hydrated, and getting enough rest will help you stay energized throughout your weight loss journey.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Will I be able to stick to the diet plan without feeling hungry?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">Yes, the ProGen diet plan helps manage hunger by:<br><br><strong>Balanced Meals:</strong> Includes proteins, healthy fats, and fiber to keep you full.<br><strong>Nutrient-Dense Foods:</strong> Provides essential nutrients to reduce cravings.<br><strong>Personalization:</strong> Tailored to your needs to control hunger.<br><strong>Frequent Meals:</strong> Features smaller, frequent meals or snacks.<br><strong>Hydration:</strong> Emphasizes drinking enough water to help with hunger.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    What support will I receive during and after the program?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">During and after the ProGen program, you'll receive:<br><br><strong>Ongoing Guidance:</strong> Regular check-ins and adjustments to keep you on track.<br><strong>Expert Advice:</strong> Access to dietitians for personalized support and troubleshooting.<br><strong>Motivation:</strong> Continuous encouragement and strategies to stay motivated.<br><strong>Educational Resources:</strong> Tips and information to help you maintain results.<br><strong>Community Support:</strong> Access to a support network of others on the same journey.<br><br>This comprehensive support ensures you stay guided and motivated throughout your weight loss journey.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Will I gain back the weight after stopping the program?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">If you follow the ProGen program's guidelines and maintain healthy habits after completing it, you can minimize the risk of regaining weight. The program includes:<br><br><strong>Post-Diet Chart:</strong> A detailed plan provided by the dietitian for ongoing eating habits.<br><strong>Lifestyle Counseling:</strong> Ongoing advice to help you adopt sustainable habits.<br><strong>Genetic Testing:</strong> Analysis of genes related to weight gain to tailor your diet based on genetic insights.<br><br>Adhering to these recommendations is crucial, as weight management relies on caloric balance. If the guidelines are not followed, weight gain is possible.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Will I have to do exercise when on the diet?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">Exercise is indeed a key component of a healthy lifestyle. While the ProGen diet can be effective on its own, incorporating regular physical activity:<br><br><strong>Enhances Results:</strong> Boosts fat loss and improves body composition.<br><strong>Supports Muscle Mass:</strong> Helps maintain muscle while losing weight.<br><strong>Improves Health:</strong> Benefits overall fitness, mood, and energy levels.<br><br>For the best results and overall well-being, combining the ProGen diet with regular exercise is recommended as part of a balanced lifestyle.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    How much time do I have to spend on meal preparation?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">On the ProGen diet, meal preparation is designed to be quick and convenient. Typically, you'll need only 0-10 minutes per meal. The recipes are simple and easy to make, ensuring that you can prepare balanced meals without spending a lot of time in the kitchen.</div></div>
+            </div>
+            <div class="faq-item" role="listitem">
+                <button class="faq-question" aria-expanded="false">
+                    Will I get bored of this diet after starting?
+                    <span class="faq-chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></span>
+                </button>
+                <div class="faq-answer" role="region"><div class="faq-answer-inner">The ProGen diet is designed to be varied and enjoyable, aiming to prevent boredom with a range of delicious meals. With diverse recipes and options, you can enjoy a variety of flavors and ingredients, which helps keep the diet interesting. If you ever feel bored, you can always discuss new ideas or adjustments with your dietitian to keep your meals exciting and satisfying.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA BANNER ========== -->
+<section class="cta-banner">
+    <div class="container">
+        <h2>Ready to Start Your Transformation?</h2>
+        <p>Schedule a free consultation today and take the first step towards a healthier you.</p>
+        <a href="#consultation">Schedule a Consultation Now</a>
+    </div>
+</section>
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://progenmethod.com/wp-content/uploads/2021/05/logo.png" alt="ProGen" width="120" height="36" loading="lazy" decoding="async">
+                <p>ProGen is specialized in weight loss treatments based on a Very Low Calorie Ketogenic Diet (VLCK Diet), carried out under the supervision of a multidisciplinary team of health professionals, including doctors, dietitians, physical activity trainers and lifestyle coaches.</p>
+                <div class="footer-social" aria-label="Social media links">
+                    <a href="https://www.facebook.com/ProGenWeightManagement/" aria-label="Facebook" rel="noopener noreferrer" target="_blank">f</a>
+                    <a href="https://x.com/progenmethod" aria-label="Twitter" rel="noopener noreferrer" target="_blank">X</a>
+                    <a href="https://www.youtube.com/@progenweightmanagement" aria-label="YouTube" rel="noopener noreferrer" target="_blank">&#9654;</a>
+                    <a href="https://www.linkedin.com/company/progen-weight-management/" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">in</a>
+                    <a href="https://www.instagram.com/progenmethod/" aria-label="Instagram" rel="noopener noreferrer" target="_blank">&#9673;</a>
+                </div>
+            </div>
+            <div>
+                <h4>Learn More</h4>
+                <ul>
+                    <li><a href="https://progenmethod.com/weight-loss-center-in-bangalore/">About Us</a></li>
+                    <li><a href="https://progenmethod.com/weight-loss-products-in-bangalore/">Our Products</a></li>
+                    <li><a href="https://progenmethod.com/blog/">Blog</a></li>
+                    <li><a href="https://progenmethod.com/careers/">Careers</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/">Find Our Centers</a></li>
+                    <li><a href="https://progenmethod.com/best-weight-management-in-bangalore-contact-us/">Contact Us</a></li>
+                    <li><a href="https://progenmethod.com/weight-loss-programs-testimonial/">Testimonials</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>India - Corporate Office</h4>
+                <ul>
+                    <li style="font-size:0.8rem;color:#999;padding:4px 0;">No.3478/J, 13th A Main Road, HAL 2nd Stage, Indiranagar, Bengaluru-560008</li>
+                    <li><a href="tel:08048655757">080-48655757</a></li>
+                    <li><a href="tel:+919620659132">+91 96206 59132</a></li>
+                    <li><a href="mailto:info@progenmethod.com">info@progenmethod.com</a></li>
+                </ul>
+                <h4 style="margin-top:18px;">Centres in Bangalore</h4>
+                <ul>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/karnataka/bengaluru/hrbr-layout/">HRBR Layout</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/karnataka/bengaluru/indiranagar/">Indira Nagar</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/karnataka/bengaluru/jayanagar/">Jaya Nagar</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/karnataka/bengaluru/new-bel-road/">New Bel Road</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Other Locations</h4>
+                <ul>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/tamilnadu/coimbatore/udayampalayam/">Coimbatore</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/maharashtra/pune/viman-nagar/">Pune</a></li>
+                    <li><a href="https://progenmethod.com/our-weightloss-clinics/centres/maharashtra/mumbai/andheri-west/">Mumbai - Andheri West</a></li>
+                </ul>
+                <h4 style="margin-top:18px;">International</h4>
+                <ul>
+                    <li><a href="https://progenmethod.es/" rel="noopener noreferrer" target="_blank">Spain</a> &middot; <a href="tel:+34900052022">+34-900052022</a></li>
+                    <li><a href="https://www.progenmethod.ae/" rel="noopener noreferrer" target="_blank">UAE</a> &middot; <a href="tel:+97145804531">+971 4 580 4531</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2024 ProGen Weight Management. All rights reserved.</span>
+            <div>
+                <a href="https://progenmethod.com/faq/">FAQ</a>
+                <a href="https://progenmethod.com/privacy-policy-progen/">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== FLOATING WHATSAPP ========== -->
+
+<!-- ========== MINIMAL JS (deferred inline) ========== -->
+<script>
+// Navbar scroll
+var nb = document.getElementById('navbar');
+var lastY = 0;
+window.addEventListener('scroll', function() {
+    nb.classList.toggle('scrolled', window.scrollY > 20);
+}, {passive: true});
+
+// Hamburger
+var hb = document.getElementById('hamburger');
+var mm = document.getElementById('mobileMenu');
+hb.addEventListener('click', function() {
+    var open = mm.classList.toggle('open');
+    hb.setAttribute('aria-expanded', open);
+    var s = hb.querySelectorAll('span');
+    if (open) {
+        s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+        s[1].style.opacity = '0';
+        s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+        document.body.style.overflow = 'hidden';
+    } else {
+        s[0].style.transform = ''; s[1].style.opacity = ''; s[2].style.transform = '';
+        document.body.style.overflow = '';
+    }
+});
+mm.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+        mm.classList.remove('open');
+        hb.setAttribute('aria-expanded', 'false');
+        var s = hb.querySelectorAll('span');
+        s[0].style.transform = ''; s[1].style.opacity = ''; s[2].style.transform = '';
+        document.body.style.overflow = '';
+    });
+});
+
+// YouTube Lite Facade — zero iframes until user clicks
+document.querySelectorAll('.yt-lite').forEach(function(el) {
+    function activate() {
+        if (el.classList.contains('activated')) return;
+        el.classList.add('activated');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + el.dataset.id + '?autoplay=1&rel=0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.loading = 'lazy';
+        iframe.title = el.getAttribute('aria-label') || 'YouTube video';
+        el.appendChild(iframe);
+    }
+    el.addEventListener('click', activate);
+    el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+            i.classList.remove('active');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasActive) {
+            item.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
+// Form — client-side validation + sanitization
+document.getElementById('consultForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var f = e.target;
+    var btn = f.querySelector('.btn-submit');
+    // Basic sanitization
+    var name = f.querySelector('#f-name').value.replace(/[<>"'&]/g, '').trim();
+    var email = f.querySelector('#f-email').value.trim();
+    var phone = f.querySelector('#f-phone').value.replace(/[^+0-9\s\-()]/g, '').trim();
+    var location = f.querySelector('#f-location').value;
+    var age = f.querySelector('#f-age').value;
+    var time = f.querySelector('#f-time').value;
+
+    if (!name || name.length < 2) { f.querySelector('#f-name').focus(); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { f.querySelector('#f-email').focus(); return; }
+    if (!phone || phone.length < 7) { f.querySelector('#f-phone').focus(); return; }
+    if (!location) { f.querySelector('#f-location').focus(); return; }
+
+    // Disable button while submitting
+    btn.disabled = true;
+    btn.textContent = 'SUBMITTING...';
+
+    // Build form data matching Elementor Pro field names
+    var fd = new FormData();
+    fd.append('action', 'elementor_pro_forms_send_form');
+    fd.append('post_id', '18483');
+    fd.append('form_id', '8a064f4');
+    fd.append('referer_title', 'Weight Loss treatment - Progen Weight Management');
+    fd.append('queried_id', '18483');
+    fd.append('form_fields[name]', name);
+    fd.append('form_fields[email]', email);
+    fd.append('form_fields[field_1f3565c]', phone);
+    fd.append('form_fields[field_cb33b7d]', location);
+    fd.append('form_fields[field_7aab726]', age || '');
+    fd.append('form_fields[field_37e37a7]', time || '');
+
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: fd,
+        mode: 'cors'
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+        btn.disabled = false;
+        btn.textContent = 'SUBMIT';
+        if (data.success) {
+            f.reset();
+            btn.textContent = 'THANK YOU!';
+            btn.style.background = 'linear-gradient(135deg, #00964E, #00B74A)';
+            setTimeout(function() {
+                btn.textContent = 'SUBMIT';
+                btn.style.background = '';
+            }, 4000);
+        } else {
+            alert('Something went wrong. Please try again or call us at +91 96206 59132.');
+        }
+    })
+    .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'SUBMIT';
+        // CORS or network error
+        alert('Unable to submit. Please try again or call us at +91 96206 59132.');
+    });
+});
+</script>
+</body>
+</html>
