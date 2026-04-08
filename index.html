@@ -148,6 +148,23 @@
             display: grid; grid-template-columns: 42% 55%;
             gap: 3%; align-items: start; position: relative; z-index: 1;
         }
+        .hero-header {
+            text-align: center; margin-bottom: 32px;
+        }
+        .hero-h1 {
+            font-size: clamp(1.6rem, 4vw, 3rem);
+            font-weight: 900; line-height: 1.15;
+            color: var(--teal-dark); margin-bottom: 12px;
+        }
+        .hero-h1 span {
+            background: linear-gradient(135deg, var(--teal), var(--cyan));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1rem; color: #555;
+            max-width: 700px; margin: 0 auto;
+        }
         .hero-left {
             display: flex; flex-direction: column; gap: 24px;
         }
@@ -521,8 +538,9 @@
             .hamburger { display: flex; }
             .hero { padding: 80px 0 40px; }
             .hero-grid { grid-template-columns: 1fr; gap: 24px; }
-            .hero-left { text-align: center; }
-            .hero-left p { margin: 0 auto; }
+            .hero-h1 { font-size: 1.6rem; }
+            .hero-sub { font-size: 0.9rem; }
+            .hero-header { margin-bottom: 20px; }
             .hero-visual img { max-width: 400px; margin: 0 auto; position: static; }
             .hero-stats { justify-content: center; }
             .why-grid { grid-template-columns: 1fr 1fr; }
@@ -540,7 +558,8 @@
         @media (max-width: 480px) {
             .container { padding: 0 16px; }
             .hero { padding: 72px 0 32px; }
-            .hero-content h1 { font-size: 1.6rem; }
+            .hero-h1 { font-size: 1.4rem; }
+            .hero-sub { font-size: 0.85rem; }
             .why-grid { grid-template-columns: 1fr; gap: 16px; }
             .why-card { min-height: auto; padding: 24px 18px; }
             .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -614,9 +633,9 @@
 <main id="main-content">
 <section class="hero" id="consultation">
     <div class="container">
-        <div style="text-align:center;margin-bottom:32px;">
-            <h1 style="font-size:clamp(1.8rem,4vw,3rem);font-weight:900;line-height:1.15;color:var(--teal-dark);margin-bottom:12px;">Lose weight up to <span style="background:linear-gradient(135deg,var(--teal),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7-10 kg</span> in a month with ProGen</h1>
-            <p style="font-size:1rem;color:#555;max-width:700px;margin:0 auto;">A medically supervised weight loss program powered by the Very Low Calorie Ketogenic Diet (VLCKD), backed by science and delivered by a team of 500+ coaches across 22 countries.</p>
+        <div class="hero-header">
+            <h1 class="hero-h1">Lose weight up to <span>7-10 kg</span> in a month with ProGen</h1>
+            <p class="hero-sub">A medically supervised weight loss program powered by the Very Low Calorie Ketogenic Diet (VLCKD), backed by science and delivered by a team of 500+ coaches across 22 countries.</p>
         </div>
         <div class="hero-grid">
             <!-- LEFT: Form -->
