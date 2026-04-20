@@ -303,42 +303,38 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
 </nav>
 
 <!-- ────────── 01 · HERO ────────── -->
-<header class="hero">
-  <div class="pg-container">
-    <div class="hero-grid">
-      <div>
-        <div class="pg-eyebrow">The ProGen Method · Indiranagar, Bangalore</div>
-        <h1><span class="hl-green">1M+ people.</span> No surgery. No crash diets.</h1>
-        <p class="hero-lede">Try the ProGen Method — doctor-supervised weight loss with a 99.9% success rate. <strong>Your first consultation is free.</strong></p>
-        <div class="hero-badges">
-          <span class="pg-badge">⭐ 99.9% SUCCESS RATE</span>
-          <span class="pg-badge">👥 1M+ CLIENTS</span>
-          <span class="pg-badge">🏥 DOCTOR-SUPERVISED</span>
-          <span class="pg-badge">📍 INDIRANAGAR</span>
-        </div>
-        <p class="hero-sub">Free · No commitment · Mon–Sat 10AM–7PM</p>
-      </div>
-
-      <!-- Hero form -->
-      <aside class="hero-form" id="book">
-        <div class="lead">Book your free consultation</div>
-        <div class="sub">A weight loss doctor will call within 2 hours to confirm your slot.</div>
-        <form class="progen-form" action="#" method="post">
-          <div class="field">
-            <label class="pg-label" for="name">Full name</label>
-            <input class="pg-input" id="name" name="name" type="text" placeholder="e.g. Priya Sharma" required/>
-          </div>
-          <div class="field">
-            <label class="pg-label" for="phone">Phone number</label>
-            <input class="pg-input" id="phone" name="phone" type="tel" placeholder="+91 —" required pattern="[0-9+ ]{8,}"/>
-          </div>
-          <div style="margin-top:20px">
-            <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px">Book My Free Consultation <span class="arr">→</span></button>
-          </div>
-          <div class="form-footnote">🔒 Free. No commitment. No payment.</div>
-        </form>
-      </aside>
+<header class="hero" style="text-align:center;">
+  <div class="pg-container" style="max-width:780px;">
+    <div class="pg-eyebrow" style="display:inline-flex;margin-bottom:var(--sp-4);">The ProGen Method · Indiranagar, Bangalore</div>
+    <h1 style="max-width:none;font-size:clamp(36px,4.8vw,60px);"><span class="hl-green">1M+ people</span> have lost weight — no surgery, no crash diets.</h1>
+    <p class="hero-lede" style="margin:var(--sp-4) auto var(--sp-5);max-width:54ch;">Doctor-supervised weight loss with a 99.9% success rate. <strong>Your first consultation is free.</strong></p>
+    <div class="hero-badges" style="justify-content:center;margin-bottom:var(--sp-6);">
+      <span class="pg-badge">⭐ 99.9% SUCCESS RATE</span>
+      <span class="pg-badge">👥 1M+ CLIENTS</span>
+      <span class="pg-badge">🏥 DOCTOR-SUPERVISED</span>
+      <span class="pg-badge">📍 INDIRANAGAR</span>
     </div>
+
+    <!-- Centred form -->
+    <div id="book" style="max-width:460px;margin:0 auto;background:var(--pg-paper);border:1px solid var(--pg-line);border-radius:var(--r-lg);padding:var(--sp-6);box-shadow:var(--sh-lg);text-align:left;">
+      <div style="font-family:var(--pg-font-display);color:var(--pg-navy);font-size:20px;font-weight:500;margin-bottom:4px;">Book your free consultation</div>
+      <div style="color:var(--pg-ink-2);font-size:14px;margin-bottom:var(--sp-5);">We'll call within 2 hours to confirm your slot.</div>
+      <form class="progen-form" action="#" method="post">
+        <div class="field">
+          <label class="pg-label" for="name">Full name</label>
+          <input class="pg-input" id="name" name="name" type="text" placeholder="e.g. Priya Sharma" required/>
+        </div>
+        <div class="field" style="margin-top:var(--sp-3);">
+          <label class="pg-label" for="phone">Phone number</label>
+          <input class="pg-input" id="phone" name="phone" type="tel" placeholder="+91 —" required pattern="[0-9+ ]{8,}"/>
+        </div>
+        <div style="margin-top:20px">
+          <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px">Book My Free Consultation <span class="arr">→</span></button>
+        </div>
+        <div class="form-footnote" style="margin-top:12px;">🔒 Free. No commitment. No payment.</div>
+      </form>
+    </div>
+    <p class="hero-sub" style="margin-top:var(--sp-4);">Mon–Sat 10AM–7PM · Indiranagar, Bengaluru</p>
   </div>
 </header>
 
