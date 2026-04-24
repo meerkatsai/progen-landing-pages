@@ -336,6 +336,20 @@
               <label class="pg-label" for="h-phone">Mobile number</label>
               <input class="pg-input" type="tel" id="h-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel" inputmode="tel" maxlength="20">
             </div>
+          <div class="field" style="margin-top:var(--sp-3);">
+            <label class="pg-label" for="h-email">Email Address</label>
+            <input class="pg-input" type="email" id="h-email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="field" style="margin-top:var(--sp-3);">
+            <label class="pg-label" for="h-time">Preferred Call Time</label>
+            <select class="pg-select" id="h-time" name="time" required>
+              <option value="" disabled selected>Select a time</option>
+              <option value="Morning">Morning (9AM – 12PM)</option>
+              <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+              <option value="Evening">Evening (4PM – 7PM)</option>
+              <option value="Anytime">Anytime</option>
+            </select>
+          </div>
             <div class="field" style="margin-top:var(--sp-3);">
               <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px;">Reserve My Slot Today <span class="arr" aria-hidden="true">→</span></button>
             </div>
@@ -648,6 +662,20 @@
             <label class="pg-label" for="f2-phone">Mobile number</label>
             <input class="pg-input" type="tel" id="f2-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel" inputmode="tel" maxlength="20">
           </div>
+          <div class="field" style="margin-top:var(--sp-3);">
+            <label class="pg-label" for="f2-email">Email Address</label>
+            <input class="pg-input" type="email" id="f2-email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="field" style="margin-top:var(--sp-3);">
+            <label class="pg-label" for="f2-time">Preferred Call Time</label>
+            <select class="pg-select" id="f2-time" name="time" required>
+              <option value="" disabled selected>Select a time</option>
+              <option value="Morning">Morning (9AM – 12PM)</option>
+              <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+              <option value="Evening">Evening (4PM – 7PM)</option>
+              <option value="Anytime">Anytime</option>
+            </select>
+          </div>
           <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:15px;padding:14px;">Reserve My Slot Today <span class="arr" aria-hidden="true">→</span></button>
           <div class="form-footnote" style="margin-top:var(--sp-3);" aria-live="polite">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:1px;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -748,12 +776,48 @@
 <script>
 // ---- Form submit (Elementor AJAX → /thank-you/) ----
 function submitProgenForm(formEl) {
-  var btn = formEl.querySelector('button[type=submit]');
-  var nameEl = formEl.querySelector('[name=name]');
-  var phoneEl = formEl.querySelector('[name=phone]');
-  var name = (nameEl ? nameEl.value : '').replace(/[<>"'&]/g,'').trim();
-  var phone = (phoneEl ? phoneEl.value : '').replace(/[^+0-9\s\-()]/g,'').trim();
-  if (!name || name.length < 2) { if(nameEl) nameEl.focus(); return false; }
+    var btn      = formEl.querySelector('button[type=submit]');
+    var nameEl   = formEl.querySelector('[name=name]');
+    var emailEl  = formEl.querySelector('[name=email]');
+    var phoneEl  = formEl.querySelector('[name=phone]');
+    var timeEl   = formEl.querySelector('[name=time]');
+    var name  = (nameEl  ? nameEl.value  : '').replace(/[<>"'&]/g,'').trim();
+    var email = (emailEl ? emailEl.value : '').trim();
+    var phone = (phoneEl ? phoneEl.value : '').replace(/[^+0-9\s\-()]/g,'').trim();
+    var time  = (timeEl  ? timeEl.value  : 'Anytime');
+    if (!name  || name.length < 2)                            { if(nameEl)  nameEl.focus();  return false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { if(emailEl) emailEl.focus(); return false; }
+    if (!phone || phone.length < 7)                           { if(phoneEl) phoneEl.focus(); return false; }
+    if (!time)                                                { if(timeEl)  timeEl.focus();  return false; }
+    var origText = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Booking your slot…';
+    var fd = new FormData();
+    fd.append('action','elementor_pro_forms_send_form');
+    fd.append('post_id','18483');
+    fd.append('form_id','8a064f4');
+    fd.append('referer_title','Weight Loss Clinic Indiranagar - ProGen');
+    fd.append('queried_id','18483');
+    fd.append('form_fields[name]',          name);
+    fd.append('form_fields[email]',         email);
+    fd.append('form_fields[field_1f3565c]', phone);
+    fd.append('form_fields[field_cb33b7d]', 'Indiranagar-Bangalore');
+    fd.append('form_fields[field_37e37a7]', time);
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'cors'})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res && res.success) {
+        window.location.href='/thank-you/';
+      } else {
+        btn.disabled = false; btn.textContent = origText;
+        alert('Something went wrong. Please try again or call us on +91 96206 59132.');
+      }
+    })
+    .catch(function(){
+      btn.disabled = false; btn.textContent = origText;
+      alert('Something went wrong. Please try again or call us on +91 96206 59132.');
+    });
+    return false;
+  }
   if (!phone || phone.length < 7) { if(phoneEl) phoneEl.focus(); return false; }
   btn.disabled = true; btn.textContent = 'Reserving your slot\u2026';
   var fd = new FormData();

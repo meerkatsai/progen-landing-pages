@@ -337,6 +337,20 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
           <label class="pg-label" for="phone">Phone number</label>
           <input class="pg-input" id="phone" name="phone" type="tel" placeholder="+91 —" required pattern="[0-9+ ]{8,}"/>
         </div>
+            <div class="field" style="margin-top:var(--sp-3);">
+              <label class="pg-label" for="email1">Email Address</label>
+              <input class="pg-input" type="email" id="email1" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div class="field" style="margin-top:var(--sp-3);">
+              <label class="pg-label" for="time1">Preferred Call Time</label>
+              <select class="pg-select" id="time1" name="time" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="Morning">Morning (9AM – 12PM)</option>
+                <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+                <option value="Evening">Evening (4PM – 7PM)</option>
+                <option value="Anytime">Anytime</option>
+              </select>
+            </div>
         <div style="margin-top:20px">
           <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px">Book My Free Consultation <span class="arr">→</span></button>
         </div>
@@ -712,6 +726,20 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
           <label class="pg-label" for="phone2">Phone number</label>
           <input class="pg-input" id="phone2" name="phone" type="tel" placeholder="+91 —" required pattern="[0-9+ ]{8,}"/>
         </div>
+            <div class="field" style="margin-top:var(--sp-3);">
+              <label class="pg-label" for="email2">Email Address</label>
+              <input class="pg-input" type="email" id="email2" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div class="field" style="margin-top:var(--sp-3);">
+              <label class="pg-label" for="time2">Preferred Call Time</label>
+              <select class="pg-select" id="time2" name="time" required>
+                <option value="" disabled selected>Select a time</option>
+                <option value="Morning">Morning (9AM – 12PM)</option>
+                <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+                <option value="Evening">Evening (4PM – 7PM)</option>
+                <option value="Anytime">Anytime</option>
+              </select>
+            </div>
         <div style="margin-top:20px">
           <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px">Book My Free Consultation <span class="arr">→</span></button>
         </div>
@@ -822,12 +850,48 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
 
 <script>
 function submitProgenForm(formEl) {
-  var btn = formEl.querySelector('button[type=submit]');
-  var nameEl = formEl.querySelector('[name=name]');
-  var phoneEl = formEl.querySelector('[name=phone]');
-  var name = (nameEl ? nameEl.value : '').replace(/[<>"'&]/g,'').trim();
-  var phone = (phoneEl ? phoneEl.value : '').replace(/[^+0-9\s\-()]/g,'').trim();
-  if (!name || name.length < 2) { if(nameEl) nameEl.focus(); return false; }
+    var btn      = formEl.querySelector('button[type=submit]');
+    var nameEl   = formEl.querySelector('[name=name]');
+    var emailEl  = formEl.querySelector('[name=email]');
+    var phoneEl  = formEl.querySelector('[name=phone]');
+    var timeEl   = formEl.querySelector('[name=time]');
+    var name  = (nameEl  ? nameEl.value  : '').replace(/[<>"'&]/g,'').trim();
+    var email = (emailEl ? emailEl.value : '').trim();
+    var phone = (phoneEl ? phoneEl.value : '').replace(/[^+0-9\s\-()]/g,'').trim();
+    var time  = (timeEl  ? timeEl.value  : 'Anytime');
+    if (!name  || name.length < 2)                            { if(nameEl)  nameEl.focus();  return false; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { if(emailEl) emailEl.focus(); return false; }
+    if (!phone || phone.length < 7)                           { if(phoneEl) phoneEl.focus(); return false; }
+    if (!time)                                                { if(timeEl)  timeEl.focus();  return false; }
+    var origText = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Booking your slot…';
+    var fd = new FormData();
+    fd.append('action','elementor_pro_forms_send_form');
+    fd.append('post_id','18483');
+    fd.append('form_id','8a064f4');
+    fd.append('referer_title','Book Free Consultation - ProGen Weight Management');
+    fd.append('queried_id','18483');
+    fd.append('form_fields[name]',          name);
+    fd.append('form_fields[email]',         email);
+    fd.append('form_fields[field_1f3565c]', phone);
+    fd.append('form_fields[field_cb33b7d]', 'Indiranagar-Bangalore');
+    fd.append('form_fields[field_37e37a7]', time);
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'cors'})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res && res.success) {
+        window.location.href='/thank-you/';
+      } else {
+        btn.disabled = false; btn.textContent = origText;
+        alert('Something went wrong. Please try again or call us on +91 96206 59132.');
+      }
+    })
+    .catch(function(){
+      btn.disabled = false; btn.textContent = origText;
+      alert('Something went wrong. Please try again or call us on +91 96206 59132.');
+    });
+    return false;
+  }
   if (!phone || phone.length < 7) { if(phoneEl) phoneEl.focus(); return false; }
   btn.disabled = true; btn.textContent = 'Booking your slot…';
   var fd = new FormData();
