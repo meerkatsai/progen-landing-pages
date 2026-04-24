@@ -903,20 +903,9 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
     fd.append('form_fields[field_1f3565c]', phone);
     fd.append('form_fields[field_cb33b7d]', 'Indiranagar-Bangalore');
     fd.append('form_fields[field_37e37a7]', time);
-    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'cors'})
-    .then(function(r){ return r.json(); })
-    .then(function(res){
-      if (res && res.success) {
-        window.location.href='/thank-you/';
-      } else {
-        btn.disabled = false; btn.textContent = origText;
-        alert('Something went wrong. Please try again or call us on +91 96206 59132.');
-      }
-    })
-    .catch(function(){
-      btn.disabled = false; btn.textContent = origText;
-      alert('Something went wrong. Please try again or call us on +91 96206 59132.');
-    });
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'no-cors'})
+    .then(function(){ window.location.href='/thank-you/'; })
+    .catch(function(){ window.location.href='/thank-you/'; });
     return false;
   }
   document.querySelectorAll('form.progen-form').forEach(function(f){

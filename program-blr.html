@@ -887,20 +887,9 @@ function submitProgenForm(formEl) {
     fd.append('form_fields[field_1f3565c]', phone);
     fd.append('form_fields[field_cb33b7d]', 'Indiranagar-Bangalore');
     fd.append('form_fields[field_37e37a7]', time);
-    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'cors'})
-    .then(function(r){ return r.json(); })
-    .then(function(res){
-      if (res && res.success) {
-        window.location.href='/thank-you/';
-      } else {
-        btn.disabled = false; btn.textContent = origText;
-        alert('Something went wrong. Please try again or call us on +91 96206 59132.');
-      }
-    })
-    .catch(function(){
-      btn.disabled = false; btn.textContent = origText;
-      alert('Something went wrong. Please try again or call us on +91 96206 59132.');
-    });
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'no-cors'})
+    .then(function(){ window.location.href='/thank-you/'; })
+    .catch(function(){ window.location.href='/thank-you/'; });
     return false;
   }
   if (!phone || phone.length < 7) { if(phoneEl) phoneEl.focus(); return false; }
@@ -914,7 +903,7 @@ function submitProgenForm(formEl) {
   fd.append('form_fields[name]', name);
   fd.append('form_fields[field_1f3565c]', phone);
   fd.append('form_fields[field_cb33b7d]','Indiranagar-Bangalore');
-  fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'cors'})
+  fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'no-cors'})
   .then(function(){window.location.href='/thank-you/';})
   .catch(function(){window.location.href='/thank-you/';});
   return false;
