@@ -461,22 +461,31 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       </div>
     </div>
 
-    <!-- WhatsApp Path -->
-    <div class="wa-card">
-      <h3>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366" style="display:inline;vertical-align:-3px;margin-right:7px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Get it on WhatsApp
-      </h3>
-      <p>Tap below — a message opens, pre-written. Hit send. Our clinical team sends the guide and replies personally.</p>
-      <div class="wa-steps">
-        <div class="wa-step"><div class="wa-step-n">1</div><div class="wa-step-t">Tap the button — WhatsApp opens with a message already written for you</div></div>
-        <div class="wa-step"><div class="wa-step-n">2</div><div class="wa-step-t">Hit send — takes 3 seconds</div></div>
-        <div class="wa-step"><div class="wa-step-n">3</div><div class="wa-step-t">Receive the guide + a personal reply from the ProGen clinical team</div></div>
+    <!-- Download Form -->
+    <div class="dl-card" id="dl-form-wrap">
+      <div class="dl-title">Get the Free Guide</div>
+      <div class="dl-sub">Enter your details — the guide opens immediately in a new tab. No spam. No obligation.</div>
+      <form id="guide-form" novalidate>
+        <div class="field">
+          <label class="pg-label" for="g_name">Full name</label>
+          <input class="pg-input" type="text" id="g_name" name="full_name" placeholder="e.g. Priya Sharma" required/>
+        </div>
+        <div class="field">
+          <label class="pg-label" for="g_phone">Phone number</label>
+          <input class="pg-input" type="tel" id="g_phone" name="phone_number" placeholder="+91 —" required/>
+        </div>
+        <button type="submit" class="btn-download" id="dl-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Free Guide
+        </button>
+        <p class="form-note">🔒 Private. No spam. No obligation. Free forever.</p>
+      </form>
+      <div class="form-success" id="guide-success">
+        <div class="tick">✅</div>
+        <h4>Your guide is ready.</h4>
+        <p>It's opened in a new tab. Save or print it.</p>
+        <a href="/glp1-truth-report.html" target="_blank" rel="noopener">Open Again →</a>
       </div>
-      <a href="https://wa.me/919620659132?text=Hi%2C%20I%27d%20like%20to%20know%20about%20the%20natural%20way%20to%20lose%2010kgs%20in%2030%20days..." target="_blank" rel="noopener" class="btn-wa" onclick="trackWA('guide_cta')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Send Message on WhatsApp
-      </a>
     </div>
 
   </div>
@@ -521,6 +530,34 @@ function trackWA(source) {
   if(window.gtag) gtag('event','whatsapp_click',{event_category:'engagement',event_label:source});
   if(window.fbq)  fbq('track','Lead',{content_name:'whatsapp_'+source});
 }
+(function(){
+  var form = document.getElementById('guide-form');
+  var btn  = document.getElementById('dl-btn');
+  var succ = document.getElementById('guide-success');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n  = form.full_name.value.trim();
+    var p  = form.phone_number.value.trim();
+    if(!n || n.length < 2)   { form.full_name.focus(); return; }
+    if(!p || p.length < 7)   { form.phone_number.focus(); return; }
+    btn.disabled = true; btn.textContent = 'Opening guide…';
+    var fd = new FormData();
+    fd.append('action','elementor_pro_forms_send_form');
+    fd.append('referrer_title','GLP-1 Guide - How to Lose 10kg Without Injections');
+    fd.append('form_id','glp1_guide');
+    fd.append('full_name', n);
+    fd.append('phone_number', p);
+    fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd}).catch(function(){});
+    if(window.gtag) gtag('event','conversion',{send_to:'AW-16515647659'});
+    if(window.fbq)  fbq('track','Lead');
+    setTimeout(function(){
+      window.open('/glp1-truth-report.html','_blank','noopener');
+      form.style.display = 'none';
+      succ.style.display = 'block';
+    }, 400);
+  });
+})();
 </script>
 </body>
 </html>
