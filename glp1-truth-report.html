@@ -12,412 +12,426 @@
   --navy:#0B2A4A; --teal:#0D6E6E; --amber:#C48A1A;
   --ink:#0F1724; --ink-2:#3F4A5C; --ink-3:#6B7585;
   --line:#E3E7EC; --canvas:#F2F4F7; --paper:#FFFFFF;
+  --red:#C0392B;
   --ff-display:"Source Serif 4",Georgia,serif;
   --ff-body:"Inter",system-ui,sans-serif;
   --ff-mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--ff-body);color:var(--ink);background:#fff;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{font-family:var(--ff-body);color:var(--ink);background:#e8eaed;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--teal)}
 h1,h2,h3,h4{font-family:var(--ff-display);color:var(--navy);font-weight:500;letter-spacing:-0.01em;line-height:1.15}
 
-/* Screen layout */
 .report-wrap{max-width:794px;margin:0 auto;background:#fff}
 
-/* Print button */
-.print-bar{background:var(--navy);padding:12px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.print-bar p{color:rgba(255,255,255,.75);font-size:13px;font-family:var(--ff-mono)}
-.print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:var(--ff-body)}
+/* Print bar */
+.print-bar{background:var(--navy);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;gap:16px;position:sticky;top:0;z-index:10}
+.print-bar p{color:rgba(255,255,255,.65);font-size:12px;font-family:var(--ff-mono);letter-spacing:.06em}
+.print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#fff;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:var(--ff-body);transition:background .2s}
 .print-btn:hover{background:#0A5555}
 @media print{.print-bar{display:none}}
 
-/* Page */
-.pdf-page{width:794px;min-height:1123px;padding:56px 64px;position:relative;border-bottom:2px dashed #ddd;background:#fff}
+/* PDF page */
+.pdf-page{width:794px;padding:52px 60px;position:relative;border-bottom:3px dashed #ccc;background:#fff}
 @media print{
-  .pdf-page{width:210mm;min-height:297mm;padding:18mm 22mm;border:none;page-break-after:always}
+  body{background:#fff}
+  .pdf-page{width:210mm;min-height:297mm;padding:18mm 20mm;border:none;page-break-after:always;box-shadow:none}
   .pdf-page:last-child{page-break-after:auto}
 }
 
 /* Page header */
-.pg-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:32px;border-bottom:2px solid var(--navy)}
-.pg-header .logo-txt{font-family:var(--ff-display);font-size:18px;color:var(--navy);font-weight:600}
-.pg-header .report-title{font-family:var(--ff-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.pg-header .pg-num{font-family:var(--ff-mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+.pg-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;margin-bottom:36px;border-bottom:2px solid var(--navy)}
+.pg-logo{font-family:var(--ff-display);font-size:17px;color:var(--navy);font-weight:600;letter-spacing:-.01em}
+.pg-logo span{color:var(--teal)}
+.pg-meta{text-align:right}
+.pg-doc{font-family:var(--ff-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:2px}
+.pg-num{font-family:var(--ff-mono);font-size:10px;color:var(--ink-3)}
 
-/* Cover line */
-.cover-tag{font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px}
-.cover-h1{font-size:32px;line-height:1.1;color:var(--navy);margin-bottom:12px;max-width:22ch}
-.cover-h1 em{font-style:normal;color:var(--amber)}
-.cover-sub{font-size:14px;color:var(--ink-2);line-height:1.65;max-width:58ch;margin-bottom:28px}
-.cover-source{font-family:var(--ff-mono);font-size:10px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:28px}
+/* ── PAGE 1 ── */
+.p1-tag{font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px}
+.p1-h1{font-size:34px;line-height:1.08;color:var(--navy);margin-bottom:14px;max-width:20ch}
+.p1-h1 em{font-style:normal;color:var(--amber)}
+.p1-sub{font-size:15px;color:var(--ink-2);line-height:1.65;max-width:56ch;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--line)}
 
-/* Fact strip (page 1) */
-.fact-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
-.fact-item{background:var(--canvas);border-radius:6px;padding:14px 16px;border-left:3px solid var(--line)}
-.fact-item.warn{border-left-color:var(--amber);background:#fffbf5}
-.fact-item.ok{border-left-color:var(--teal);background:rgba(13,110,110,.05)}
-.fact-num{font-family:var(--ff-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-.fact-item.warn .fact-num{color:#92400e}
-.fact-item.ok .fact-num{color:var(--teal)}
-.fact-stat{font-family:var(--ff-display);font-size:24px;color:var(--navy);margin-bottom:4px;font-weight:500}
-.fact-item.warn .fact-stat{color:#b45309}
-.fact-item.ok .fact-stat{color:var(--teal)}
-.fact-text{font-size:12px;color:var(--ink-2);line-height:1.5}
+/* Method intro */
+.method-intro{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.method-card{background:var(--canvas);border-radius:8px;padding:18px 20px;border-left:3px solid var(--teal)}
+.method-card.amber{border-left-color:var(--amber)}
+.method-card h4{font-size:13px;color:var(--navy);margin-bottom:6px;font-family:var(--ff-body);font-weight:700}
+.method-card p{font-size:12px;color:var(--ink-2);line-height:1.55}
 
-/* Truth list */
-.truth-list{display:flex;flex-direction:column;gap:0}
-.tl-item{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start}
-.tl-item:last-child{border-bottom:none}
-.tl-n{font-family:var(--ff-mono);font-size:20px;font-weight:600;color:var(--line);line-height:1;padding-top:2px}
-.tl-body h4{font-size:13px;color:var(--navy);margin-bottom:4px;font-weight:600;font-family:var(--ff-body)}
-.tl-body p{font-size:12px;color:var(--ink-2);line-height:1.55}
-.tl-body strong{color:var(--amber)}
+/* Science section */
+.science-head{font-family:var(--ff-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:12px}
+.science-h2{font-size:22px;color:var(--navy);margin-bottom:10px;line-height:1.15}
+.science-body{font-size:13px;color:var(--ink-2);line-height:1.65;margin-bottom:20px;max-width:60ch}
 
-/* Comparison table */
-.cmp-table{width:100%;border-collapse:collapse;font-size:12px;margin:20px 0}
-.cmp-table th{padding:10px 14px;text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--ff-mono);font-weight:600}
-.cmp-table th:first-child{background:var(--canvas);color:var(--ink-3);width:38%}
-.cmp-table th.h-glp{background:#fff3e0;color:#92400e}
-.cmp-table th.h-pg{background:rgba(13,110,110,.1);color:var(--teal)}
-.cmp-table td{padding:9px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.45}
-.cmp-table tr td:first-child{font-weight:600;color:var(--navy);background:var(--canvas);font-size:11px}
-.cmp-table tr td:nth-child(2){background:#fffbf5;color:#78350f}
-.cmp-table tr td:nth-child(3){background:rgba(13,110,110,.04);color:#134e4a;font-weight:600}
+/* 4-phase protocol */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.phase{background:var(--navy);border-radius:8px;padding:14px 12px;text-align:center}
+.phase-n{font-family:var(--ff-mono);font-size:22px;font-weight:600;color:rgba(255,255,255,.18);line-height:1;margin-bottom:6px}
+.phase-label{font-size:11px;color:#fff;font-weight:600;margin-bottom:4px;line-height:1.3}
+.phase-desc{font-size:10px;color:rgba(255,255,255,.55);line-height:1.45}
 
-/* Testimonials page 2 */
-.tst-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
-.tst{background:var(--canvas);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:14px}
-.tst-badge{font-family:var(--ff-mono);font-size:10px;letter-spacing:.06em;color:var(--teal);font-weight:600;margin-bottom:8px}
-.tst q{font-family:var(--ff-display);font-size:13px;color:var(--navy);font-style:italic;line-height:1.5;display:block;quotes:none}
-.tst .who{margin-top:10px;font-size:11px;color:var(--ink-3);line-height:1.4}
-.tst .who strong{color:var(--navy);display:block}
+/* Clinical comparison bar */
+.vs-bar{display:grid;grid-template-columns:1fr auto 1fr;gap:0;margin-top:24px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.vs-col{padding:16px 18px}
+.vs-col.glp{background:#fef2f2}
+.vs-col.pg{background:rgba(13,110,110,.07)}
+.vs-divider{background:var(--line);display:flex;align-items:center;justify-content:center;padding:0 8px;font-family:var(--ff-mono);font-size:10px;font-weight:600;color:var(--ink-3)}
+.vs-label{font-family:var(--ff-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:6px;display:block}
+.vs-col.glp .vs-label{color:var(--red)}
+.vs-col.pg .vs-label{color:var(--teal)}
+.vs-stat{font-family:var(--ff-display);font-size:26px;font-weight:500;line-height:1;margin-bottom:4px}
+.vs-col.glp .vs-stat{color:var(--red)}
+.vs-col.pg .vs-stat{color:var(--teal)}
+.vs-note{font-size:11px;color:var(--ink-2);line-height:1.5}
+.vs-source{font-family:var(--ff-mono);font-size:9px;color:var(--ink-3);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);letter-spacing:.04em;grid-column:1/-1}
 
-/* Stats row */
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
-.sr-card{text-align:center;background:var(--canvas);border-radius:6px;padding:16px 8px}
-.sr-num{font-family:var(--ff-display);font-size:28px;color:var(--teal);font-weight:500;line-height:1}
-.sr-label{font-size:11px;color:var(--ink-2);margin-top:6px;line-height:1.4}
+/* ── PAGE 2 ── */
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.proof-cell{text-align:center;background:var(--canvas);border-radius:8px;padding:16px 8px}
+.proof-big{font-family:var(--ff-display);font-size:28px;color:var(--teal);font-weight:500;line-height:1;margin-bottom:4px}
+.proof-lbl{font-size:10px;color:var(--ink-2);line-height:1.4}
 
-/* About page */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}
-.about-left{}
-.about-h{font-size:22px;color:var(--navy);margin-bottom:10px}
-.about-p{font-size:13px;color:var(--ink-2);line-height:1.65;margin-bottom:12px}
-.country-strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.country-pill{font-family:var(--ff-mono);font-size:10px;background:var(--canvas);border:1px solid var(--line);border-radius:4px;padding:3px 8px;color:var(--ink-2)}
+/* Testimonials */
+.tst-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.tst{background:var(--canvas);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:14px 16px}
+.tst-badge{font-family:var(--ff-mono);font-size:9px;letter-spacing:.08em;color:var(--teal);font-weight:600;margin-bottom:8px;display:block}
+.tst q{font-family:var(--ff-display);font-size:12px;color:var(--navy);font-style:italic;line-height:1.55;display:block;quotes:none}
+.tst-who{margin-top:8px;font-size:10px;color:var(--ink-3);line-height:1.4}
+.tst-who strong{color:var(--navy);display:block;font-size:11px}
 
-/* Founder box */
-.founder-box{background:var(--navy);border-radius:8px;padding:20px;color:#fff}
-.founder-box h4{color:#fff;font-size:15px;margin-bottom:6px}
-.founder-box p{color:rgba(255,255,255,.75);font-size:12px;line-height:1.65}
-.founder-badge{font-family:var(--ff-mono);font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.5);margin-bottom:8px}
+/* Celebrity section */
+.celeb-box{background:var(--navy);border-radius:10px;padding:22px 24px;margin-bottom:28px;position:relative;overflow:hidden}
+.celeb-box::before{content:"★";position:absolute;right:24px;top:16px;font-size:48px;color:rgba(255,255,255,.06);font-family:serif;line-height:1}
+.celeb-tag{font-family:var(--ff-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;display:block}
+.celeb-h{font-family:var(--ff-display);font-size:18px;color:#fff;margin-bottom:10px;line-height:1.2}
+.celeb-h em{font-style:italic;color:var(--amber)}
+.celeb-p{font-size:12px;color:rgba(255,255,255,.65);line-height:1.65;max-width:56ch}
+
+/* Economics table */
+.econ-head{font-family:var(--ff-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:12px}
+.econ-h2{font-size:19px;color:var(--navy);margin-bottom:14px;line-height:1.2}
+.econ-table{width:100%;border-collapse:collapse;font-size:12px}
+.econ-table th{padding:9px 14px;text-align:left;font-family:var(--ff-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.econ-table th:first-child{color:var(--ink-3);background:var(--canvas);width:38%}
+.econ-table th.th-glp{background:#fef2f2;color:var(--red)}
+.econ-table th.th-pg{background:rgba(13,110,110,.1);color:var(--teal)}
+.econ-table td{padding:9px 14px;border-top:1px solid var(--line);vertical-align:top;line-height:1.5}
+.econ-table tr td:first-child{font-weight:600;color:var(--navy);background:var(--canvas);font-size:11px}
+.econ-table tr td:nth-child(2){background:#fef2f2;color:#7f1d1d}
+.econ-table tr td:nth-child(3){background:rgba(13,110,110,.05);color:#134e4a;font-weight:600}
+
+/* ── PAGE 3 ── */
+.globe-section{margin-bottom:32px}
+.globe-tag{font-family:var(--ff-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:10px}
+.globe-h{font-size:28px;color:var(--navy);margin-bottom:12px;line-height:1.1}
+.globe-h em{font-style:normal;color:var(--teal)}
+.globe-body{font-size:13px;color:var(--ink-2);line-height:1.65;max-width:58ch;margin-bottom:24px}
+
+.globe-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.gs-card{text-align:center;border-radius:8px;padding:18px 8px;background:var(--navy)}
+.gs-n{font-family:var(--ff-display);font-size:26px;color:#fff;font-weight:500;line-height:1;margin-bottom:4px}
+.gs-l{font-size:10px;color:rgba(255,255,255,.5);line-height:1.4}
+
+.countries-strip{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.country-pill{font-family:var(--ff-mono);font-size:10px;background:var(--canvas);border:1px solid var(--line);border-radius:4px;padding:4px 10px;color:var(--ink-2)}
 
 /* CTA block */
-.cta-block{background:linear-gradient(135deg, var(--navy) 0%, #1a3d5c 100%);border-radius:10px;padding:28px 32px;margin-top:24px;text-align:center}
-.cta-block h3{color:#fff;font-size:22px;margin-bottom:10px}
-.cta-block p{color:rgba(255,255,255,.75);font-size:13px;line-height:1.65;margin-bottom:20px;max-width:48ch;margin-left:auto;margin-right:auto}
-.cta-items{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px}
-.cta-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.85);font-size:12px;font-family:var(--ff-mono)}
-.cta-item::before{content:"✓";color:var(--teal);font-weight:700}
-.cta-contact{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.cta-btn{display:block;padding:13px;border-radius:6px;font-weight:600;font-size:13px;text-align:center}
-.cta-btn.primary{background:var(--teal);color:#fff}
+.cta-block{background:linear-gradient(135deg,var(--teal) 0%,#0a5555 100%);border-radius:12px;padding:36px 40px;text-align:center}
+.cta-tag{font-family:var(--ff-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px;display:block}
+.cta-h{font-family:var(--ff-display);font-size:26px;color:#fff;margin-bottom:10px;line-height:1.15}
+.cta-sub{font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;max-width:44ch;margin:0 auto 28px}
+.cta-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:8px;font-family:var(--ff-body);font-weight:700;font-size:14px;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.88}
 .cta-btn.wa{background:#25D366;color:#fff}
+.cta-btn.call{background:#fff;color:var(--navy)}
+.cta-note{font-family:var(--ff-mono);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.06em}
 
-/* Disclaimer */
-.disclaimer{font-size:10px;color:var(--ink-3);font-family:var(--ff-mono);text-align:center;margin-top:20px;line-height:1.6;letter-spacing:.02em}
+/* Clinic info */
+.clinic-row{display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap}
+.clinic-item{text-align:center;font-size:11px;color:rgba(255,255,255,.55);line-height:1.5}
+.clinic-item strong{display:block;color:rgba(255,255,255,.85);font-weight:600;margin-bottom:2px}
 
-/* Sources */
-.sources{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
-.sources h5{font-family:var(--ff-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.sources ol{padding-left:16px;display:flex;flex-direction:column;gap:4px}
-.sources li{font-size:10px;color:var(--ink-3);line-height:1.5}
+/* Page footer line */
+.pg-foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-family:var(--ff-mono);font-size:9px;color:var(--ink-3);display:flex;justify-content:space-between;letter-spacing:.04em}
 </style>
 </head>
 <body>
 
-<div class="report-wrap">
-
-  <!-- Print Bar -->
-  <div class="print-bar">
-    <p>How to Lose 10kg in 30 Days Without GLP-1 Injections · ProGen Weight Management · Bangalore</p>
-    <button class="print-btn" onclick="window.print()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Save as PDF
-    </button>
-  </div>
-
-  <!-- ══════════════ PAGE 1 ══════════════ -->
-  <div class="pdf-page">
-    <div class="pg-header">
-      <div>
-        <div class="logo-txt">ProGen Weight Management</div>
-        <div class="report-title">How to Lose 10kg in 30 Days Without GLP-1 Injections</div>
-      </div>
-      <div class="pg-num">PAGE 01 / 03</div>
-    </div>
-
-    <div class="cover-tag">Clinical facts · What the research actually shows</div>
-    <h1 class="cover-h1">Before Your First Ozempic Injection — <em>7 Things to Know.</em></h1>
-    <p class="cover-sub">GLP-1 drugs are heavily promoted. Clinical trials across 9,000+ patients tell a more complicated story. Here is what the published science shows — with sources.</p>
-    <div class="cover-source">Sources: NEJM · BMJ · The Lancet · AJCN · Obesity Reviews · West et al. 2026</div>
-
-    <!-- Reality comparison -->
-    <div class="fact-strip">
-      <div class="fact-item warn">
-        <div class="fact-num">GLP-1 Clinical Average</div>
-        <div class="fact-stat">0.5–1 kg/month</div>
-        <div class="fact-text">10–15 kg total over 12–18 months. Equivalent to a standard hypocaloric diet — no medication required.</div>
-      </div>
-      <div class="fact-item ok">
-        <div class="fact-num">Supervised Alternative (VLCKD)</div>
-        <div class="fact-stat">7–10 kg/month</div>
-        <div class="fact-text">Pure fat loss. Muscle preserved. No injections, no nausea, no dependency. Results that are built to last.</div>
-      </div>
-    </div>
-
-    <div class="truth-list">
-      <div class="tl-item">
-        <div class="tl-n">01</div>
-        <div class="tl-body">
-          <h4>GLP-1 is not the miracle social media shows</h4>
-          <p>Clinical trials consistently show <strong>0.5–1 kg per month</strong> — the same rate as a standard diet. The dramatic videos are shot at month 12–18 with best-case patients. Not averages.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">02</div>
-        <div class="tl-body">
-          <h4>The early weight loss is mostly water, not fat</h4>
-          <p>GLP-1 depletes glycogen stores. Glycogen holds 3–4× its weight in water. The dramatic first-week drop? <strong>Mostly fluid.</strong> It returns when the drug stops.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">03</div>
-        <div class="tl-body">
-          <h4>You lose muscle, not just fat</h4>
-          <p>Research shows <strong>25–40% of weight lost on GLP-1 is lean mass.</strong> Losing muscle slows metabolism permanently and makes weight regain almost inevitable. VLCKD protocols preserve 95%+ lean mass.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">04</div>
-        <div class="tl-body">
-          <h4>When you stop — the weight returns fast</h4>
-          <p>BMJ 2026 (9,000+ patients): average regain of <strong>0.4–0.8 kg per month</strong> after stopping. Full return to baseline weight within <strong>1.5–1.7 years.</strong></p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">05</div>
-        <div class="tl-body">
-          <h4>Your health improvements also reverse</h4>
-          <p>Blood pressure, cholesterol, and blood sugar gains disappear within <strong>~1.4 years</strong> of stopping treatment. The benefit was real — but fully contingent on never stopping.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">06</div>
-        <div class="tl-body">
-          <h4>It does not fix why you gained weight</h4>
-          <p>GLP-1 suppresses appetite. It does not address root causes: metabolic dysfunction, hormonal imbalance, insulin resistance, or eating behaviour. <strong>Stop the drug, the patterns return.</strong></p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-n">07</div>
-        <div class="tl-body">
-          <h4>It could cost ₹15,000–25,000 every month — forever</h4>
-          <p>Since stopping means regaining, patients seeking permanent results face <strong>lifetime monthly injections at ₹1.8L–₹3L per year.</strong> A one-time supervised programme costs a fraction of that — with permanent results.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="sources">
-      <h5>Sources</h5>
-      <ol>
-        <li>Wilding JPH et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity. NEJM 2021.</li>
-        <li>West S, Koutoukidis DA et al. Weight regain after cessation of medication for weight management. BMJ 2026.</li>
-        <li>Weinheimer EM et al. The effect of weight loss on lean body mass. Am J Clin Nutr 2010.</li>
-        <li>Hall KD et al. Quantification of energy imbalance on bodyweight. The Lancet 2011.</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- ══════════════ PAGE 2 ══════════════ -->
-  <div class="pdf-page">
-    <div class="pg-header">
-      <div>
-        <div class="logo-txt">ProGen Weight Management</div>
-        <div class="report-title">How to Lose 10kg in 30 Days Without GLP-1 Injections</div>
-      </div>
-      <div class="pg-num">PAGE 02 / 03</div>
-    </div>
-
-    <div class="cover-tag">What is actually possible without injections</div>
-    <h2 style="font-size:26px;margin-bottom:10px">People losing 9–10 kg in their first month.<br><span style="color:var(--teal)">No needles. No nausea. No muscle loss.</span></h2>
-    <p style="font-size:13px;color:var(--ink-2);max-width:60ch;line-height:1.65;margin-bottom:6px">There is a medically supervised programme — backed by 80+ published clinical studies and trusted by over 1 million patients in 22 countries — that consistently outperforms GLP-1 on every measure that matters: speed of fat loss, body composition, and permanence.</p>
-
-    <!-- Comparison table -->
-    <table class="cmp-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="h-glp">GLP-1 (Ozempic / Wegovy)</th>
-          <th class="h-pg">Medically Supervised VLCKD</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Monthly fat loss</td><td>0.5–1 kg/month</td><td>7–10 kg/month</td></tr>
-        <tr><td>Body composition</td><td>25–40% muscle loss</td><td>95%+ fat loss, muscle preserved</td></tr>
-        <tr><td>After stopping</td><td>Full regain in 1.5–1.7 years</td><td>Results maintained permanently</td></tr>
-        <tr><td>Root cause addressed</td><td>No — appetite suppressed only</td><td>Yes — metabolic reset</td></tr>
-        <tr><td>Side effects</td><td>Nausea, muscle loss, Ozempic face</td><td>None — medically supervised</td></tr>
-        <tr><td>Injections required</td><td>Yes — lifelong</td><td>Zero</td></tr>
-        <tr><td>Long-term cost</td><td>₹1.8L–₹3L per year, indefinitely</td><td>One-time programme fee</td></tr>
-      </tbody>
-    </table>
-
-    <!-- Testimonials -->
-    <div class="tst-grid">
-      <div class="tst">
-        <div class="tst-badge">✓ 9 kg in 30 days · no drugs</div>
-        <q>I had researched Ozempic seriously. My friend lost 6 kg in 2 months on it. I lost 9 kg in my first month here — with zero injections.</q>
-        <div class="who"><strong>Priya S.</strong> Koramangala, Bangalore</div>
-      </div>
-      <div class="tst">
-        <div class="tst-badge">✓ 11 kg in 35 days · muscle preserved</div>
-        <q>The doctor found a thyroid issue nobody had detected. Once addressed, the fat came off fast. No nausea, no needles, no fatigue.</q>
-        <div class="who"><strong>Rajesh M.</strong> Whitefield, Bangalore</div>
-      </div>
-      <div class="tst">
-        <div class="tst-badge">✓ 14 kg total · post GLP-1 rebound case</div>
-        <q>I stopped Ozempic after regaining 4 kg in 6 weeks. Seven months later I am down 14 kg total and maintaining it without any drugs.</q>
-        <div class="who"><strong>Sonal K.</strong> Indiranagar, Bangalore</div>
-      </div>
-      <div class="tst">
-        <div class="tst-badge">✓ 13 kg in 40 days · PCOS</div>
-        <q>PCOS had made losing weight almost impossible for years. The team ran a full metabolic panel and built a programme around my specific case.</q>
-        <div class="who"><strong>Ananya R.</strong> HSR Layout, Bangalore</div>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="stats-row">
-      <div class="sr-card">
-        <div class="sr-num">99.9%</div>
-        <div class="sr-label">reach target weight</div>
-      </div>
-      <div class="sr-card">
-        <div class="sr-num">10 kg</div>
-        <div class="sr-label">average fat loss, month 1</div>
-      </div>
-      <div class="sr-card">
-        <div class="sr-num">80+</div>
-        <div class="sr-label">published clinical studies</div>
-      </div>
-      <div class="sr-card">
-        <div class="sr-num">1M+</div>
-        <div class="sr-label">patients globally</div>
-      </div>
-    </div>
-
-    <p style="font-size:12px;color:var(--ink-3);font-family:var(--ff-mono);letter-spacing:.02em;margin-top:12px">*Individual results vary. All patient results cited are from real ProGen patients at the Bangalore clinic. A clinical assessment is required before any programme is recommended.</p>
-  </div>
-
-  <!-- ══════════════ PAGE 3 ══════════════ -->
-  <div class="pdf-page">
-    <div class="pg-header">
-      <div>
-        <div class="logo-txt">ProGen Weight Management</div>
-        <div class="report-title">How to Lose 10kg in 30 Days Without GLP-1 Injections</div>
-      </div>
-      <div class="pg-num">PAGE 03 / 03</div>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-left">
-        <div class="cover-tag" style="margin-bottom:8px">About ProGen</div>
-        <h2 class="about-h">25 years. 22 countries. 1 million patients.</h2>
-        <p class="about-p">ProGen was founded in <strong>Barcelona, Spain</strong> with a single goal: deliver medically supervised, drug-free fat loss that is faster, safer, and more permanent than any pharmaceutical alternative. The method — a precisely structured Very Low Calorie Ketogenic Diet (VLCKD) — has since been validated by over 80 published clinical studies and adopted by specialised clinics across Europe, Latin America, the Middle East, and Asia.</p>
-        <p class="about-p">The Bangalore clinic at <strong>Indiranagar</strong> brings this European clinical standard to India. Every patient undergoes a full medical assessment before any programme begins. Every programme is built around root-cause diagnosis — not appetite suppression.</p>
-        <div class="cover-tag" style="margin-bottom:8px;margin-top:16px">Present In</div>
-        <div class="country-strip">
-          <span class="country-pill">Spain</span>
-          <span class="country-pill">Italy</span>
-          <span class="country-pill">Portugal</span>
-          <span class="country-pill">France</span>
-          <span class="country-pill">UAE</span>
-          <span class="country-pill">Mexico</span>
-          <span class="country-pill">Brazil</span>
-          <span class="country-pill">India</span>
-          <span class="country-pill">+14 more</span>
-        </div>
-      </div>
-
-      <div class="about-right">
-        <div class="founder-box">
-          <div class="founder-badge">THE FOUNDER</div>
-          <h4>Dr. José Morales</h4>
-          <p>Physician and clinical nutritionist. Founder of the ProGen method. Over 25 years of clinical experience in metabolic medicine and structured weight loss. Trained in Barcelona. The protocol he developed is now used by clinical teams in 22 countries and has produced over 1 million documented patient outcomes.</p>
-        </div>
-
-        <div style="margin-top:16px;background:var(--canvas);border-radius:8px;padding:16px">
-          <div class="cover-tag" style="margin-bottom:10px">Your Clinical Team</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="font-size:18px">🩺</span>
-              <div>
-                <div style="font-size:12px;font-weight:600;color:var(--navy)">Medical Doctors</div>
-                <div style="font-size:11px;color:var(--ink-2)">Root-cause diagnosis, medical supervision throughout</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="font-size:18px">🥗</span>
-              <div>
-                <div style="font-size:12px;font-weight:600;color:var(--navy)">Clinical Dietitians</div>
-                <div style="font-size:11px;color:var(--ink-2)">Personalised nutrition protocol, weekly check-ins</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="font-size:18px">💪</span>
-              <div>
-                <div style="font-size:12px;font-weight:600;color:var(--navy)">Physiotherapists</div>
-                <div style="font-size:11px;color:var(--ink-2)">Muscle preservation, body composition training</div>
-              </div>
-            </div>
-            <div style="display:flex;gap:10px;align-items:center">
-              <span style="font-size:18px">🧠</span>
-              <div>
-                <div style="font-size:12px;font-weight:600;color:var(--navy)">Psychologists</div>
-                <div style="font-size:11px;color:var(--ink-2)">Behavioural support, emotional eating patterns</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA Block -->
-    <div class="cta-block">
-      <h3>Your free consultation is waiting.</h3>
-      <p>A ProGen doctor will review your case, explain your options honestly, and show you exactly what a drug-free programme would look like for you. No obligation. No pressure. No drugs required.</p>
-      <div class="cta-items">
-        <span class="cta-item">In-person · Indiranagar, Bangalore</span>
-        <span class="cta-item">Free · No commitment</span>
-        <span class="cta-item">Full medical review included</span>
-        <span class="cta-item">Results shown upfront</span>
-      </div>
-      <div class="cta-contact">
-        <a href="tel:+919620659132" class="cta-btn primary">📞 +91 96206 59132</a>
-        <a href="https://wa.me/919620659132?text=Hi%2C%20I%27d%20like%20to%20know%20about%20the%20natural%20way%20to%20lose%2010kgs%20in%2030%20days..." class="cta-btn wa">💬 WhatsApp Us</a>
-      </div>
-      <p style="color:rgba(255,255,255,.55);font-size:11px;font-family:var(--ff-mono);margin-top:14px;letter-spacing:.04em">NO.3478/J, 13TH A MAIN RD, INDIRANAGAR, BENGALURU · INFO@PROGENMETHOD.COM</p>
-    </div>
-
-    <div class="disclaimer">
-      This report is for educational purposes only and does not constitute medical advice. Consult your physician before making any changes to your treatment plan.<br>
-      © 2026 ProGen Weight Management · progenmethod.com · All results cited are from real patients and may vary individually.
-    </div>
-  </div>
-
+<!-- Print bar -->
+<div class="print-bar">
+  <p>How to Lose 10kg in 30 Days Without GLP-1 Injections &nbsp;·&nbsp; ProGen Weight Management</p>
+  <button class="print-btn" onclick="window.print()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Save as PDF
+  </button>
 </div>
 
+<div class="report-wrap">
+
+<!-- ══ PAGE 1: THE METHOD ══ -->
+<div class="pdf-page">
+  <div class="pg-header">
+    <div class="pg-logo">Pro<span>Gen</span> Weight Management</div>
+    <div class="pg-meta">
+      <span class="pg-doc">How to Lose 10kg in 30 Days Without GLP-1</span>
+      <span class="pg-num">Page 1 of 3</span>
+    </div>
+  </div>
+
+  <div class="p1-tag">The ProGen Method</div>
+  <h1 class="p1-h1">Not a diet. A <em>metabolic reset.</em></h1>
+  <p class="p1-sub">GLP-1 injections suppress appetite. They do nothing to your metabolism, your hormones, or the reason your body stores fat. The ProGen method goes further — it resets the body at the cellular level, so results don't just appear. They stay.</p>
+
+  <div class="method-intro">
+    <div class="method-card">
+      <h4>What it is</h4>
+      <p>A medically supervised Very Low Calorie Ketogenic Diet (VLCKD) protocol. Clinically designed, individually prescribed, and supervised by a multidisciplinary team of doctors, nutritionists, and physiotherapists.</p>
+    </div>
+    <div class="method-card amber">
+      <h4>What makes it different</h4>
+      <p>It doesn't mask symptoms. It addresses root causes — insulin resistance, metabolic dysfunction, hormonal imbalance, PCOS, thyroid. The body learns to burn fat efficiently, permanently.</p>
+    </div>
+  </div>
+
+  <div class="science-head">The Science Behind It</div>
+  <h2 class="science-h2">How nutritional ketosis resets your metabolism</h2>
+  <p class="science-body">When carbohydrate intake drops below the body's threshold, it shifts its primary fuel source from glucose to fat — a state called nutritional ketosis. The liver converts fat into ketone bodies, which become the brain and muscle's preferred fuel. This isn't starvation. It's a deliberate metabolic switch that burns fat directly, spares muscle tissue, and dramatically improves insulin sensitivity. Clinical studies confirm the shift happens within 3–5 days and stabilises within 2 weeks, at which point fat oxidation increases by up to 11% and remains elevated throughout the programme.</p>
+
+  <div class="phases">
+    <div class="phase">
+      <div class="phase-n">01</div>
+      <div class="phase-label">Clinical Assessment</div>
+      <div class="phase-desc">Full metabolic panel, hormonal profile, body composition scan</div>
+    </div>
+    <div class="phase">
+      <div class="phase-n">02</div>
+      <div class="phase-label">Personalised Protocol</div>
+      <div class="phase-desc">Caloric targets, macro ratios, and supplements tailored to your profile</div>
+    </div>
+    <div class="phase">
+      <div class="phase-n">03</div>
+      <div class="phase-label">Ketogenic Reset</div>
+      <div class="phase-desc">Active fat loss phase — 7–10 kg/month average, muscle fully preserved</div>
+    </div>
+    <div class="phase">
+      <div class="phase-n">04</div>
+      <div class="phase-label">Metabolic Stabilisation</div>
+      <div class="phase-desc">Transition to sustainable nutrition — locking in permanent results</div>
+    </div>
+  </div>
+
+  <div class="science-head">Head-to-Head: VLCKD vs Semaglutide (Ozempic)</div>
+  <div class="vs-bar">
+    <div class="vs-col glp">
+      <span class="vs-label">GLP-1 / Ozempic</span>
+      <div class="vs-stat">−0%</div>
+      <div class="vs-note">Weight loss in 12 weeks with semaglutide alone, no dietary protocol — near zero without lifestyle changes</div>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="vs-col pg">
+      <span class="vs-label">VLCKD (ProGen Method)</span>
+      <div class="vs-stat">−5.4%</div>
+      <div class="vs-note">Weight loss in the same 12 weeks — more than 2× greater fat loss, with improved insulin sensitivity and no muscle loss</div>
+    </div>
+  </div>
+  <div style="font-family:var(--ff-mono);font-size:9px;color:var(--ink-3);margin-top:8px;letter-spacing:.04em">
+    Source: Camajani et al. Clinical Nutrition, 2024 · 30 adults with T2D · 12-week parallel-group RCT · DOI: 10.1016/j.clnu.2024.04.001
+  </div>
+
+  <div class="pg-foot">
+    <span>ProGen Weight Management · Indiranagar, Bangalore · progenmethod.com</span>
+    <span>Confidential — for patient use only</span>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 2: PROOF + CELEBRITY + ECONOMICS ══ -->
+<div class="pdf-page">
+  <div class="pg-header">
+    <div class="pg-logo">Pro<span>Gen</span> Weight Management</div>
+    <div class="pg-meta">
+      <span class="pg-doc">How to Lose 10kg in 30 Days Without GLP-1</span>
+      <span class="pg-num">Page 2 of 3</span>
+    </div>
+  </div>
+
+  <div class="science-head">The Proof</div>
+  <h2 class="science-h2" style="margin-bottom:18px">Numbers that speak for themselves</h2>
+
+  <div class="proof-grid">
+    <div class="proof-cell">
+      <div class="proof-big">80+</div>
+      <div class="proof-lbl">peer-reviewed clinical studies</div>
+    </div>
+    <div class="proof-cell">
+      <div class="proof-big">1M+</div>
+      <div class="proof-lbl">patients treated worldwide</div>
+    </div>
+    <div class="proof-cell">
+      <div class="proof-big">10 kg</div>
+      <div class="proof-lbl">average fat loss in first 30 days</div>
+    </div>
+    <div class="proof-cell">
+      <div class="proof-big">99.9%</div>
+      <div class="proof-lbl">reach their target weight</div>
+    </div>
+  </div>
+
+  <div class="tst-row">
+    <div class="tst">
+      <span class="tst-badge">✓ 9 kg · First month · No drugs</span>
+      <q>I had seriously researched Ozempic. My friend lost 6 kg in 2 months on it. I lost 9 kg in my first month here — zero injections, full energy. I genuinely did not know this was possible.</q>
+      <div class="tst-who"><strong>Priya S.</strong>Koramangala · Insulin resistance · 34F</div>
+    </div>
+    <div class="tst">
+      <span class="tst-badge">✓ 14 kg total · Post GLP-1 rebound</span>
+      <q>I stopped Ozempic after 4 months — the nausea was daily. I had lost 5 kg but regained 4 within 6 weeks. Seven months later I am down 14 kg, off all medication, maintaining without drugs.</q>
+      <div class="tst-who"><strong>Sonal K.</strong>Indiranagar · Post GLP-1 rebound · 38F</div>
+    </div>
+  </div>
+
+  <div class="celeb-box">
+    <span class="celeb-tag">The celebrity secret</span>
+    <h3 class="celeb-h">The transformations you admire aren't<br>coming from <em>a weekly injection.</em></h3>
+    <p class="celeb-p">The supervised metabolic protocol — not the drug — is the real driver behind the results you see. Diet, structured intervention, and clinical supervision do what no injection can: reset the body permanently. The drug is the story. This is the method.</p>
+  </div>
+
+  <div class="econ-head">The Economics</div>
+  <h2 class="econ-h2">One-time investment vs a lifetime bill</h2>
+  <table class="econ-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="th-glp">GLP-1 / Ozempic</th>
+        <th class="th-pg">ProGen Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monthly cost</td>
+        <td>₹15,000 – ₹25,000</td>
+        <td>One-time programme fee</td>
+      </tr>
+      <tr>
+        <td>Cost over 3 years</td>
+        <td>₹5.4L – ₹9L</td>
+        <td>Same as above — no repeat</td>
+      </tr>
+      <tr>
+        <td>If you stop</td>
+        <td>Full weight regain within 18 months</td>
+        <td>Results are permanent</td>
+      </tr>
+      <tr>
+        <td>Muscle loss</td>
+        <td>25–40% of weight lost is muscle</td>
+        <td>Muscle fully preserved</td>
+      </tr>
+      <tr>
+        <td>Root cause addressed</td>
+        <td>No — appetite only</td>
+        <td>Yes — metabolic reset</td>
+      </tr>
+      <tr>
+        <td>Side effects</td>
+        <td>Nausea, fatigue, GI distress, dependency</td>
+        <td>None — no medication</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pg-foot">
+    <span>ProGen Weight Management · Indiranagar, Bangalore · progenmethod.com</span>
+    <span>Results may vary. Clinical assessment required.</span>
+  </div>
+</div>
+
+
+<!-- ══ PAGE 3: GLOBAL + CONSULTATION ══ -->
+<div class="pdf-page">
+  <div class="pg-header">
+    <div class="pg-logo">Pro<span>Gen</span> Weight Management</div>
+    <div class="pg-meta">
+      <span class="pg-doc">How to Lose 10kg in 30 Days Without GLP-1</span>
+      <span class="pg-num">Page 3 of 3</span>
+    </div>
+  </div>
+
+  <div class="globe-section">
+    <div class="globe-tag">A Global Medical Programme</div>
+    <h2 class="globe-h">Trusted by over <em>1 million people</em><br>across 22 countries</h2>
+    <p class="globe-body">The ProGen method isn't a local offering — it's a globally validated clinical protocol used by medical teams across Europe, Latin America, the Middle East, and Asia. The same evidence-based methodology. The same clinical outcomes. Now available in Bangalore.</p>
+
+    <div class="globe-stats">
+      <div class="gs-card">
+        <div class="gs-n">22</div>
+        <div class="gs-l">countries worldwide</div>
+      </div>
+      <div class="gs-card">
+        <div class="gs-n">1M+</div>
+        <div class="gs-l">patients treated</div>
+      </div>
+      <div class="gs-card">
+        <div class="gs-n">25 yrs</div>
+        <div class="gs-l">of clinical excellence</div>
+      </div>
+      <div class="gs-card">
+        <div class="gs-n">80+</div>
+        <div class="gs-l">peer-reviewed studies</div>
+      </div>
+    </div>
+
+    <div class="countries-strip">
+      <span class="country-pill">🇪🇸 Spain</span>
+      <span class="country-pill">🇵🇹 Portugal</span>
+      <span class="country-pill">🇮🇹 Italy</span>
+      <span class="country-pill">🇫🇷 France</span>
+      <span class="country-pill">🇩🇪 Germany</span>
+      <span class="country-pill">🇬🇧 United Kingdom</span>
+      <span class="country-pill">🇧🇷 Brazil</span>
+      <span class="country-pill">🇲🇽 Mexico</span>
+      <span class="country-pill">🇦🇪 UAE</span>
+      <span class="country-pill">🇸🇦 Saudi Arabia</span>
+      <span class="country-pill">🇮🇳 India</span>
+      <span class="country-pill">+ 11 more</span>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <span class="cta-tag">Free Consultation · No Obligation</span>
+    <h2 class="cta-h">Your transformation starts<br>with a conversation.</h2>
+    <p class="cta-sub">Book a free 30-minute consultation with our clinical team in Indiranagar. We'll assess your metabolic profile, explain the protocol, and tell you exactly what's possible for your body.</p>
+
+    <div class="cta-actions">
+      <a href="https://wa.me/919620659132?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20consultation%20at%20ProGen%20Bangalore" target="_blank" class="cta-btn wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book on WhatsApp
+      </a>
+      <a href="tel:+919620659132" class="cta-btn call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Call +91 96206 59132
+      </a>
+    </div>
+
+    <div class="clinic-row">
+      <div class="clinic-item"><strong>Location</strong>Indiranagar, Bengaluru</div>
+      <div class="clinic-item"><strong>Hours</strong>Mon–Sat · 10:00–19:00</div>
+      <div class="clinic-item"><strong>Consultation</strong>Free · 30 minutes · No obligation</div>
+    </div>
+
+    <div class="cta-note" style="margin-top:20px">progenmethod.com &nbsp;·&nbsp; info@progenmethod.com &nbsp;·&nbsp; +91 96206 59132</div>
+  </div>
+
+  <div class="pg-foot" style="margin-top:20px">
+    <span>© 2026 ProGen Weight Management · All rights reserved</span>
+    <span>Results may vary. Clinical assessment required prior to programme commencement.</span>
+  </div>
+</div>
+
+</div><!-- /report-wrap -->
 </body>
 </html>

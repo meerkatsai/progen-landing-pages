@@ -64,8 +64,15 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 .nav-cta:hover{background:var(--teal-2)}
 
 /* ── HERO ── */
-.hero{background:var(--navy);padding:0;overflow:hidden;position:relative;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px}
-.hero-body{padding:64px 22px 72px;max-width:680px;margin:0 auto;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero{background:var(--navy);padding:0;overflow:hidden;position:relative;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:56px 22px 64px;display:flex;align-items:center;gap:48px}
+.hero-body{flex:1 1 56%;min-width:0}
+.hero-photo{flex:0 0 38%;max-width:420px;border-radius:14px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,.45);align-self:stretch}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:760px){
+  .hero-inner{flex-direction:column;padding:40px 22px 48px;gap:32px;align-items:stretch}
+  .hero-photo{flex:1 1 auto;max-width:100%;max-height:380px}
+}
 .hero-eyebrow{font-family:var(--ff-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:20px}
 .hero h1{font-family:var(--ff-display);font-size:clamp(32px,5.5vw,52px);color:#fff;font-weight:500;line-height:1.08;margin-bottom:20px;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;color:var(--amber)}
@@ -119,6 +126,10 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 .truth-stat.good{background:var(--teal-light);border-left-color:var(--teal)}
 .truth-stat.good .ts-num{color:var(--teal)}
 
+
+/* ── EXPLAINER IMAGE ── */
+.explainer-img-wrap{margin:18px 0 22px}
+.explainer-img-wrap img{width:100%;display:block;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,.08)}
 
 /* ── POSSIBLE SECTION ── */
 .possible-intro-text{font-size:18px;color:var(--ink-2);line-height:1.7;margin-top:20px;padding-bottom:40px;border-bottom:1px solid var(--line);max-width:58ch}
@@ -245,12 +256,17 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 
 <!-- ══ HERO ══ -->
 <header class="hero">
+  <div class="hero-inner">
   <div class="hero-body">
     <div class="hero-eyebrow">Clinical facts · What Instagram hides · Bangalore</div>
     <h1>Before Your First<br>Ozempic Injection —<br><em>Read This First.</em></h1>
     <p class="hero-lede">GLP-1 injections are dominating social media. Before you decide, here are <strong style="color:#fff">7 clinical facts</strong> the influencers and ads won't show you.</p>
     <div class="hero-source">Based on: NEJM · BMJ (9,000+ patients) · The Lancet · Am J Clin Nutrition</div>
     <div class="hero-scroll">↓ SCROLL TO READ</div>
+  </div>
+  <div class="hero-photo">
+    <img src="hero-ozempic.png" alt="Woman holding an Ozempic injection pen, looking concerned" loading="eager"/>
+  </div>
   </div>
 </header>
 
@@ -280,6 +296,9 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       <span class="truth-tag">The water weight trick</span>
     </div>
     <h3>You mostly lose water and not fat</h3>
+    <div class="explainer-img-wrap">
+      <img src="water-weight-explainer.png" alt="Water weight vs actual fat loss — what GLP-1 really burns" loading="lazy"/>
+    </div>
     <p>GLP-1 suppresses your appetite, cutting food intake dramatically. As calories drop, your body burns through its glycogen stores — the emergency sugar reserve held in muscles and liver. Glycogen binds 3–4 grams of water per gram. When it empties, several kilograms of water flush out within 2 weeks. The scale drops fast. Actual fat loss has barely started. When the drug stops, glycogen refills — and the water returns.</p>
     <div class="truth-stat">
       <div class="ts-num">3–5 kg</div>
@@ -296,6 +315,9 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       <span class="truth-tag">The silent consequence</span>
     </div>
     <h3>You risk more muscle loss</h3>
+    <div class="explainer-img-wrap">
+      <img src="muscle-loss-explainer.png" alt="Muscle loss vs fat loss — the body composition difference" loading="lazy"/>
+    </div>
     <p>This is the fact GLP-1 ads never show. When appetite is suppressed and calories drop severely, your body doesn't burn pure fat — it breaks down muscle too. Research consistently shows <strong>25–40% of weight lost on GLP-1 is lean muscle mass</strong>. Less muscle means a permanently slower metabolism. You weigh less, but your body has more fat relative to muscle — which makes regaining weight almost inevitable once the drug stops.</p>
     <div class="truth-stat">
       <div class="ts-num">25–40%</div>
@@ -312,6 +334,9 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       <span class="truth-tag">The rebound nobody shows</span>
     </div>
     <h3>If you stop the injection, you could gain back all the weight</h3>
+    <div class="explainer-img-wrap">
+      <img src="rebound-explainer.png" alt="Before and after stopping GLP-1 — the weight regain reality" loading="lazy"/>
+    </div>
     <p>The 2026 <em>British Medical Journal</em> meta-analysis — the most comprehensive study of its kind, covering over 9,000 patients — found that after stopping GLP-1 treatment, people regain weight at <strong>0.4–0.8 kg every single month</strong>. The average patient returns to their original weight within 1.5 to 1.7 years. Not some patients. The average patient. The drug suppressed hunger. It did nothing to your metabolism, your habits, or the root causes of weight gain. When the drug stops, everything resumes exactly as before.</p>
     <div class="truth-stat">
       <div class="ts-num">1.5–1.7 yrs</div>
@@ -370,6 +395,9 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 <section class="section-white section-pad">
   <div class="wrap">
     <h2 class="section-h2">1M+ people have reduced weight safely and without GLP-1</h2>
+    <div class="explainer-img-wrap">
+      <img src="possible-hero.png" alt="10kg in 30 days — no injections, no drugs" loading="lazy"/>
+    </div>
     <p class="possible-intro-text">There is a <strong>medically supervised programme</strong> that consistently outperforms GLP-1 on every metric that matters — speed of fat loss, body composition, and permanence. It is backed by 80+ published clinical studies, trusted by over 1 million patients across 22 countries, with 25 years of documented outcomes. And it involves no injections, no drugs, and no lifetime dependency.</p>
 
     <div class="result-card">
