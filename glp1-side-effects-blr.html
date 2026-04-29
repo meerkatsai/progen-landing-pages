@@ -558,11 +558,7 @@ function trackWA(source) {
     fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd}).catch(function(){});
     if(window.gtag) gtag('event','conversion',{send_to:'AW-16515647659'});
     if(window.fbq)  fbq('track','Lead');
-    setTimeout(function(){
-      window.open('/glp1-truth-report.html','_blank','noopener');
-      form.style.display = 'none';
-      succ.style.display = 'block';
-    }, 400);
+    setTimeout(function(){ window.location.href = '/thank-you-glp1'; }, 400);
   });
 })();
 </script>
