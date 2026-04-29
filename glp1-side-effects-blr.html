@@ -474,6 +474,10 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
           <label class="pg-label" for="g_phone">Phone number</label>
           <input class="pg-input" type="tel" id="g_phone" name="phone_number" placeholder="+91 —" required/>
         </div>
+        <div class="field">
+          <label class="pg-label" for="g_email">Email address</label>
+          <input class="pg-input" type="email" id="g_email" name="email_address" placeholder="you@example.com" required/>
+        </div>
         <button type="submit" class="btn-download" id="dl-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download Free Guide
@@ -539,8 +543,10 @@ function trackWA(source) {
     e.preventDefault();
     var n  = form.full_name.value.trim();
     var p  = form.phone_number.value.trim();
-    if(!n || n.length < 2)   { form.full_name.focus(); return; }
-    if(!p || p.length < 7)   { form.phone_number.focus(); return; }
+    var em = form.email_address.value.trim();
+    if(!n || n.length < 2)                             { form.full_name.focus(); return; }
+    if(!p || p.length < 7)                             { form.phone_number.focus(); return; }
+    if(!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { form.email_address.focus(); return; }
     btn.disabled = true; btn.textContent = 'Opening guide…';
     var fd = new FormData();
     fd.append('action','elementor_pro_forms_send_form');
@@ -548,6 +554,7 @@ function trackWA(source) {
     fd.append('form_id','glp1_guide');
     fd.append('full_name', n);
     fd.append('phone_number', p);
+    fd.append('email_address', em);
     fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd}).catch(function(){});
     if(window.gtag) gtag('event','conversion',{send_to:'AW-16515647659'});
     if(window.fbq)  fbq('track','Lead');
