@@ -564,7 +564,7 @@ function trackWA(source) {
       utm_campaign:  params.get('utm_campaign') || '',
       utm_term:      params.get('utm_term')     || ''
     });
-    fetch('https://script.google.com/a/macros/meerkats.ai/s/AKfycbwZ1FHMd6uHliArWsOjp97_Nk_WssE-DEzHrVix_l8QwDbmJLn-iyCGcdJxITXwv7Yi/exec',{method:'POST',body:payload,mode:'no-cors'}).catch(function(){});
+    fetch('https://script.google.com/macros/s/AKfycbwZ1FHMd6uHliArWsOjp97_Nk_WssE-DEzHrVix_l8QwDbmJLn-iyCGcdJxITXwv7Yi/exec',{method:'POST',body:payload,mode:'no-cors'}).catch(function(){});
     if(window.gtag) gtag('event','conversion',{send_to:'AW-16515647659'});
     if(window.fbq)  fbq('track','Lead');
     setTimeout(function(){ window.location.href = '/thank-you-glp1'; }, 400);
