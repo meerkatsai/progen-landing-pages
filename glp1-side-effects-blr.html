@@ -127,6 +127,17 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 .truth-stat.good .ts-num{color:var(--teal)}
 
 
+/* ── COMPARE TABLE ── */
+.compare-table{margin:8px 0 32px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.ct-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.ct-row:first-child{border-top:none}
+.ct-cell{padding:14px 18px;font-size:15px;color:var(--ink-2);line-height:1.45}
+.ct-cell.ct-progen{background:rgba(13,110,110,.06);color:var(--navy);font-weight:600;border-right:1px solid var(--line)}
+.ct-cell.ct-glp{background:rgba(192,57,43,.04);color:var(--ink-2)}
+.ct-row.ct-head .ct-cell{font-family:var(--ff-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:12px 18px}
+.ct-row.ct-head .ct-progen{color:var(--teal);background:rgba(13,110,110,.1)}
+.ct-row.ct-head .ct-glp{color:var(--red);background:rgba(192,57,43,.08)}
+
 /* ── EXPLAINER IMAGE ── */
 .explainer-img-wrap{margin:18px 0 22px}
 .explainer-img-wrap img{width:100%;display:block;border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,.08)}
@@ -259,7 +270,7 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="hero-inner">
   <div class="hero-body">
     <div class="hero-eyebrow">Clinical facts · What Instagram hides · Bangalore</div>
-    <h1>Before Your First<br>Weight Loss Injection —<br><em>You Need To Read This.</em></h1>
+    <h1>Before Your First<br>Weight Loss Injection —<br><em>Read This First.</em></h1>
     <p class="hero-lede">GLP-1 injections are dominating social media. Before you decide, here are <strong style="color:#fff">7 clinical facts</strong> the influencers and ads won't show you.</p>
     <div class="hero-source">Based on: NEJM · BMJ (9,000+ patients) · The Lancet · Am J Clin Nutrition</div>
     <div class="hero-scroll">↓ SCROLL TO READ</div>
@@ -279,11 +290,11 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       <span class="truth-big-num">01</span>
       <span class="truth-tag">The marketing gap</span>
     </div>
-    <h3>The clinical average weight loss is only 0.5 kg a month</h3>
-    <p>Social media rewards the spectacular. Clinical science measures averages. Across 9,000+ patients in large-scale trials, GLP-1 drugs deliver 0.5–1 kg of fat loss per month — the same result as following a structured diet with zero medication. Nobody posts their month 4 plateau.</p>
+    <h3>The clinical average weight loss through injections is only 0.5–1 kg a month</h3>
+    <p>Social media rewards the spectacular. Clinical science measures averages. Across 9,000+ patients in large-scale trials, GLP-1 drugs deliver 0.5–1 kg of weight loss per month — the same result as following a structured diet with zero medication. Also nobody posts their 6th month plateau (the same dose is not effective for weight loss).</p>
     <div class="truth-stat">
       <div class="ts-num">0.5–1 kg</div>
-      <div class="ts-text">per month — identical to a standard diet, with the added cost of weekly injections, daily nausea, and ₹25,000/month.</div>
+      <div class="ts-text">per month — identical to a standard diet, with the added cost of weekly injections, daily nausea, and high cost/month (₹32,000/month for Mounjaro 10mg).</div>
     </div>
   </div>
 </div>
@@ -293,17 +304,16 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="truth-body">
     <div class="truth-num-row">
       <span class="truth-big-num">02</span>
-      <span class="truth-tag">The water weight trick</span>
+      <span class="truth-tag">The silent consequence</span>
     </div>
-    <h3>GLP-1 suppresses your appetite</h3>
+    <h3>You risk more muscle loss</h3>
     <div class="explainer-img-wrap">
-      <img src="water-weight-explainer.png" alt="Water weight vs actual fat loss — what GLP-1 really burns" loading="lazy"/>
+      <img src="muscle-loss-explainer.png" alt="Fat loss vs muscle loss — the body composition difference" loading="lazy"/>
     </div>
-    <p>GLP-1 suppresses your appetite, cutting food intake dramatically. As calories drop, your body burns through its glycogen stores — the emergency sugar reserve held in muscles and liver. Glycogen binds 3–4 grams of water per gram. When it empties, several kilograms of water flush out within 2 weeks. The scale drops fast. Actual fat loss has barely started. When the drug stops, glycogen refills — and the water returns.</p>
-    <p style="margin-top:12px;font-weight:600;color:var(--navy)">3–5 kg of early weight loss is glycogen and water, not fat. Real fat loss starts only after this initial flush.</p>
+    <p>This is the fact GLP-1 ads never show. When appetite is suppressed and calories drop severely, your body doesn't burn fat — it breaks down muscle too. Research consistently shows <strong>25–40% of weight lost on GLP-1 is lean muscle mass</strong>. Less muscle means a permanently slower metabolism. Your weight is less, but your body has more fat relative to muscle — which makes regaining weight almost inevitable once the drug stops.</p>
     <div class="truth-stat">
-      <div class="ts-num">3–5 kg</div>
-      <div class="ts-text">of early weight loss is glycogen and water, not fat. Real fat loss starts only after this initial flush.</div>
+      <div class="ts-num">25–40%</div>
+      <div class="ts-text">of GLP-1 weight loss is lean muscle, not fat.</div>
     </div>
   </div>
 </div>
@@ -313,16 +323,16 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="truth-body">
     <div class="truth-num-row">
       <span class="truth-big-num">03</span>
-      <span class="truth-tag">The silent consequence</span>
+      <span class="truth-tag">The rebound nobody shows</span>
     </div>
-    <h3>You risk more muscle loss</h3>
+    <h3>If you stop the injection, you could gain back all the weight</h3>
     <div class="explainer-img-wrap">
-      <img src="muscle-loss-explainer.png" alt="Muscle loss vs fat loss — the body composition difference" loading="lazy"/>
+      <img src="rebound-explainer.png" alt="Before and after stopping GLP-1 — the weight regain reality" loading="lazy"/>
     </div>
-    <p>This is the fact GLP-1 ads never show. When appetite is suppressed and calories drop severely, your body doesn't burn pure fat — it breaks down muscle too. Research consistently shows <strong>25–40% of weight lost on GLP-1 is lean muscle mass</strong>. Less muscle means a permanently slower metabolism. You weigh less, but your body has more fat relative to muscle — which makes regaining weight almost inevitable once the drug stops.</p>
+    <p>The 2026 <em>British Medical Journal</em> meta-analysis — the most comprehensive study of its kind, covering over 9,000 patients — found that after stopping GLP-1 treatment, people regain weight at <strong>0.4–0.8 kg every single month</strong>. The average patient returns to their original weight within 1.5 years. The drug suppressed hunger. It did nothing to your metabolism, your habits, or the root causes of weight gain. When the drug stops, everything resumes exactly as before.</p>
     <div class="truth-stat">
-      <div class="ts-num">25–40%</div>
-      <div class="ts-text">of GLP-1 weight loss is lean muscle, not fat. A supervised VLCKD protocol preserves up to 95% lean mass — a fundamentally different outcome.</div>
+      <div class="ts-num">1.5 yrs</div>
+      <div class="ts-text">to return to original weight after stopping GLP-1. Source: West S et al., BMJ 2026 systematic review and meta-analysis.</div>
     </div>
   </div>
 </div>
@@ -332,16 +342,13 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="truth-body">
     <div class="truth-num-row">
       <span class="truth-big-num">04</span>
-      <span class="truth-tag">The rebound nobody shows</span>
+      <span class="truth-tag">The health mirage</span>
     </div>
-    <h3>If you stop the injection, you could gain back all the weight</h3>
-    <div class="explainer-img-wrap">
-      <img src="rebound-explainer.png" alt="Before and after stopping GLP-1 — the weight regain reality" loading="lazy"/>
-    </div>
-    <p>The 2026 <em>British Medical Journal</em> meta-analysis — the most comprehensive study of its kind, covering over 9,000 patients — found that after stopping GLP-1 treatment, people regain weight at <strong>0.4–0.8 kg every single month</strong>. The average patient returns to their original weight within 1.5 to 1.7 years. Not some patients. The average patient. The drug suppressed hunger. It did nothing to your metabolism, your habits, or the root causes of weight gain. When the drug stops, everything resumes exactly as before.</p>
+    <h3>Once you stop GLP-1, all the good things stop too</h3>
+    <p>GLP-1 drugs genuinely improve cardiometabolic markers while you take them — blood pressure drops, cholesterol improves, blood sugar stabilises. This is real. But the same BMJ 2026 review found that every one of these improvements also reverses after stopping treatment, within approximately <strong>1.4 years</strong>. Your underlying health didn't change. The drug was doing the work. When it stops, your biology goes back to exactly where it was or even worse.</p>
     <div class="truth-stat">
-      <div class="ts-num">1.5–1.7 yrs</div>
-      <div class="ts-text">to return to original weight after stopping GLP-1. Source: West S et al., BMJ 2026 systematic review and meta-analysis.</div>
+      <div class="ts-num">~1.4 yrs</div>
+      <div class="ts-text">for blood pressure, cholesterol, and blood sugar improvements to fully reverse after stopping GLP-1 medication.</div>
     </div>
   </div>
 </div>
@@ -351,14 +358,10 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="truth-body">
     <div class="truth-num-row">
       <span class="truth-big-num">05</span>
-      <span class="truth-tag">The health mirage</span>
+      <span class="truth-tag">The root cause problem</span>
     </div>
-    <h3>Once you stop GLP-1, all the good things stop too</h3>
-    <p>GLP-1 drugs genuinely improve cardiometabolic markers while you take them — blood pressure drops, cholesterol improves, blood sugar stabilises. This is real. But the same BMJ 2026 review found that every one of these improvements also reverses after stopping treatment, within approximately <strong>1.4 years</strong>. Your underlying health didn't change. The drug was doing the work. When it stops, your biology goes back to exactly where it was.</p>
-    <div class="truth-stat">
-      <div class="ts-num">~1.4 yrs</div>
-      <div class="ts-text">for blood pressure, cholesterol, and blood sugar improvements to fully reverse after stopping GLP-1 medication.</div>
-    </div>
+    <h3>It never fixes the root cause of weight gain</h3>
+    <p>Obesity is not caused by a lack of medication. It is driven by metabolic dysfunction, hormonal imbalance, insulin resistance, thyroid issues, and years of accumulated lifestyle patterns. GLP-1 suppresses appetite. It addresses none of these. When the drug stops, every one of those root causes is exactly where you left it — ready to drive the same weight gain again or more (rebound effect). You haven't been treated. You've been suppressed.</p>
   </div>
 </div>
 
@@ -367,10 +370,12 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   <div class="truth-body">
     <div class="truth-num-row">
       <span class="truth-big-num">06</span>
-      <span class="truth-tag">The root cause problem</span>
+      <span class="truth-tag">The hidden risks</span>
     </div>
-    <h3>It never fixes the root cause of weight gain</h3>
-    <p>Obesity is not caused by a lack of medication. It is driven by metabolic dysfunction, hormonal imbalance, insulin resistance, PCOS, thyroid issues, and years of accumulated lifestyle patterns. GLP-1 suppresses appetite. It addresses none of these. When the drug stops, every one of those root causes is exactly where you left it — ready to drive the same weight gain again. You haven't been treated. You've been suppressed.</p>
+    <h3>A long list of side effects for very little weight loss</h3>
+    <p>GLP-1 receptor agonists come with side effects. The most common are gastrointestinal — including nausea, vomiting, diarrhea, constipation, and slow gastric emptying, which causes bloating, discomfort, and gastroesophageal reflux.</p>
+    <p style="margin-top:14px">There is also a risk of gallbladder issues — including gallstones — and pancreatitis.</p>
+    <p style="margin-top:14px">Serious risks include potential thyroid tumors, bone loss, suicidal thoughts, and a higher risk of non-arteritic anterior ischemic optic neuropathy (NAION) — an "eye stroke" causing sudden, permanent vision loss.</p>
   </div>
 </div>
 
@@ -382,10 +387,10 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
       <span class="truth-tag">The lifetime cost</span>
     </div>
     <h3>It's expensive (₹25,000/mo) and results reverse if you stop</h3>
-    <p>Popular weight loss injections are priced at <strong>₹15,000–25,000 per month</strong> in India. Since stopping the drug means regaining all the weight, anyone seeking permanent results is effectively committing to injections for life. That's ₹1.8 lakh to ₹3 lakh per year — indefinitely. Meanwhile, a medically supervised programme that addresses root causes, preserves muscle, and delivers <em>permanent</em> results exists. It costs a fraction of one year's injection spend, once.</p>
+    <p>GLP-1 injections are priced at <strong>₹15,000–36,000 per month</strong> in India. Since stopping the drug means regaining all the weight, anyone seeking permanent results is effectively committing to injections for life. That's ₹1.8 lakh to ₹4 lakh per year — indefinitely. Meanwhile, a medically supervised programme that addresses root causes, preserves muscle, and delivers <em>permanent</em> results exists. It costs a fraction of one year's GLP-1 spend, once.</p>
     <div class="truth-stat">
       <div class="ts-num">₹3L/year</div>
-      <div class="ts-text">Upper cost of a lifetime on weight loss injections in India. For a result that reverses within 1.5 years of stopping — vs. a one-time programme that builds permanent change.</div>
+      <div class="ts-text">Upper cost of lifetime GLP-1 in India. For a result that reverses within 1.5 years of stopping — vs. a one-time programme that builds permanent change.</div>
     </div>
   </div>
 </div>
@@ -395,12 +400,26 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 <!-- ══ SECTION 03: WHAT'S POSSIBLE ══ -->
 <section class="section-white section-pad">
   <div class="wrap">
-    <h2 class="section-h2">There's a safe way to lose weight and quick too</h2>
-    <p style="margin-top:10px;margin-bottom:28px;font-size:16px;color:var(--ink-2);line-height:1.65">Over 1M+ people have reduced weight safely and without GLP-1 with our method.</p>
+    <h2 class="section-h2">There's a safer way to lose more weight — 10kg in 30 days</h2>
+    <p style="margin-top:10px;margin-bottom:28px;font-size:16px;color:var(--ink-2);line-height:1.65">1M+ people have reduced weight safely and without GLP-1.</p>
+    <div class="compare-table">
+      <div class="ct-row ct-head">
+        <div class="ct-cell ct-progen">Progen Method</div>
+        <div class="ct-cell ct-glp">GLP-1</div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-cell ct-progen">10 kg in 30 days</div>
+        <div class="ct-cell ct-glp">0.5 kg in 30 days</div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-cell ct-progen">No weight rebound risk</div>
+        <div class="ct-cell ct-glp">High weight rebound risk</div>
+      </div>
+    </div>
     <div class="explainer-img-wrap">
       <img src="possible-hero.png" alt="10kg in 30 days — no injections, no drugs" loading="lazy"/>
     </div>
-    <p class="possible-intro-text">There is a <strong>medically supervised programme</strong> that consistently outperforms GLP-1 on every metric that matters — speed of fat loss, body composition, and permanence. It is backed by 80+ published clinical studies, trusted by over 1 million patients across 22 countries, with 25 years of documented outcomes. And it involves no injections, no drugs, and no lifetime dependency.</p>
+    <p class="possible-intro-text">Progen is a <strong>medically supervised programme</strong> that consistently outperforms GLP-1 on every metric that matters — speed of fat loss, body composition, and permanence. It is backed by 80+ published clinical studies, trusted by over 1 million patients across 22 countries, with 25 years of documented outcomes. And it involves no injections, no drugs, and no lifetime dependency.</p>
 
     <div class="result-card">
       <div class="result-body">
