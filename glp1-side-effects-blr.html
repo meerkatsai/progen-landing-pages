@@ -160,6 +160,65 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
 .stat-big{font-family:var(--ff-display);font-size:clamp(32px,6vw,44px);color:var(--teal);font-weight:500;line-height:1;margin-bottom:6px}
 .stat-desc{font-size:12px;color:var(--ink-2);line-height:1.45}
 
+/* ══ REDESIGNED SECTION 03 ══ */
+.pivot-bridge{background:var(--navy);padding:40px 22px;text-align:center;position:relative;overflow:hidden}
+.pivot-bridge::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 120%,rgba(13,110,110,.25),transparent);pointer-events:none}
+.pivot-bridge-inner{position:relative;z-index:1;max-width:520px;margin:0 auto}
+.pivot-kicker{font-family:var(--ff-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px}
+.pivot-headline{font-family:var(--ff-display);font-size:clamp(22px,3.8vw,32px);color:#fff;font-weight:400;line-height:1.2;letter-spacing:-.02em}
+.pivot-headline em{font-style:italic;color:#8dd9d9}
+.sw-section{background:var(--paper);padding:72px 0 80px;border-bottom:1px solid var(--line)}
+.sw-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--teal);margin-bottom:20px}
+.sw-eyebrow::before{content:'';display:block;width:18px;height:1.5px;background:var(--teal);flex-shrink:0}
+.sw-headline{font-family:var(--ff-display);font-size:clamp(32px,5vw,52px);color:var(--navy);font-weight:400;line-height:1.06;letter-spacing:-.025em;margin-bottom:24px;max-width:16ch}
+.sw-headline em{font-style:italic;color:var(--teal);display:block;font-size:clamp(38px,6vw,62px);margin-top:4px}
+.sw-social-proof{display:inline-flex;align-items:center;gap:12px;background:var(--teal-light);border:1px solid rgba(13,110,110,.18);border-radius:6px;padding:10px 16px;margin-bottom:48px}
+.sw-sp-num{font-family:var(--ff-display);font-size:22px;font-weight:500;color:var(--teal);line-height:1}
+.sw-sp-divider{width:1px;height:28px;background:rgba(13,110,110,.2);flex-shrink:0}
+.sw-sp-text{font-family:var(--ff-body);font-size:14px;color:var(--ink-2);line-height:1.4;max-width:22ch}
+.sw-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:52px}
+@media(max-width:580px){.sw-stats{grid-template-columns:repeat(2,1fr)}}
+.sw-stat{padding:24px 18px;border-right:1px solid var(--line)}
+.sw-stat:last-child{border-right:none}
+.sw-stat-num{font-family:var(--ff-display);font-size:clamp(30px,5vw,42px);color:var(--teal);font-weight:500;line-height:1;margin-bottom:6px;letter-spacing:-.02em}
+.sw-stat-desc{font-size:12px;color:var(--ink-2);line-height:1.45}
+.sw-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px}
+@media(max-width:540px){.sw-compare{grid-template-columns:1fr}}
+.sw-card{border-radius:12px;overflow:hidden}
+.sw-card-progen{background:var(--navy)}
+.sw-card-glp{border:1px solid var(--line-2);background:var(--bg)}
+.swc-header{padding:22px 22px 18px}
+.sw-card-progen .swc-header{border-bottom:1px solid rgba(255,255,255,.08)}
+.sw-card-glp .swc-header{background:rgba(192,57,43,.04);border-bottom:1px solid var(--line)}
+.swc-label{font-family:var(--ff-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.sw-card-progen .swc-label{color:rgba(255,255,255,.45)}
+.sw-card-glp .swc-label{color:var(--red)}
+.swc-metric{font-family:var(--ff-display);font-size:clamp(26px,4.5vw,38px);font-weight:500;line-height:1;letter-spacing:-.02em}
+.swc-metric.good{color:#5ecece}
+.swc-metric.bad{color:var(--red)}
+.swc-metric-sub{font-family:var(--ff-body);font-size:12px;margin-top:4px}
+.sw-card-progen .swc-metric-sub{color:rgba(255,255,255,.45)}
+.sw-card-glp .swc-metric-sub{color:var(--ink-3)}
+.swc-list{padding:18px 22px;list-style:none;display:flex;flex-direction:column;gap:10px}
+.swc-list li{font-size:14px;line-height:1.45;display:flex;align-items:baseline;gap:8px}
+.swc-list li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;margin-top:1px;position:relative;top:2px}
+.sw-card-progen .swc-list li{color:rgba(255,255,255,.82)}
+.sw-card-progen .swc-list li::before{background:var(--teal)}
+.sw-card-glp .swc-list{background:var(--paper)}
+.sw-card-glp .swc-list li{color:var(--ink-2)}
+.sw-card-glp .swc-list li::before{background:rgba(192,57,43,.5)}
+.sw-desc{font-size:17px;color:var(--ink-2);line-height:1.75;padding:32px 0;border-top:1px solid var(--line);margin-bottom:40px;max-width:58ch}
+.sw-desc strong{color:var(--navy)}
+.sw-results{display:flex;flex-direction:column;gap:16px}
+.sw-result-card{border-radius:10px;border:1px solid var(--line);background:var(--paper);overflow:hidden;display:grid;grid-template-columns:4px 1fr}
+.sw-result-accent{background:var(--teal)}
+.sw-result-body{padding:20px 22px}
+.sw-result-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.sw-result-badge::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--teal);color:#fff;font-size:9px;flex-shrink:0}
+.sw-result-quote{font-family:var(--ff-display);font-size:16px;font-style:italic;color:var(--navy);line-height:1.55;quotes:none;display:block;margin-bottom:16px}
+.sw-result-who{font-family:var(--ff-mono);font-size:10px;color:var(--ink-3);letter-spacing:.05em}
+.sw-result-who strong{color:var(--ink);font-family:var(--ff-body);font-size:13px;font-weight:600;display:block;letter-spacing:0;margin-bottom:2px}
+
 /* ── GUIDE SECTION (CTA) ── */
 .guide-section{background:var(--navy);padding:72px 0}
 @media(max-width:600px){.guide-section{padding:56px 0}}
@@ -395,74 +454,118 @@ h1,h2,h3,h4{font-family:var(--ff-display);font-weight:500;line-height:1.15;lette
   </div>
 </div>
 
-<hr class="section-divider"/>
+<!-- ══ SECTION 03: WHAT'S POSSIBLE (redesigned) ══ -->
+<div class="pivot-bridge">
+  <div class="pivot-bridge-inner">
+    <div class="pivot-kicker">The alternative</div>
+    <h2 class="pivot-headline">
+      GLP-1 comes with risks and isn't effective for weight loss.<br>
+      <em>So, what's the alternative?</em>
+    </h2>
+  </div>
+</div>
 
-<!-- ══ SECTION 03: WHAT'S POSSIBLE ══ -->
-<section class="section-white section-pad">
+<section class="sw-section">
   <div class="wrap">
-    <h2 class="section-h2">There's a safer way to lose more weight — 10kg in 30 days</h2>
-    <p style="margin-top:10px;margin-bottom:28px;font-size:16px;color:var(--ink-2);line-height:1.65">1M+ people have reduced weight safely and without GLP-1.</p>
-    <div class="compare-table">
-      <div class="ct-row ct-head">
-        <div class="ct-cell ct-progen">Progen Method</div>
-        <div class="ct-cell ct-glp">GLP-1</div>
+
+    <span class="sw-eyebrow">The Progen Method</span>
+
+    <h2 class="sw-headline">
+      There's a safer way<br>to lose more weight —
+      <em>10 kg in 30 days.</em>
+    </h2>
+
+    <div class="sw-social-proof">
+      <div class="sw-sp-num">1M+</div>
+      <div class="sw-sp-divider"></div>
+      <div class="sw-sp-text">people have lost weight safely, without GLP-1 injections.</div>
+    </div>
+
+    <div class="sw-stats">
+      <div class="sw-stat">
+        <div class="sw-stat-num">99.9%</div>
+        <div class="sw-stat-desc">reach their target weight</div>
       </div>
-      <div class="ct-row">
-        <div class="ct-cell ct-progen">10 kg in 30 days</div>
-        <div class="ct-cell ct-glp">0.5 kg in 30 days</div>
+      <div class="sw-stat">
+        <div class="sw-stat-num">10 kg</div>
+        <div class="sw-stat-desc">avg fat loss in first 30 days</div>
       </div>
-      <div class="ct-row">
-        <div class="ct-cell ct-progen">No weight rebound risk</div>
-        <div class="ct-cell ct-glp">High weight rebound risk</div>
+      <div class="sw-stat">
+        <div class="sw-stat-num">80+</div>
+        <div class="sw-stat-desc">published clinical studies</div>
+      </div>
+      <div class="sw-stat">
+        <div class="sw-stat-num">1M+</div>
+        <div class="sw-stat-desc">patients across 22 countries</div>
       </div>
     </div>
+
+    <div class="sw-compare">
+      <div class="sw-card sw-card-progen">
+        <div class="swc-header">
+          <div class="swc-label">Progen Method</div>
+          <div class="swc-metric good">10 kg</div>
+          <div class="swc-metric-sub">avg fat loss in 30 days</div>
+        </div>
+        <ul class="swc-list">
+          <li>No weight rebound</li>
+          <li>95% lean mass preserved</li>
+          <li>Treats root cause</li>
+          <li>One-time programme</li>
+          <li>No injections, no drugs</li>
+        </ul>
+      </div>
+      <div class="sw-card sw-card-glp">
+        <div class="swc-header">
+          <div class="swc-label">GLP-1 Injections</div>
+          <div class="swc-metric bad">0.5 kg</div>
+          <div class="swc-metric-sub">avg fat loss in 30 days</div>
+        </div>
+        <ul class="swc-list">
+          <li>High rebound risk (1.5 yr)</li>
+          <li>25–40% muscle loss</li>
+          <li>Suppresses, not treats</li>
+          <li>₹3L/year — indefinitely</li>
+          <li>Weekly injections required</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="explainer-img-wrap">
       <img src="possible-hero.png" alt="10kg in 30 days — no injections, no drugs" loading="lazy"/>
     </div>
-    <p class="possible-intro-text">Progen is a <strong>medically supervised programme</strong> that consistently outperforms GLP-1 on every metric that matters — speed of fat loss, body composition, and permanence. It is backed by 80+ published clinical studies, trusted by over 1 million patients across 22 countries, with 25 years of documented outcomes. And it involves no injections, no drugs, and no lifetime dependency.</p>
 
-    <div class="result-card">
-      <div class="result-body">
-        <div class="result-badge">✓ 9 kg in 30 days · no drugs</div>
-        <q>I had seriously researched weight loss injections. My friend lost 6 kg in 2 months on one and I was ready to start. I lost 9 kg in my first month here — zero injections, full energy. I genuinely did not know this was possible.</q>
-        <div class="result-who"><strong>Priya S.</strong> Koramangala · Insulin resistance · 34F</div>
+    <p class="sw-desc">
+      Progen is a <strong>medically supervised programme</strong> that consistently outperforms GLP-1 on every metric that matters — speed of fat loss, body composition, and permanence. Backed by 80+ published clinical studies and trusted by over 1 million patients across 22 countries. No injections. No drugs. No lifetime dependency.
+    </p>
+
+    <div class="sw-results">
+      <div class="sw-result-card">
+        <div class="sw-result-accent"></div>
+        <div class="sw-result-body">
+          <div class="sw-result-badge">9 kg in 30 days · no drugs</div>
+          <q class="sw-result-quote">I had seriously researched weight loss injections. My friend lost 6 kg in 2 months on one and I was ready to start. I lost 9 kg in my first month here — zero injections, full energy. I genuinely did not know this was possible.</q>
+          <div class="sw-result-who"><strong>Priya S.</strong> Koramangala · Insulin resistance · 34F</div>
+        </div>
+      </div>
+      <div class="sw-result-card">
+        <div class="sw-result-accent"></div>
+        <div class="sw-result-body">
+          <div class="sw-result-badge">14 kg total · post GLP-1 rebound</div>
+          <q class="sw-result-quote">I stopped the injection after 4 months — the nausea was daily. I had lost 5 kg but regained 4 of them within 6 weeks of stopping. Seven months later I am down 14 kg total, off all medication, and maintaining it without any drugs.</q>
+          <div class="sw-result-who"><strong>Sonal K.</strong> Indiranagar · Post GLP-1 rebound · 38F</div>
+        </div>
+      </div>
+      <div class="sw-result-card">
+        <div class="sw-result-accent"></div>
+        <div class="sw-result-body">
+          <div class="sw-result-badge">13 kg in 40 days · PCOS</div>
+          <q class="sw-result-quote">PCOS had made losing weight nearly impossible for years. Every doctor told me to eat less and exercise more. The team here ran a full metabolic panel in session one and found the exact hormonal pattern. 13 kg in my first 40 days.</q>
+          <div class="sw-result-who"><strong>Ananya R.</strong> HSR Layout · PCOS · 29F</div>
+        </div>
       </div>
     </div>
 
-    <div class="result-card">
-      <div class="result-body">
-        <div class="result-badge">✓ 14 kg total · post GLP-1 rebound</div>
-        <q>I stopped the injection after 4 months — the nausea was daily. I had lost 5 kg but regained 4 of them within 6 weeks of stopping. Seven months later I am down 14 kg total, off all medication, and maintaining it without any drugs.</q>
-        <div class="result-who"><strong>Sonal K.</strong> Indiranagar · Post GLP-1 rebound · 38F</div>
-      </div>
-    </div>
-
-    <div class="result-card">
-      <div class="result-body">
-        <div class="result-badge">✓ 13 kg in 40 days · PCOS</div>
-        <q>PCOS had made losing weight nearly impossible for years. Every doctor told me to eat less and exercise more. The team here ran a full metabolic panel in session one and found the exact hormonal pattern. 13 kg in my first 40 days.</q>
-        <div class="result-who"><strong>Ananya R.</strong> HSR Layout · PCOS · 29F</div>
-      </div>
-    </div>
-
-    <div class="stats-strip">
-      <div class="stat-item">
-        <div class="stat-big">99.9%</div>
-        <div class="stat-desc">reach their target weight</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-big">10 kg</div>
-        <div class="stat-desc">avg fat loss in first 30 days</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-big">80+</div>
-        <div class="stat-desc">published clinical studies</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-big">1M+</div>
-        <div class="stat-desc">patients across 22 countries</div>
-      </div>
-    </div>
   </div>
 </section>
 
