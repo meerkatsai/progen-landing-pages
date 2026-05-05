@@ -892,6 +892,7 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
 </div>
 
 <script>
+(function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
 (function(){
   var REFERER_TITLE = 'Keto Diet Program Bangalore - ProGen';
 
@@ -922,6 +923,7 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
       window.dataLayer.push({event:'generate_lead', form_name:'keto_consultation', value:750});
     }
 
+    fd.append('referrer', sessionStorage.getItem('landing_url') || window.location.href);
     fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{
       method:'POST',
       body:fd,
