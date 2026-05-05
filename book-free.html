@@ -877,7 +877,6 @@ function submitProgenForm(formEl) {
     fd.append('form_fields[field_1f3565c]', phone);
     fd.append('form_fields[field_cb33b7d]', 'Indiranagar-Bangalore');
     fd.append('form_fields[field_37e37a7]', time);
-    fd.append('referrer', sessionStorage.getItem('landing_url') || window.location.href);
     fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'no-cors'})
     .then(function(){ window.location.href='/thank-you/'; })
     .catch(function(){ window.location.href='/thank-you/'; });
@@ -894,7 +893,6 @@ function submitProgenForm(formEl) {
   fd.append('form_fields[name]', name);
   fd.append('form_fields[field_1f3565c]', phone);
   fd.append('form_fields[field_cb33b7d]','Indiranagar-Bangalore');
-    fd.append('referrer', sessionStorage.getItem('landing_url') || window.location.href);
   fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{method:'POST',body:fd,mode:'no-cors'})
   .then(function(){window.location.href='/thank-you/';})
   .catch(function(){window.location.href='/thank-you/';});

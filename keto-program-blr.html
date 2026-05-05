@@ -923,7 +923,6 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
       window.dataLayer.push({event:'generate_lead', form_name:'keto_consultation', value:750});
     }
 
-    fd.append('referrer', sessionStorage.getItem('landing_url') || window.location.href);
     fetch('https://progenmethod.com/wp-admin/admin-ajax.php',{
       method:'POST',
       body:fd,
