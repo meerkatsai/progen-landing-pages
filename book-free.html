@@ -886,27 +886,6 @@ function submitProgenForm(formEl) {
     .then(function(){ window.location.href='/thank-you/'; })
     .catch(function(){ window.location.href='/thank-you/'; });
     return false;
-  }
-  if (!phone || phone.length < 7) { if(phoneEl) phoneEl.focus(); return false; }
-  btn.disabled = true; btn.textContent = 'Booking your slot…';
-  var landingUrl = sessionStorage.getItem('landing_url') || window.location.href;
-  var source = 'direct';
-  try { var sp = new URL(landingUrl).searchParams.get('utm_source'); if (sp) source = sp; } catch(e) {}
-  var payload = {
-    name: name,
-    phone: phone,
-    location: 'Indiranagar-Bangalore',
-    landing_url: landingUrl,
-    source: source
-  };
-  fetch('https://google-sheets-github.vercel.app/api/write-sheet', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(function(){window.location.href='/thank-you/';})
-  .catch(function(){window.location.href='/thank-you/';});
-  return false;
 }
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('form.progen-form').forEach(function(f){
