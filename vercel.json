@@ -13,6 +13,7 @@
     { "source": "/thank-you-glp1",                       "destination": "/thank-you-glp1.html" },
     { "source": "/weight-loss-program-mumbai",          "destination": "/program-mum.html" },
     { "source": "/weight-loss-clinic-mumbai",           "destination": "/clinic-mum.html" },
-    { "source": "/medical-weight-loss-mumbai",          "destination": "/medical-mum.html" }
+    { "source": "/medical-weight-loss-mumbai",          "destination": "/medical-mum.html" },
+    { "source": "/weight-loss-clinic-delhi",            "destination": "/clinic-del.html" }
   ]
 }
