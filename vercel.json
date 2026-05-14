@@ -15,6 +15,6 @@
     { "source": "/weight-loss-clinic-mumbai",           "destination": "/clinic-mum.html" },
     { "source": "/medical-weight-loss-mumbai",          "destination": "/medical-mum.html" },
     { "source": "/weight-loss-clinic-delhi",            "destination": "/clinic-del.html" },
-    { "source": "/dietitian-near-me-kolkata",           "destination": "/dietitian-kol.html" }
+    { "source": "/weight-loss-dietitian-kolkata",       "destination": "/dietitian-kol.html" }
   ]
 }
