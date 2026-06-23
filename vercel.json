@@ -16,6 +16,7 @@
     { "source": "/medical-weight-loss-mumbai",          "destination": "/medical-mum.html" },
     { "source": "/weight-loss-clinic-delhi",            "destination": "/clinic-del.html" },
     { "source": "/weight-loss-dietitian-kolkata",       "destination": "/dietitian-kol.html" },
-    { "source": "/best-dietician-mumbai",               "destination": "/dietician-mum.html" }
+    { "source": "/best-dietician-mumbai",               "destination": "/dietician-mum.html" },
+    { "source": "/weight-loss-treatment-for-women",     "destination": "/women-blr.html" }
   ]
 }
