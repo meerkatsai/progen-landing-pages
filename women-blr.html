@@ -264,7 +264,7 @@
           <p class="lead">Book your free consultation</p>
           <p class="sub">A doctor will call within 2 hours to confirm your slot.</p>
 
-          <form class="progen-form" onsubmit="return submitProgenForm(this);" novalidate>
+          <form class="progen-form" novalidate>
             <div class="field">
               <label class="pg-label" for="hero-name">Full Name</label>
               <input class="pg-input" type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
@@ -613,7 +613,7 @@
       <p style="font-family:var(--pg-font-display);font-size:20px;color:var(--pg-navy);margin-bottom:6px;font-weight:500;line-height:1.2;">Reserve your free consultation now</p>
       <p style="color:var(--pg-ink-2);font-size:14px;margin-bottom:var(--sp-5);">A doctor will call within 2 hours to confirm your slot.</p>
 
-      <form class="progen-form" onsubmit="return submitProgenForm(this);" novalidate>
+      <form class="progen-form" novalidate>
         <div class="field">
           <label class="pg-label" for="final-name">Full Name</label>
           <input class="pg-input" type="text" id="final-name" name="name" placeholder="Your full name" required autocomplete="name">
@@ -727,8 +727,28 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
-(function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
+  // Capture the FIRST landing URL (with its UTMs) for the whole session.
+  (function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
+
+  // Pull all attribution params from a URL (falls back to empty strings).
+  function pgGetParams(url){
+    var q; try { q = new URL(url).searchParams; } catch(e){ q = new URLSearchParams(''); }
+    return {
+      utm_source:   q.get('utm_source')   || '',
+      utm_medium:   q.get('utm_medium')   || '',
+      utm_campaign: q.get('utm_campaign') || '',
+      utm_term:     q.get('utm_term')     || '',
+      utm_content:  q.get('utm_content')  || '',
+      gclid:        q.get('gclid')        || '',
+      gbraid:       q.get('gbraid')       || '',
+      wbraid:       q.get('wbraid')       || '',
+      fbclid:       q.get('fbclid')       || ''
+    };
+  }
+
+  var PG_SUBMITTING = false; // guard against double submission
   function submitProgenForm(formEl) {
+    if (PG_SUBMITTING) return false;
     var btn      = formEl.querySelector('button[type=submit]');
     var nameEl   = formEl.querySelector('[name=name]');
     var emailEl  = formEl.querySelector('[name=email]');
@@ -742,11 +762,12 @@
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ if(emailEl) emailEl.focus(); return false; }
     if (!phone || phone.length < 7)                          { if(phoneEl) phoneEl.focus(); return false; }
     if (!time)                                               { if(timeEl)  timeEl.focus();  return false; }
-    var origText = btn.textContent;
+    PG_SUBMITTING = true;
     btn.disabled = true; btn.textContent = 'Booking your slot…';
+    // Prefer UTMs from the first landing URL; fall back to the current URL if absent.
     var landingUrl = sessionStorage.getItem('landing_url') || window.location.href;
-    var source = 'direct';
-    try { var sp = new URL(landingUrl).searchParams.get('utm_source'); if (sp) source = sp; } catch(e) {}
+    var p = pgGetParams(landingUrl);
+    if (!p.utm_source && !p.gclid && !p.fbclid) { p = pgGetParams(window.location.href); }
     var payload = {
       name: name,
       email: email,
@@ -754,9 +775,17 @@
       location: 'Indiranagar-Bangalore',
       time: time,
       landing_url: landingUrl,
-      source: source
+      source: p.utm_source || 'direct',
+      utm_source:   p.utm_source,
+      utm_medium:   p.utm_medium,
+      utm_campaign: p.utm_campaign,
+      utm_term:     p.utm_term,
+      utm_content:  p.utm_content,
+      gclid:        p.gclid,
+      gbraid:       p.gbraid,
+      wbraid:       p.wbraid,
+      fbclid:       p.fbclid
     };
-    sendToMeerkats({name:payload.name,email:payload.email,phone:payload.phone,pref_call_timing:payload.time,location:payload.location,landing_page:payload.landing_url,received_format_1:payload.source,received_format_2:(new URLSearchParams(window.location.search)).get('utm_campaign')||''});
     fetch('https://google-sheets-github.vercel.app/api/write-sheet', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -766,20 +795,9 @@
     .catch(function(){ window.location.href='/thank-you/'; });
     return false;
   }
+  // Single submit binding (no inline onsubmit) → fires exactly once per lead.
   document.querySelectorAll('form.progen-form').forEach(function(f){
     f.addEventListener('submit',function(e){e.preventDefault();submitProgenForm(f);});
-  });
-  function sendToMeerkats(data) {
-    fetch('/api/meerkats', {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({table_id:'pjwwqprrepvecffeqzzlx', data:data})
-    }).then(function(r){ console.log('[Meerkats] status:', r.status); }).catch(function(e){ console.error('[Meerkats] error:', e); });
-  }
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el){
-    el.addEventListener('click', function(){
-      var p = new URLSearchParams(window.location.search);
-      sendToMeerkats({type:'whatsapp',landing_url:window.location.href,utm_source:p.get('utm_source')||'direct',utm_medium:p.get('utm_medium')||'',utm_campaign:p.get('utm_campaign')||'',utm_term:p.get('utm_term')||''});
-    });
   });
 </script>
 

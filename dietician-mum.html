@@ -956,9 +956,25 @@ document.querySelectorAll('.pg-faq').forEach(function(d){
   });
 });
 
-// Lead capture → Google Sheet endpoint
+// Lead capture → Google Sheet endpoint (with full UTM + click-id attribution)
 (function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
+function pgGetParams(url){
+    var q; try { q = new URL(url).searchParams; } catch(e){ q = new URLSearchParams(''); }
+    return {
+      utm_source:   q.get('utm_source')   || '',
+      utm_medium:   q.get('utm_medium')   || '',
+      utm_campaign: q.get('utm_campaign') || '',
+      utm_term:     q.get('utm_term')     || '',
+      utm_content:  q.get('utm_content')  || '',
+      gclid:        q.get('gclid')        || '',
+      gbraid:       q.get('gbraid')       || '',
+      wbraid:       q.get('wbraid')       || '',
+      fbclid:       q.get('fbclid')       || ''
+    };
+}
+var PG_SUBMITTING = false;
 function submitProgenForm(formEl) {
+    if (PG_SUBMITTING) return false;
     var btn      = formEl.querySelector('button[type=submit]');
     var nameEl   = formEl.querySelector('[name=name]');
     var emailEl  = formEl.querySelector('[name=email]');
@@ -972,11 +988,21 @@ function submitProgenForm(formEl) {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { if(emailEl) emailEl.focus(); return false; }
     if (!phone || phone.length < 7)                           { if(phoneEl) phoneEl.focus(); return false; }
     if (!time)                                                { if(timeEl)  timeEl.focus();  return false; }
+    PG_SUBMITTING = true;
     btn.disabled = true; btn.textContent = 'Booking your slot…';
     var landingUrl = sessionStorage.getItem('landing_url') || window.location.href;
-    var source = 'direct';
-    try { var sp = new URL(landingUrl).searchParams.get('utm_source'); if (sp) source = sp; } catch(e) {}
-    var payload = { name:name, email:email, phone:phone, location:'Andheri-Mumbai', time:time, landing_url:landingUrl, source:source };
+    var p = pgGetParams(landingUrl);
+    if (!p.utm_source && !p.gclid && !p.fbclid) { p = pgGetParams(window.location.href); }
+    var payload = {
+      name:name, email:email, phone:phone,
+      location:'Andheri-Mumbai',
+      time:time,
+      landing_url:landingUrl,
+      source: p.utm_source || 'direct',
+      utm_source:p.utm_source, utm_medium:p.utm_medium, utm_campaign:p.utm_campaign,
+      utm_term:p.utm_term, utm_content:p.utm_content,
+      gclid:p.gclid, gbraid:p.gbraid, wbraid:p.wbraid, fbclid:p.fbclid
+    };
     fetch('https://google-sheets-github.vercel.app/api/write-sheet', {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
     })
