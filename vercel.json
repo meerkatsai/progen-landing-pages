@@ -18,6 +18,7 @@
     { "source": "/weight-loss-dietitian-kolkata",       "destination": "/dietitian-kol.html" },
     { "source": "/best-dietician-mumbai",               "destination": "/dietician-mum.html" },
     { "source": "/pcos-weight-loss-program-bangalore",  "destination": "/pcos-blr.html" },
+    { "source": "/hormonal-weight-loss-program-bangalore", "destination": "/hormonal-blr.html" },
     { "source": "/weight-loss-treatment-for-women",     "destination": "/women-blr.html" }
   ]
 }
