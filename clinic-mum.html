@@ -186,6 +186,28 @@
       .wa-float{bottom:80px}
       body{padding-bottom:60px}
     }
+    /* ---- Two-step lead form ---- */
+    .goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .goal-btn{display:block;width:100%;padding:16px 12px;background:var(--pg-bg);border:1px solid var(--pg-line-2);border-radius:var(--r-md);font-family:var(--pg-font-body);font-size:15px;font-weight:600;color:var(--pg-navy);cursor:pointer;text-align:center;transition:border-color var(--dur-2) var(--ease),background var(--dur-2) var(--ease),transform var(--dur-1) var(--ease)}
+    .goal-btn:hover{border-color:var(--pg-teal);background:#fff;transform:translateY(-1px)}
+    .step-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-3)}
+    .step-meta .prog{font-family:var(--pg-font-mono);font-size:11px;color:var(--pg-teal);letter-spacing:.08em}
+    .step-meta .back{font-size:12px;color:var(--pg-ink-3);cursor:pointer;background:none;border:none;font-family:var(--pg-font-body);padding:0}
+    .step-meta .back:hover{color:var(--pg-navy)}
+    .prog-bar{height:3px;background:var(--pg-line);border-radius:2px;overflow:hidden;margin-bottom:var(--sp-4)}
+    .prog-bar i{display:block;height:100%;background:var(--pg-teal)}
+    .next-steps{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px dashed var(--pg-line)}
+    .next-steps p{font-family:var(--pg-font-mono);font-size:10px;letter-spacing:.1em;color:var(--pg-ink-3);text-transform:uppercase;margin-bottom:8px}
+    .next-steps ol{list-style:none;display:flex;flex-direction:column;gap:6px}
+    .next-steps li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:13px;color:var(--pg-ink-2);align-items:baseline}
+    .next-steps li b{color:var(--pg-teal);font-family:var(--pg-font-mono);font-size:11px;font-weight:500}
+    .chip-wrap{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;background:var(--pg-bg);border:1px solid var(--pg-line-2);border-radius:999px;font-family:var(--pg-font-body);font-size:13.5px;font-weight:500;color:var(--pg-navy);cursor:pointer;transition:border-color var(--dur-2) var(--ease),background var(--dur-2) var(--ease),color var(--dur-2) var(--ease)}
+    .chip:hover{border-color:var(--pg-teal)}
+    .chip.sel{background:rgba(13,110,110,.08);border-color:var(--pg-teal);color:var(--pg-teal);font-weight:600}
+    .chip.sel::before{content:"✓"}
+    .payoff{display:flex;gap:10px;align-items:flex-start;background:rgba(13,110,110,.07);border:1px solid rgba(13,110,110,.2);border-radius:var(--r-md);padding:12px 14px;font-size:14px;color:var(--pg-navy);margin-bottom:var(--sp-4);line-height:1.45}
+    .payoff .tick{color:var(--pg-success);font-weight:700;flex-shrink:0}
     /* ---- Video testimonials (click-to-load, zero LCP cost) ---- */
     .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-bottom:var(--sp-7)}
     @media(max-width:900px){.vid-grid{grid-template-columns:repeat(2,1fr)}}
@@ -294,40 +316,97 @@
       <aside id="book">
         <div class="hero-form">
           <p class="lead">Book your free clinic consultation</p>
-          <p class="sub">A doctor will call within 2 hours to confirm your slot.</p>
+          <p class="sub">2 quick questions, 30 seconds. Our patient coordinator — not a call centre — calls within 2 hours.</p>
 
           <form class="progen-form" onsubmit="return submitProgenForm(this);" novalidate>
-            <div class="field">
-              <label class="pg-label" for="hero-name">Full Name</label>
-              <input class="pg-input" type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
+            <input type="hidden" name="goal" value="">
+            <input type="hidden" name="tried" value="">
+
+            <!-- STEP 1: zero-friction engagement question -->
+            <div class="form-step" data-step="1">
+              <div class="prog-bar"><i style="width:30%"></i></div>
+              <label class="pg-label" style="font-size:15px;color:var(--pg-navy);font-weight:600;margin-bottom:var(--sp-3);">How much weight do you want to lose?</label>
+              <div class="goal-grid">
+                <button type="button" class="goal-btn" data-goal="Under 5 kg">Under 5 kg</button>
+                <button type="button" class="goal-btn" data-goal="5-10 kg">5–10 kg</button>
+                <button type="button" class="goal-btn" data-goal="10-20 kg">10–20 kg</button>
+                <button type="button" class="goal-btn" data-goal="20+ kg">20+ kg</button>
+                <button type="button" class="goal-btn" data-goal="Not sure yet" style="grid-column:1/-1;">Not sure yet — the doctor can advise</button>
+              </div>
+              <div class="next-steps">
+                <p>What happens next</p>
+                <ol>
+                  <li><b>01</b><span>Answer 2 quick questions (30 seconds)</span></li>
+                  <li><b>02</b><span>Our patient coordinator calls within 2 hours</span></li>
+                  <li><b>03</b><span>Free 45-min doctor consultation at Andheri West</span></li>
+                </ol>
+              </div>
             </div>
-            <div class="field" style="margin-top:var(--sp-3);">
-              <label class="pg-label" for="hero-email">Email Address</label>
-              <input class="pg-input" type="email" id="hero-email" name="email" placeholder="you@example.com" required autocomplete="email">
+
+            <!-- STEP 2: qualification + sunk cost -->
+            <div class="form-step" data-step="2" hidden>
+              <div class="step-meta">
+                <span class="prog">STEP 2 OF 3</span>
+                <button type="button" class="back" data-to="1">← Back</button>
+              </div>
+              <div class="prog-bar"><i style="width:65%"></i></div>
+              <label class="pg-label" style="font-size:15px;color:var(--pg-navy);font-weight:600;margin-bottom:var(--sp-3);">What have you already tried?</label>
+              <div class="chip-wrap">
+                <button type="button" class="chip" data-tried="Dieting">Dieting</button>
+                <button type="button" class="chip" data-tried="Gym / workouts">Gym / workouts</button>
+                <button type="button" class="chip" data-tried="Diet apps">Diet apps</button>
+                <button type="button" class="chip" data-tried="Dietician">Dietician</button>
+                <button type="button" class="chip" data-tried="Slimming centre">Slimming centre</button>
+                <button type="button" class="chip" data-tried="Nothing yet">Nothing yet</button>
+              </div>
+              <p class="form-footnote" style="margin-top:var(--sp-3);">This helps the doctor understand what hasn't worked for your body.</p>
+              <div class="field" style="margin-top:var(--sp-4);">
+                <button type="button" class="pg-btn pg-btn-accent to-step3" style="width:100%;justify-content:center;">
+                  Continue <span class="arr">→</span>
+                </button>
+              </div>
             </div>
-            <div class="field" style="margin-top:var(--sp-3);">
-              <label class="pg-label" for="hero-phone">Mobile Number</label>
-              <input class="pg-input" type="tel" id="hero-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+
+            <!-- STEP 3: payoff, then contact details with reasons-why -->
+            <div class="form-step" data-step="3" hidden>
+              <div class="step-meta">
+                <span class="prog">STEP 3 OF 3 — LAST STEP</span>
+                <button type="button" class="back" data-to="2">← Back</button>
+              </div>
+              <div class="prog-bar"><i style="width:90%"></i></div>
+              <div class="payoff"><span class="tick">✓</span><span><strong>Good news</strong> — you're a fit for the free doctor's assessment. Book your slot below.</span></div>
+              <div class="field">
+                <label class="pg-label" for="hero-name">Full Name</label>
+                <input class="pg-input" type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-phone">Mobile Number <span style="font-weight:400;color:var(--pg-ink-3);">(our coordinator calls to fix your slot)</span></label>
+                <input class="pg-input" type="tel" id="hero-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-email">Email <span style="font-weight:400;color:var(--pg-ink-3);">(for your confirmation &amp; prep checklist)</span></label>
+                <input class="pg-input" type="email" id="hero-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-time">Preferred Call Time</label>
+                <select class="pg-select" id="hero-time" name="time" required>
+                  <option value="" disabled selected>Select a time</option>
+                  <option value="Morning">Morning (9AM – 12PM)</option>
+                  <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+                  <option value="Evening">Evening (4PM – 7PM)</option>
+                  <option value="Anytime">Anytime</option>
+                </select>
+              </div>
+              <div class="field" style="margin-top:var(--sp-5)">
+                <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:15px 22px;">
+                  Book My Free Consultation <span class="arr">→</span>
+                </button>
+              </div>
+              <p class="form-footnote">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Free means free — no pressure to enrol. Your details stay with our clinic team only. No spam, ever.
+              </p>
             </div>
-            <div class="field" style="margin-top:var(--sp-3);">
-              <label class="pg-label" for="hero-time">Preferred Call Time</label>
-              <select class="pg-select" id="hero-time" name="time" required>
-                <option value="" disabled selected>Select a time</option>
-                <option value="Morning">Morning (9AM – 12PM)</option>
-                <option value="Afternoon">Afternoon (12PM – 4PM)</option>
-                <option value="Evening">Evening (4PM – 7PM)</option>
-                <option value="Anytime">Anytime</option>
-              </select>
-            </div>
-            <div class="field" style="margin-top:var(--sp-5)">
-              <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:15px 22px;">
-                Book My Free Consultation <span class="arr">→</span>
-              </button>
-            </div>
-            <p class="form-footnote">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              Free consult · No obligation · 100% confidential. We use these details only to book your consultation — never shared, no spam.
-            </p>
           </form>
 
         </div>
@@ -476,17 +555,68 @@
   </div>
 </section>
 
-<!-- ========== PROBLEM AGITATION ========== -->
+<!-- ========== LOCAL / FIND US ========== -->
 <section class="pg-section">
   <div class="pg-container">
     <div class="sec-head">
-      <p class="num">SECTION 02 — THE PROBLEM</p>
+      <p class="num">SECTION 02 — FIND US</p>
+      <h2>Visit our weight loss centre in Andheri West, Mumbai</h2>
+      <p>Right opposite D N Nagar Metro Station (Blue Line 1) — easy to reach from anywhere in Mumbai, with parking available.</p>
+    </div>
+
+    <div class="local-grid">
+      <div class="local-card">
+        <h3>ProGen Weight Management — Mumbai Clinic</h3>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Address:</strong> Lotus Link Square, Unit 1107, Andheri West, Mumbai – 400053 · Opp. D N Nagar Metro Station</span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><strong>Hours:</strong> Mon–Sat, 10:00 AM – 7:00 PM · Sunday closed</span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><strong>Phone / WhatsApp:</strong> <a href="tel:+918419900512" style="color:var(--pg-teal);font-weight:600;">+91 84199 00512</a></span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span><strong>Serving all of Mumbai:</strong> clients visit us from Andheri, Juhu, Versova, Lokhandwala, Bandra, Goregaon, Malad &amp; Powai. Can't travel? Online consultations are available.</span>
+        </div>
+        <div style="margin-top:var(--sp-5);display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://maps.google.com/?daddr=19.1282946,72.8276363" target="_blank" rel="noopener" class="pg-btn pg-btn-ghost">Get Directions</a>
+          <a href="#book" class="pg-btn pg-btn-accent">Book Free Consultation <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=Lotus+Link+Square,+D+N+Nagar,+Andheri+West,+Mumbai+400053&output=embed" loading="lazy" title="Map — ProGen weight loss clinic at Lotus Link Square, Andheri West, Mumbai" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="vid" style="margin-top:var(--sp-5);">
+          <button class="vid-thumb" type="button" data-yt="k_BFJnA5hBY" aria-label="Play a video tour of the ProGen clinic">
+            <img src="https://i.ytimg.com/vi/k_BFJnA5hBY/hqdefault.jpg" alt="Video tour of a ProGen Weight Management clinic" loading="lazy" width="480" height="360">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <div class="vid-cap"><strong>Take a tour of a ProGen clinic</strong><span>SEE THE CLINIC BEFORE YOU VISIT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM AGITATION ========== -->
+<section class="pg-section" style="background:var(--pg-canvas);">
+  <div class="pg-container">
+    <div class="sec-head">
+      <p class="num">SECTION 03 — THE PROBLEM</p>
       <h2>Tried slimming centres, diet clinics and gyms in Mumbai? Here's why the weight keeps coming back:</h2>
     </div>
 
     <div class="r2col">
       <div>
-        <p style="color:var(--pg-ink-2);font-size:17px;line-height:1.7;margin-bottom:var(--sp-6);">Most programmes give you a generic meal plan and leave you alone — they don't account for your metabolism, hormones, or medical history. ProGen is different because <strong style="color:var(--pg-navy);">a doctor designs and monitors your entire plan.</strong></p>
+        <p style="color:var(--pg-ink-2);font-size:17px;line-height:1.7;margin-bottom:var(--sp-4);">You've probably done everything right. Skipped the rice, paid for the gym, followed the diet chart for three weeks — lost 3 kg, gained back 4. <strong style="color:var(--pg-navy);">It's not your willpower that failed. It's that nobody ever checked <em>why your body</em> holds on to weight.</strong></p>
+        <p style="color:var(--pg-ink-2);font-size:16px;line-height:1.7;margin-bottom:var(--sp-6);">Slimming centres guess. <strong style="color:var(--pg-navy);">We measure.</strong> A ProGen doctor tests your metabolism, hormones and body composition first — then builds a plan for your body, and monitors it every week.</p>
         <a href="#book" class="pg-btn pg-btn-accent">
           Get a Doctor-Designed Plan — Free <span class="arr">→</span>
         </a>
@@ -518,10 +648,10 @@
 </section>
 
 <!-- ========== 5-PHASE MECHANISM ========== -->
-<section class="pg-section" style="background:var(--pg-canvas);">
+<section class="pg-section">
   <div class="pg-container">
     <div class="sec-head">
-      <p class="num">SECTION 03 — THE METHOD</p>
+      <p class="num">SECTION 04 — THE METHOD</p>
       <h2>The ProGen 5-Phase Protocol — medical weight loss treatment used in 22 countries</h2>
       <p>A medically structured programme where every phase is designed by a doctor and monitored continuously.</p>
     </div>
@@ -557,10 +687,10 @@
 </section>
 
 <!-- ========== SERVICES ========== -->
-<section class="pg-section">
+<section class="pg-section" style="background:var(--pg-canvas);">
   <div class="pg-container">
     <div class="sec-head">
-      <p class="num">SECTION 04 — SERVICES</p>
+      <p class="num">SECTION 05 — SERVICES</p>
       <h2>Weight loss services at our Mumbai clinic</h2>
       <p>Every service at our Andheri West weight loss centre is doctor-led and personalised — whether your goal is 5 kg or 50 kg.</p>
     </div>
@@ -579,12 +709,12 @@
 </section>
 
 <!-- ========== OFFER STACK ========== -->
-<section class="pg-section" style="background:var(--pg-canvas);">
+<section class="pg-section">
   <div class="pg-container">
     <div class="sec-head" style="max-width:860px;margin-left:auto;margin-right:auto;">
-      <p class="num">SECTION 05 — YOUR FREE CONSULTATION</p>
+      <p class="num">SECTION 06 — YOUR FREE CONSULTATION</p>
       <h2>What you get in your <span class="hl-green">free consultation.</span></h2>
-      <p>No hidden fees. No membership required. Walk into our Andheri West clinic, get a doctor's plan, walk out.</p>
+      <p>Why free? Because we only take on clients we're confident we can help — and the only way to know is a proper medical assessment. No hidden fees. No membership required. Walk into our Andheri West clinic, get a doctor's plan, walk out.</p>
     </div>
 
     <div class="offer-wrap">
@@ -629,63 +759,13 @@
 </section>
 
 <!-- ========== GUARANTEE ========== -->
-<section class="pg-section" style="padding-top:0;background:var(--pg-canvas);">
+<section class="pg-section" style="padding-top:0;">
   <div class="pg-container">
     <div class="guarantee">
       <div class="seal">OUR<br>PROMISE<br>TO YOU</div>
       <div>
         <h3>The ProGen Clarity Guarantee</h3>
-        <p>If you attend your free consultation and don't leave with a clear, medically-grounded plan, we'll give you a written personalised plan to take home at no charge.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== LOCAL / FIND US ========== -->
-<section class="pg-section">
-  <div class="pg-container">
-    <div class="sec-head">
-      <p class="num">SECTION 06 — FIND US</p>
-      <h2>Visit our weight loss centre in Andheri West, Mumbai</h2>
-      <p>Right opposite D N Nagar Metro Station (Blue Line 1) — easy to reach from anywhere in Mumbai, with parking available.</p>
-    </div>
-
-    <div class="local-grid">
-      <div class="local-card">
-        <h3>ProGen Weight Management — Mumbai Clinic</h3>
-        <div class="local-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span><strong>Address:</strong> Lotus Link Square, Unit 1107, Andheri West, Mumbai – 400053 · Opp. D N Nagar Metro Station</span>
-        </div>
-        <div class="local-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span><strong>Hours:</strong> Mon–Sat, 10:00 AM – 7:00 PM · Sunday closed</span>
-        </div>
-        <div class="local-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span><strong>Phone / WhatsApp:</strong> <a href="tel:+918419900512" style="color:var(--pg-teal);font-weight:600;">+91 84199 00512</a></span>
-        </div>
-        <div class="local-row">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span><strong>Serving all of Mumbai:</strong> clients visit us from Andheri, Juhu, Versova, Lokhandwala, Bandra, Goregaon, Malad &amp; Powai. Can't travel? Online consultations are available.</span>
-        </div>
-        <div style="margin-top:var(--sp-5);display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://maps.google.com/?daddr=19.1282946,72.8276363" target="_blank" rel="noopener" class="pg-btn pg-btn-ghost">Get Directions</a>
-          <a href="#book" class="pg-btn pg-btn-accent">Book Free Consultation <span class="arr">→</span></a>
-        </div>
-      </div>
-
-      <div>
-        <div class="map-embed">
-          <iframe src="https://www.google.com/maps?q=Lotus+Link+Square,+D+N+Nagar,+Andheri+West,+Mumbai+400053&output=embed" loading="lazy" title="Map — ProGen weight loss clinic at Lotus Link Square, Andheri West, Mumbai" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="vid" style="margin-top:var(--sp-5);">
-          <button class="vid-thumb" type="button" data-yt="k_BFJnA5hBY" aria-label="Play a video tour of the ProGen clinic">
-            <img src="https://i.ytimg.com/vi/k_BFJnA5hBY/hqdefault.jpg" alt="Video tour of a ProGen Weight Management clinic" loading="lazy" width="480" height="360">
-            <span class="play" aria-hidden="true"></span>
-          </button>
-          <div class="vid-cap"><strong>Take a tour of a ProGen clinic</strong><span>SEE THE CLINIC BEFORE YOU VISIT</span></div>
-        </div>
+        <p>Honestly, ProGen isn't for everyone — if the doctor's assessment shows our protocol isn't right for you, they'll tell you so and point you in the right direction instead. But if you attend your free consultation, you will leave with a clear, medically-grounded plan in writing — at no charge, whether or not you ever come back.</p>
       </div>
     </div>
   </div>
@@ -773,16 +853,17 @@
     <div>
       <p class="pg-eyebrow" style="margin-bottom:var(--sp-3);">Free Consultation · Andheri West, Mumbai</p>
       <h2>Book your free weight loss consultation in Mumbai</h2>
-      <p>One 45-minute session with a ProGen doctor at our Andheri West clinic — opp. D N Nagar Metro. Zero cost. Zero commitment. Walk out with a plan.</p>
+      <p>Imagine stepping on the scale one month from now, 8–10 kg lighter — because this was the week you finally got a doctor to look at <em>why</em> the weight wasn't moving. One 45-minute session at our Andheri West clinic, opp. D N Nagar Metro. Zero cost. Zero commitment. Walk out with a plan.</p>
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:var(--sp-5);">
         <span class="pg-badge"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 6.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> FREE — NO PAYMENT</span>
         <span class="pg-badge"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 6.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> ZERO COMMITMENT</span>
         <span class="pg-badge"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 6.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> DOCTOR-LED</span>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--pg-ink-2);">
+      <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--pg-ink-2);margin-bottom:var(--sp-4);">
         <div class="pulse"></div>
         <span>Slots confirmed first-come, first-served — our team calls within 2 hours</span>
       </div>
+      <p style="font-size:13.5px;color:var(--pg-ink-3);line-height:1.6;">Sananda, Vini, Shital and Anna — the Google reviewers you read above — all started with this same free consultation.</p>
     </div>
 
     <div class="form-card">
@@ -903,7 +984,7 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
-(function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
+(function(){try{if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}}catch(e){}})();
   function submitProgenForm(formEl) {
     var btn      = formEl.querySelector('button[type=submit]');
     var nameEl   = formEl.querySelector('[name=name]');
@@ -920,15 +1001,20 @@
     if (!time)                                               { if(timeEl)  timeEl.focus();  return false; }
     var origText = btn.textContent;
     btn.disabled = true; btn.textContent = 'Booking your slot…';
-    var landingUrl = sessionStorage.getItem('landing_url') || window.location.href;
+    var landingUrl = window.location.href;
+    try { landingUrl = sessionStorage.getItem('landing_url') || window.location.href; } catch(e) {}
     var source = 'direct';
     try { var sp = new URL(landingUrl).searchParams.get('utm_source'); if (sp) source = sp; } catch(e) {}
+    var goalEl  = formEl.querySelector('[name=goal]');
+    var triedEl = formEl.querySelector('[name=tried]');
     var payload = {
       name: name,
       email: email,
       phone: phone,
       location: 'Andheri-Mumbai',
       time: time,
+      goal: goalEl && goalEl.value ? goalEl.value : '',
+      tried: triedEl && triedEl.value ? triedEl.value : '',
       landing_url: landingUrl,
       source: source
     };
@@ -944,6 +1030,36 @@
   document.querySelectorAll('form.progen-form').forEach(function(f){
     f.addEventListener('submit',function(e){e.preventDefault();submitProgenForm(f);});
   });
+  /* Multi-step hero form: goal → what-tried chips → contact details */
+  (function(){
+    var form = document.querySelector('.progen-form .form-step') ? document.querySelector('.progen-form .form-step').closest('form') : null;
+    if (!form) return;
+    function show(n){
+      form.querySelectorAll('.form-step').forEach(function(s){ s.hidden = (s.getAttribute('data-step') !== String(n)); });
+      if (typeof gtag === 'function') { gtag('event','form_step_view',{step:n}); }
+    }
+    form.querySelectorAll('.goal-btn').forEach(function(b){
+      b.addEventListener('click',function(){
+        form.querySelector('[name=goal]').value = b.getAttribute('data-goal');
+        show(2);
+      });
+    });
+    form.querySelectorAll('.chip').forEach(function(c){
+      c.addEventListener('click',function(){ c.classList.toggle('sel'); });
+    });
+    var toStep3 = form.querySelector('.to-step3');
+    if (toStep3) toStep3.addEventListener('click',function(){
+      var sel = [];
+      form.querySelectorAll('.chip.sel').forEach(function(c){ sel.push(c.getAttribute('data-tried')); });
+      form.querySelector('[name=tried]').value = sel.join(', ');
+      show(3);
+      var nameInput = form.querySelector('[name=name]');
+      if (nameInput) nameInput.focus();
+    });
+    form.querySelectorAll('.back').forEach(function(b){
+      b.addEventListener('click',function(){ show(b.getAttribute('data-to')); });
+    });
+  })();
   /* Click-to-load YouTube testimonials — no iframe cost until the user taps play */
   document.querySelectorAll('.vid-thumb[data-yt]').forEach(function(btn){
     btn.addEventListener('click',function(){
