@@ -272,7 +272,58 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
   .wa-float{bottom:80px}
   body{padding-bottom:60px}
 }
-</style>
+    .goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .goal-btn{display:block;width:100%;padding:16px 12px;background:var(--pg-bg);border:1px solid var(--pg-line-2);border-radius:var(--r-md);font-family:var(--pg-font-body);font-size:15px;font-weight:600;color:var(--pg-navy);cursor:pointer;text-align:center;transition:border-color var(--dur-2) var(--ease),background var(--dur-2) var(--ease),transform var(--dur-1) var(--ease)}
+    .goal-btn:hover{border-color:var(--pg-teal);background:#fff;transform:translateY(-1px)}
+    .step-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--sp-3)}
+    .step-meta .prog{font-family:var(--pg-font-mono);font-size:11px;color:var(--pg-teal);letter-spacing:.08em}
+    .step-meta .back{font-size:12px;color:var(--pg-ink-3);cursor:pointer;background:none;border:none;font-family:var(--pg-font-body);padding:0}
+    .step-meta .back:hover{color:var(--pg-navy)}
+    .prog-bar{height:3px;background:var(--pg-line);border-radius:2px;overflow:hidden;margin-bottom:var(--sp-4)}
+    .prog-bar i{display:block;height:100%;background:var(--pg-teal)}
+    .next-steps{margin-top:var(--sp-5);padding-top:var(--sp-4);border-top:1px dashed var(--pg-line)}
+    .next-steps p{font-family:var(--pg-font-mono);font-size:10px;letter-spacing:.1em;color:var(--pg-ink-3);text-transform:uppercase;margin-bottom:8px}
+    .next-steps ol{list-style:none;display:flex;flex-direction:column;gap:6px}
+    .next-steps li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:13px;color:var(--pg-ink-2);align-items:baseline}
+    .next-steps li b{color:var(--pg-teal);font-family:var(--pg-font-mono);font-size:11px;font-weight:500}
+    .chip-wrap{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;background:var(--pg-bg);border:1px solid var(--pg-line-2);border-radius:999px;font-family:var(--pg-font-body);font-size:13.5px;font-weight:500;color:var(--pg-navy);cursor:pointer;transition:border-color var(--dur-2) var(--ease),background var(--dur-2) var(--ease),color var(--dur-2) var(--ease)}
+    .chip:hover{border-color:var(--pg-teal)}
+    .chip.sel{background:rgba(13,110,110,.08);border-color:var(--pg-teal);color:var(--pg-teal);font-weight:600}
+    .chip.sel::before{content:"✓"}
+    .payoff{display:flex;gap:10px;align-items:flex-start;background:rgba(13,110,110,.07);border:1px solid rgba(13,110,110,.2);border-radius:var(--r-md);padding:12px 14px;font-size:14px;color:var(--pg-navy);margin-bottom:var(--sp-4);line-height:1.45}
+    .payoff .tick{color:var(--pg-success);font-weight:700;flex-shrink:0}
+    /* ---- Video testimonials (click-to-load, zero LCP cost) ---- */
+    .vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-bottom:var(--sp-7)}
+    @media(max-width:900px){.vid-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.vid-grid{grid-template-columns:1fr}}
+    .vid{background:var(--pg-paper);border:1px solid var(--pg-line);border-radius:var(--r-md);overflow:hidden}
+    .vid-thumb{position:relative;aspect-ratio:16/9;background:var(--pg-navy-2);cursor:pointer;display:block;width:100%;padding:0;border:0}
+    .vid-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity var(--dur-2) var(--ease),transform var(--dur-2) var(--ease)}
+    .vid-thumb:hover img{opacity:1;transform:scale(1.02)}
+    .vid-thumb .play{position:absolute;inset:0;margin:auto;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;box-shadow:var(--sh-md);transition:transform var(--dur-2) var(--ease)}
+    .vid-thumb:hover .play{transform:scale(1.08)}
+    .vid-thumb .play::after{content:"";display:block;width:0;height:0;border-left:16px solid var(--pg-teal);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+    .vid-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .vid-cap{padding:var(--sp-4)}
+    .vid-cap strong{display:block;font-family:var(--pg-font-display);color:var(--pg-navy);font-size:15px;font-weight:500}
+    .vid-cap span{font-family:var(--pg-font-mono);font-size:11px;color:var(--pg-success);letter-spacing:.04em}
+    .rev-src{display:inline-flex;align-items:center;gap:6px;font-family:var(--pg-font-mono);font-size:10px;letter-spacing:.06em;color:var(--pg-ink-3);text-transform:uppercase}
+    /* ---- Services chips ---- */
+    .svc-chips{display:flex;flex-wrap:wrap;gap:10px}
+    .svc-chips span{background:var(--pg-paper);border:1px solid var(--pg-line-2);color:var(--pg-navy);padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px}
+    .svc-chips span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pg-teal);flex-shrink:0}
+    /* ---- Local / find-us block ---- */
+    .local-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);align-items:stretch}
+    @media(max-width:900px){.local-grid{grid-template-columns:1fr}}
+    .local-card{background:var(--pg-paper);border:1px solid var(--pg-line);border-radius:var(--r-lg);padding:var(--sp-6)}
+    .local-card h3{font-size:20px;margin-bottom:var(--sp-4)}
+    .local-row{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--pg-line);font-size:15px;color:var(--pg-ink-2);align-items:baseline}
+    .local-row:last-of-type{border-bottom:none}
+    .local-row strong{color:var(--pg-navy)}
+    .map-embed{border:1px solid var(--pg-line);border-radius:var(--r-lg);overflow:hidden;min-height:340px;background:var(--pg-canvas)}
+    .map-embed iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+  </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16515647659"></script>
 <script>
@@ -336,45 +387,98 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
       <!-- Hero form -->
       <aside class="hero-form" id="book">
         <div class="lead">Book your free consultation</div>
-        <div class="sub">A doctor will call within 2 hours to confirm your slot.</div>
-        <form class="progen-form" action="#" method="post">
-          <div class="field">
-            <label class="pg-label" for="name">Full name</label>
-            <input class="pg-input" id="name" name="name" type="text" placeholder="e.g. Priya Sharma" required/>
-          </div>
-          <div class="field">
-            <label class="pg-label" for="phone">WhatsApp number</label>
-            <input class="pg-input" id="phone" name="phone" type="tel" placeholder="+91 —" required pattern="[0-9+ ]{8,}"/>
-          </div>
-            <div class="field" style="margin-top:var(--sp-3);">
-              <label class="pg-label" for="email1">Email Address</label>
-              <input class="pg-input" type="email" id="email1" name="email" placeholder="you@example.com" required autocomplete="email">
+        <div class="sub">2 quick questions, 30 seconds. Our patient coordinator — not a call centre — calls within 2 hours.</div>
+                  <form class="progen-form" onsubmit="return submitProgenForm(this);" novalidate>
+            <input type="hidden" name="goal" value="">
+            <input type="hidden" name="tried" value="">
+
+            <!-- STEP 1: zero-friction engagement question -->
+            <div class="form-step" data-step="1">
+              <div class="prog-bar"><i style="width:30%"></i></div>
+              <label class="pg-label" style="font-size:15px;color:var(--pg-navy);font-weight:600;margin-bottom:var(--sp-3);">How much weight do you want to lose?</label>
+              <div class="goal-grid">
+                <button type="button" class="goal-btn" data-goal="Under 5 kg">Under 5 kg</button>
+                <button type="button" class="goal-btn" data-goal="5-10 kg">5–10 kg</button>
+                <button type="button" class="goal-btn" data-goal="10-20 kg">10–20 kg</button>
+                <button type="button" class="goal-btn" data-goal="20+ kg">20+ kg</button>
+                <button type="button" class="goal-btn" data-goal="Not sure yet" style="grid-column:1/-1;">Not sure yet — the doctor can advise</button>
+              </div>
+              <div class="next-steps">
+                <p>What happens next</p>
+                <ol>
+                  <li><b>01</b><span>Answer 2 quick questions (30 seconds)</span></li>
+                  <li><b>02</b><span>Our patient coordinator calls within 2 hours</span></li>
+                  <li><b>03</b><span>Free 45-min doctor consultation at Andheri West</span></li>
+                </ol>
+              </div>
             </div>
-            <div class="field" style="margin-top:var(--sp-3);">
-              <label class="pg-label" for="time1">Preferred Call Time</label>
-              <select class="pg-select" id="time1" name="time" required>
-                <option value="" disabled selected>Select a time</option>
-                <option value="Morning">Morning (9AM – 12PM)</option>
-                <option value="Afternoon">Afternoon (12PM – 4PM)</option>
-                <option value="Evening">Evening (4PM – 7PM)</option>
-                <option value="Anytime">Anytime</option>
-              </select>
+
+            <!-- STEP 2: qualification + sunk cost -->
+            <div class="form-step" data-step="2" hidden>
+              <div class="step-meta">
+                <span class="prog">STEP 2 OF 3</span>
+                <button type="button" class="back" data-to="1">← Back</button>
+              </div>
+              <div class="prog-bar"><i style="width:65%"></i></div>
+              <label class="pg-label" style="font-size:15px;color:var(--pg-navy);font-weight:600;margin-bottom:var(--sp-3);">What have you already tried?</label>
+              <div class="chip-wrap">
+                <button type="button" class="chip" data-tried="Dieting">Dieting</button>
+                <button type="button" class="chip" data-tried="Gym / workouts">Gym / workouts</button>
+                <button type="button" class="chip" data-tried="Diet apps">Diet apps</button>
+                <button type="button" class="chip" data-tried="Dietician">Dietician</button>
+                <button type="button" class="chip" data-tried="Slimming centre">Slimming centre</button>
+                <button type="button" class="chip" data-tried="Nothing yet">Nothing yet</button>
+              </div>
+              <p class="form-footnote" style="margin-top:var(--sp-3);">This helps the doctor understand what hasn't worked for your body.</p>
+              <div class="field" style="margin-top:var(--sp-4);">
+                <button type="button" class="pg-btn pg-btn-accent to-step3" style="width:100%;justify-content:center;">
+                  Continue <span class="arr">→</span>
+                </button>
+              </div>
             </div>
-          <div class="field">
-            <label class="pg-label" for="goal">Weight loss goal</label>
-            <select class="pg-select" id="goal" name="goal">
-              <option value="">Select…</option>
-              <option>5–10 kg</option>
-              <option>10–20 kg</option>
-              <option>20–30 kg</option>
-              <option>30+ kg</option>
-            </select>
-          </div>
-          <div style="margin-top:20px">
-            <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:16px">Book My Free Consultation <span class="arr">→</span></button>
-          </div>
-          <div class="form-footnote">📞 A doctor will call within 2 hours. No payment. No commitment.</div>
-        </form>
+
+            <!-- STEP 3: payoff, then contact details with reasons-why -->
+            <div class="form-step" data-step="3" hidden>
+              <div class="step-meta">
+                <span class="prog">STEP 3 OF 3 — LAST STEP</span>
+                <button type="button" class="back" data-to="2">← Back</button>
+              </div>
+              <div class="prog-bar"><i style="width:90%"></i></div>
+              <div class="payoff"><span class="tick">✓</span><span><strong>Good news</strong> — you're a fit for the free doctor's assessment. Book your slot below.</span></div>
+              <div class="field">
+                <label class="pg-label" for="hero-name">Full Name</label>
+                <input class="pg-input" type="text" id="hero-name" name="name" placeholder="Your full name" required autocomplete="name">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-phone">Mobile Number <span style="font-weight:400;color:var(--pg-ink-3);">(our coordinator calls to fix your slot)</span></label>
+                <input class="pg-input" type="tel" id="hero-phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-email">Email <span style="font-weight:400;color:var(--pg-ink-3);">(for your confirmation &amp; prep checklist)</span></label>
+                <input class="pg-input" type="email" id="hero-email" name="email" placeholder="you@example.com" required autocomplete="email">
+              </div>
+              <div class="field" style="margin-top:var(--sp-3);">
+                <label class="pg-label" for="hero-time">Preferred Call Time</label>
+                <select class="pg-select" id="hero-time" name="time" required>
+                  <option value="" disabled selected>Select a time</option>
+                  <option value="Morning">Morning (9AM – 12PM)</option>
+                  <option value="Afternoon">Afternoon (12PM – 4PM)</option>
+                  <option value="Evening">Evening (4PM – 7PM)</option>
+                  <option value="Anytime">Anytime</option>
+                </select>
+              </div>
+              <div class="field" style="margin-top:var(--sp-5)">
+                <button type="submit" class="pg-btn pg-btn-accent" style="width:100%;justify-content:center;font-size:16px;padding:15px 22px;">
+                  Book My Free Consultation <span class="arr">→</span>
+                </button>
+              </div>
+              <p class="form-footnote">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                📞 A doctor will call within 2 hours. No payment. No commitment.
+              </p>
+            </div>
+          </form>
+
       </aside>
     </div>
   </div>
@@ -506,18 +610,34 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
         <p>Real people. Real results. Recorded at ProGen clinics across India.</p>
       </div>
     </div>
-    <div class="video-grid">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/UsfAyc6BZI0" title="ProGen Patient Story" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen loading="lazy"></iframe>
+    <div class="vid-grid" style="margin-bottom:0;">
+      <div class="vid">
+        <button class="vid-thumb" type="button" data-yt="UsfAyc6BZI0" aria-label="Play ProGen patient story's ProGen video testimonial">
+          <img src="https://i.ytimg.com/vi/UsfAyc6BZI0/hqdefault.jpg" alt="ProGen patient story — ProGen client video testimonial" loading="lazy" width="480" height="360">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <div class="vid-cap"><strong>ProGen patient story</strong><span>✓ WATCH THE STORY</span></div>
       </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/O2AldweqR68" title="ProGen Patient Story" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen loading="lazy"></iframe>
+      <div class="vid">
+        <button class="vid-thumb" type="button" data-yt="O2AldweqR68" aria-label="Play Asha Pradeep's ProGen video testimonial">
+          <img src="https://i.ytimg.com/vi/O2AldweqR68/hqdefault.jpg" alt="Asha Pradeep — ProGen client video testimonial" loading="lazy" width="480" height="360">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <div class="vid-cap"><strong>Asha Pradeep</strong><span>✓ HER PROGEN STORY</span></div>
       </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/9jDnbX4C3TA" title="ProGen Patient Story" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen loading="lazy"></iframe>
+      <div class="vid">
+        <button class="vid-thumb" type="button" data-yt="9jDnbX4C3TA" aria-label="Play Paromita's ProGen video testimonial">
+          <img src="https://i.ytimg.com/vi/9jDnbX4C3TA/hqdefault.jpg" alt="Paromita — ProGen client video testimonial" loading="lazy" width="480" height="360">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <div class="vid-cap"><strong>Paromita</strong><span>✓ HER PROGEN STORY</span></div>
       </div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/V9VLqoCn1uc" title="ProGen Patient Story" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen loading="lazy"></iframe>
+      <div class="vid">
+        <button class="vid-thumb" type="button" data-yt="V9VLqoCn1uc" aria-label="Play ProGen patient story's ProGen video testimonial">
+          <img src="https://i.ytimg.com/vi/V9VLqoCn1uc/hqdefault.jpg" alt="ProGen patient story — ProGen client video testimonial" loading="lazy" width="480" height="360">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+        <div class="vid-cap"><strong>ProGen patient story</strong><span>✓ WATCH THE STORY</span></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:var(--sp-6)">
@@ -526,11 +646,61 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
   </div>
 </section>
 
+<!-- ========== LOCAL / FIND US ========== -->
+<section class="pg-section">
+  <div class="pg-container">
+    <div class="sec-head">
+      <p class="num">04 — Find us</p>
+      <h2>Visit our weight loss clinic in Indiranagar — or consult online, anywhere in Bangalore</h2>
+      <p>On 13th A Main Road, Indiranagar — easy to reach from across Bengaluru. Can’t travel? Online consultations cover the rest of the city.</p>
+    </div>
+
+    <div class="local-grid">
+      <div class="local-card">
+        <h3>ProGen Weight Management — Bangalore Clinic</h3>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Address:</strong> No.3478/J, 13th A Main Road, Indiranagar, Bengaluru – 560008</span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span><strong>Hours:</strong> Mon–Sat, 10:00 AM – 7:00 PM · Sunday closed</span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><strong>Phone / WhatsApp:</strong> <a href="tel:+919620659132" style="color:var(--pg-teal);font-weight:600;">+91 96206 59132</a></span>
+        </div>
+        <div class="local-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pg-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span><strong>Serving all of Bengaluru:</strong> clients visit us from Indiranagar, Koramangala, Domlur, HSR Layout, Whitefield, Jayanagar, Marathahalli &amp; CV Raman Nagar — with online consultations for the rest of the city.</span>
+        </div>
+        <div style="margin-top:var(--sp-5);display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://maps.google.com/?daddr=No.3478/J,+13th+A+Main+Road,+Indiranagar,+Bengaluru+560008" target="_blank" rel="noopener" class="pg-btn pg-btn-ghost">Get Directions</a>
+          <a href="#book" class="pg-btn pg-btn-accent">Book Free Consultation <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=No.3478/J,+13th+A+Main+Road,+Indiranagar,+Bengaluru+560008&output=embed" loading="lazy" title="Map — ProGen weight loss clinic at 13th A Main Road, Indiranagar, Bengaluru" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="vid" style="margin-top:var(--sp-5);">
+          <button class="vid-thumb" type="button" data-yt="k_BFJnA5hBY" aria-label="Play a video tour of the ProGen clinic">
+            <img src="https://i.ytimg.com/vi/k_BFJnA5hBY/hqdefault.jpg" alt="Video tour of a ProGen Weight Management clinic" loading="lazy" width="480" height="360">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <div class="vid-cap"><strong>Take a tour of a ProGen clinic</strong><span>SEE THE CLINIC BEFORE YOU VISIT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ────────── 04 · PROBLEM ────────── -->
 <section class="pg-section pg-container" id="why">
   <div class="sec-head">
     <div>
-      <span class="num">04 — Why programmes fail</span>
+      <span class="num">05 — Why programmes fail</span>
       <h2>Most programmes give you a plan. <span class="hl-amber">Then leave you alone with it.</span></h2>
     </div>
   </div>
@@ -557,7 +727,7 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
   <div class="pg-container">
     <div class="sec-head">
       <div>
-        <span class="num">05 — The ProGen Programme</span>
+        <span class="num">06 — The ProGen Programme</span>
         <h2>A 5-phase, doctor-supervised plan. <span class="hl-green">Every phase has a medical purpose.</span></h2>
         <p>Nothing in the ProGen Method is arbitrary. Each phase moves your body to the next stage of fat loss — then locks it in.</p>
       </div>
@@ -602,7 +772,7 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
   <div class="pg-container">
     <div class="sec-head">
       <div>
-        <span class="num">06 — What you get, free</span>
+        <span class="num">07 — What you get, free</span>
         <h2>What's included in your <span class="hl-green">free medical assessment.</span></h2>
         <p>A real clinical appointment — not a sales pitch. <strong>Whether you enrol or not, you leave with a doctor-signed weight loss plan.</strong></p>
       </div>
@@ -860,7 +1030,7 @@ footer.pg-foot{background:var(--pg-navy);color:rgba(255,255,255,.78);padding:var
 
 <!-- Form submission -->
 <script>
-(function(){if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}})();
+(function(){try{if(!sessionStorage.getItem('landing_url')){sessionStorage.setItem('landing_url',window.location.href);}}catch(e){}})();
 function submitProgenForm(formEl) {
     var btn      = formEl.querySelector('button[type=submit]');
     var nameEl   = formEl.querySelector('[name=name]');
@@ -880,7 +1050,11 @@ function submitProgenForm(formEl) {
     var landingUrl = sessionStorage.getItem('landing_url') || window.location.href;
     var source = 'direct';
     try { var sp = new URL(landingUrl).searchParams.get('utm_source'); if (sp) source = sp; } catch(e) {}
+    var goalEl  = formEl.querySelector('[name=goal]');
+    var triedEl = formEl.querySelector('[name=tried]');
     var payload = {
+      goal: goalEl && goalEl.value ? goalEl.value : '',
+      tried: triedEl && triedEl.value ? triedEl.value : '',
       name: name,
       email: email,
       phone: phone,
@@ -903,6 +1077,51 @@ document.addEventListener('DOMContentLoaded', function() {
     f.addEventListener('submit',function(e){e.preventDefault();submitProgenForm(f);});
   });
 });
+  /* Multi-step hero form: goal → what-tried chips → contact details */
+  (function(){
+    var form = document.querySelector('.progen-form .form-step') ? document.querySelector('.progen-form .form-step').closest('form') : null;
+    if (!form) return;
+    function show(n){
+      form.querySelectorAll('.form-step').forEach(function(s){ s.hidden = (s.getAttribute('data-step') !== String(n)); });
+      if (typeof gtag === 'function') { gtag('event','form_step_view',{step:n}); }
+    }
+    form.querySelectorAll('.goal-btn').forEach(function(b){
+      b.addEventListener('click',function(){
+        form.querySelector('[name=goal]').value = b.getAttribute('data-goal');
+        show(2);
+      });
+    });
+    form.querySelectorAll('.chip').forEach(function(c){
+      c.addEventListener('click',function(){ c.classList.toggle('sel'); });
+    });
+    var toStep3 = form.querySelector('.to-step3');
+    if (toStep3) toStep3.addEventListener('click',function(){
+      var sel = [];
+      form.querySelectorAll('.chip.sel').forEach(function(c){ sel.push(c.getAttribute('data-tried')); });
+      form.querySelector('[name=tried]').value = sel.join(', ');
+      show(3);
+      var nameInput = form.querySelector('[name=name]');
+      if (nameInput) nameInput.focus();
+    });
+    form.querySelectorAll('.back').forEach(function(b){
+      b.addEventListener('click',function(){ show(b.getAttribute('data-to')); });
+    });
+  })();
+  /* Click-to-load YouTube testimonials — no iframe cost until the user taps play */
+  document.querySelectorAll('.vid-thumb[data-yt]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var id = btn.getAttribute('data-yt');
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      ifr.title = btn.getAttribute('aria-label') || 'ProGen client video testimonial';
+      ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      ifr.allowFullscreen = true;
+      btn.innerHTML = '';
+      btn.appendChild(ifr);
+      btn.style.cursor = 'default';
+      if (typeof gtag === 'function') { gtag('event','video_play',{video_id:id}); }
+    }, {once:true});
+  });
 </script>
 
 </body>
